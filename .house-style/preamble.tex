@@ -13,14 +13,30 @@
 % ===========================
 \usepackage{fontspec}
 
-\setmainfont{EB Garamond}[
-  Numbers=OldStyle,
-  Ligatures=TeX,
-  BoldFont={EB Garamond},
-]
+\IfFileExists{/Users/brettreynolds/Library/Fonts/EBGaramond-Regular.ttf}
+  {\setmainfont{EBGaramond-Regular.ttf}[
+    Path={/Users/brettreynolds/Library/Fonts/},
+    Numbers=OldStyle,
+    Ligatures=TeX,
+    ItalicFont={EBGaramond-Italic.ttf},
+    BoldFont={EBGaramond-Regular.ttf},
+    BoldItalicFont={EBGaramond-Italic.ttf},
+  ]}
+  {\setmainfont{EB Garamond}[
+    Numbers=OldStyle,
+    Ligatures=TeX,
+    BoldFont={EB Garamond},
+  ]}
 
 % IPA fallback font
-\newfontfamily\ipafont{Charis SIL}
+\IfFileExists{/Users/brettreynolds/Library/Fonts/CharisSIL-Regular.ttf}
+  {\newfontfamily\ipafont{CharisSIL-Regular.ttf}[
+    Path={/Users/brettreynolds/Library/Fonts/},
+    ItalicFont={CharisSIL-Italic.ttf},
+    BoldFont={CharisSIL-Bold.ttf},
+    BoldItalicFont={CharisSIL-BoldItalic.ttf},
+  ]}
+  {\newfontfamily\ipafont{Charis SIL}}
 \newcommand{\ipa}[1]{{\ipafont #1}}
 
 % CJK fallback font (Japanese / Chinese / Korean)
@@ -31,7 +47,12 @@
 \providecommand{\liningnums}[1]{{\addfontfeatures{Numbers=Lining}#1}}
 
 % Monospace
-\setmonofont{Inconsolata}[Scale=MatchLowercase]
+\IfFileExists{/Users/brettreynolds/Library/Fonts/Inconsolata-Regular.ttf}
+  {\setmonofont{Inconsolata-Regular.ttf}[
+    Path={/Users/brettreynolds/Library/Fonts/},
+    Scale=MatchLowercase,
+  ]}
+  {\setmonofont{Inconsolata}[Scale=MatchLowercase]}
 
 % ===========================
 % PAGE LAYOUT

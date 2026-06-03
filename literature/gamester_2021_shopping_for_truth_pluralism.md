@@ -1,0 +1,1 @@
+/Users/brettreynolds/Documents/LLM-CLI-projects/literature/gamester_2021_shopping_for_truth_pluralism.md

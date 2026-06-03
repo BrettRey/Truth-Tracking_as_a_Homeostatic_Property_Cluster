@@ -1,0 +1,1 @@
+/Users/brettreynolds/Documents/LLM-CLI-projects/literature/alethic_pluralism_role_reference_metaphysics_truth.md
