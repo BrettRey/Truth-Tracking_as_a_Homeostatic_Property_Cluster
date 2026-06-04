@@ -5,10 +5,10 @@
 
 % Update PDF metadata
 \hypersetup{
-  pdftitle={Truth-Tracking as a Homeostatic Property Cluster: What LLMs Participate In}
+  pdftitle={Truth-Tracking Profiles: What LLMs Participate In}
 }
 
-\title{Truth-Tracking as a Homeostatic Property Cluster:\\ What LLMs Participate In}
+\title{Truth-Tracking Profiles:\\ What LLMs Participate In}
 \author{Brett Reynolds \orcidlink{0000-0003-0073-7195}%
 \thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
 Humber Polytechnic \& University of Toronto}
@@ -18,18 +18,20 @@ Humber Polytechnic \& University of Toronto}
 \maketitle
 
 \begin{abstract}
-% TODO: scaffold in docs / NOTES.md. The claim is NOT "truth is an HPC kind" but
-% "truth-tracking -- the family of representational successes picked out by the
-% predicate \mention{true} -- is stabilised by an HPC-like cluster of mechanisms,
-% and LLMs are the case that makes a cluster-theoretic account necessary."
+% TODO: scaffold in docs / NOTES.md. The claim is NOT "truth is an HPC kind" or
+% "truth-tracking is literally homeostatic" but
+% "the representational successes picked out by the predicate \mention{true}
+% are stabilised by a projectible profile of partially coupled mechanisms,
+% and LLMs are the case that makes a profile-theoretic account necessary."
 TODO: Write abstract here.
 \end{abstract}
 
 % ============================================================================
 % STRUCTURE NOTE. This skeleton encodes the design decisions in DECISIONS.md and
 % the full brief in NOTES.md. Section 1 must do the load-bearing non-relabeling
-% work (answer "what does HPC explain that reliabilism / coherentism / pragmatism
-% / correspondence don't?") -- it is NOT a generic scene-setting intro.
+% work (answer "what does profile structure explain that reliabilism /
+% coherentism / pragmatism / correspondence don't?") -- it is NOT a generic
+% scene-setting intro.
 % Stubs only below; do not draft prose without reading sources (source-grounding LAW).
 % ============================================================================
 
@@ -46,125 +48,176 @@ The camps disagree on the verdict but share the question's shape.
 % TODO: after close reading, fold Pepp 2025, Grindrod 2024, Mallory 2026, and
 % Mandelkern & Linzen (needs a bib entry) into the rebuttal-side citation here.
 
-Both sides assume that connecting to the world is a single capacity, something a system
-either has or lacks. That assumption is the mistake. Truth-tracking isn't one capacity;
-it's a cluster of distinct mechanisms that ordinarily operate together: perceptual
-contact, testimonial inheritance, inferential coherence, measurement and intervention,
-error-correction, and practical success. A system can take part in some of these while
-sitting out the rest, which is just what a language model does.
+That yes/no framing makes world-connection look like a single capacity, something a
+system either has or lacks. The successes we call truth-tracking are instead produced by
+distinct stabilising mechanisms that ordinarily operate together:
+perceptual contact, testimonial inheritance, inferential coherence, measurement and
+intervention, error-correction, and practical success. A system can take part in some of
+these while sitting out the rest, which is just what a language model does.
 
-The paper's claim is that truth-tracking, the family of representational successes we
-pick out with the predicate \mention{true}, is stabilised by a homeostatic property
-cluster (HPC) in Boyd's sense \citep{boyd1991,boyd1999}. What makes the mechanisms a
-cluster and not a list is that they discipline one another: perception corrects
-testimony, measurement corrects coherence, and practical failure corrects them all.
-That mutual disciplining holds the kind together, and it's what makes the cluster's
-instances project.
+The paper's claim is that those stabilisers form a projectible profile around the
+representational successes picked out by the predicate \mention{true}: a pattern whose
+point is prediction and explanation rather than classification for its own sake
+\citep{khalidi2013}. LLMs matter because they make the dissociation visible: they
+participate strongly in testimony and coherence while lacking much of the perceptual and
+verificational coupling that normally keeps claims answerable to the world.
 
-This develops Boyd's programme rather than rivalling it.
-\textcite{boyd_2019_rethinking_natural_kinds_reference_truth} already treats reference
-and truth as special cases of accommodation between our signalling practices and the
-causal structures they answer to. The cluster view of truth-tracking applies that
-picture one level up. Boyd's accommodationism is the background; the contribution here
-is the diagnostic the cluster structure supports once a system enters some accommodation
-practices but not the others.
+The contribution is diagnostic. \textcite{boyd_2019_rethinking_natural_kinds_reference_truth}
+treats reference and truth as special cases of accommodation: the alignment of
+perceptual, instrumental, cognitive, and representational practices with causally
+relevant structures. This paper asks what happens when a system enters some of that
+alignment through human text while missing other routes through which accommodation is
+normally maintained. LLMs inherit testimony and coherence, while lacking or weakening
+perception, measurement, intervention, and world-directed correction. The profile view
+predicts that this partial participation should have a characteristic failure signature.
 
-That diagnostic has to be earned, because the cluster view invites an obvious complaint.
-Reliabilism already traces true belief to reliable mechanisms; coherentism names
-inferential fit; pragmatism names practical success; social epistemology names
-testimony. Listing these and calling the bundle \enquote{homeostatic} can look like
-relabeling, four familiar theories in one new coat. If that's all the view does, it adds
-nothing.
+That diagnostic has to be earned, because the profile view invites an obvious complaint.
+The component theories each isolate a genuine stabiliser. Reliabilism gets process
+reliability right; coherentism gets inferential integration right; pragmatism gets the
+corrective role of action and success right; social epistemology gets testimonial and
+institutional transmission right. The relabeling worry is that profile talk merely
+bundles these local insights and calls the bundle \enquote{projectible}. If that's all
+the view does, it adds nothing.
 
 It does more, in three ways no single-mechanism theory can match. First and most
-sharply, the cluster structure predicts a characteristic failure signature: pull the
+sharply, the profile structure predicts a characteristic failure signature: pull the
 stabilisers apart, and the account says in advance what should go wrong. Second, it
-makes conflicts between mechanisms adjudicable, by treating the degree to which they
-co-vary as itself evidence. Third, it predicts where truth-relevant mechanisms should
-co-vary tightly across domains and where they should come apart.
+makes conflicts between mechanisms adjudicable, by treating their degree of
+co-variation as evidence in its own right. Third, it predicts where truth-relevant
+mechanisms should co-vary tightly across domains and where they should come apart.
 
-The language model is where the first prediction pays off. A text-trained system
-inherits testimony and strong sensitivity to textual coherence, but it has no perceptual contact,
-runs no measurements, and gets little correction from acting in the world. The cluster
-view says such a system should produce claims that are confident, fluent, internally
-coherent, faithful to corpus consensus, and yet unanchored to fact. That profile has a
-name: hallucination.
+The language-model case is where the first prediction pays off. A text-only system
+trained on human writing is strongly exposed to the textual traces of testimony and to
+local patterns of coherence, but it lacks direct perceptual contact, independent
+measurement, and ordinary correction through action in the world. The profile view
+therefore predicts a distinctive vulnerability: fluent and internally coherent outputs
+can track textual regularities while failing to remain answerable to the facts those
+regularities were originally used to report.
 
-On this account hallucination is the predicted output of a partial cluster, not a defect
-to be patched piecemeal. It marks the distance between the formal linguistic competence
-these models plainly have and the functional competence that world-contact underwrites
+Human beings hallucinate, misremember, and confabulate too. The contrast lies in the
+profile of correction. In ordinary human cases, those failures occur against a
+background of perception, action, and social correction; in a text-only model, several
+of those world-corrective paths are absent or attenuated as part of the standing
+profile. What the LLM literature calls hallucination is one expression of that
+vulnerability \citep{huang_etal_2025_survey_hallucination_llms}.
+
+That vulnerability marks the distance between the formal linguistic competence these
+models plainly have and the functional competence that world-contact underwrites
 \citep{mahowald2024}.
 
-The argument runs as follows. Section~\ref{sec:target} fixes the target: the members of
-the cluster are representational successes (beliefs, utterances, measurements, models,
-inferential outputs), not truth as an abstract object. Section~\ref{sec:cluster} sets out
-the stabilising mechanisms and their Boydian lineage. Section~\ref{sec:projectibility}
-says why the cluster projects, locating projectibility in goal achievement under
-counterfactual perturbation rather than in survival alone. Section~\ref{sec:adjudication}
-makes good on the adjudication and co-variation claims, the core of the reply to
-relabeling. Section~\ref{sec:objections} takes objections. Section~\ref{sec:llm} develops
-the language-model profile mechanism by mechanism. Section~\ref{sec:conclusion}
-concludes.
+The argument runs as follows. Section~\ref{sec:target} fixes the target: the relevant
+cases are representational successes (beliefs, utterances, measurements, models,
+inferential outputs), not truth as an abstract object. Section~\ref{sec:profile} sets
+out the stabilising mechanisms and their Boydian lineage.
+
+Section~\ref{sec:projectibility} says why the profile projects, locating projectibility
+in goal achievement under counterfactual perturbation rather than in survival alone.
+Section~\ref{sec:adjudication} makes good on the adjudication and co-variation claims,
+the core of the reply to relabeling. Section~\ref{sec:objections} takes objections.
+Section~\ref{sec:llm} develops the language-model profile mechanism by mechanism.
+Section~\ref{sec:conclusion} concludes.
 
 \section{The target: what \texorpdfstring{\mention{true}}{true} picks out}\label{sec:target}
-% Pre-empt the category-error objection. Members of the cluster are representational
+% Pre-empt the category-error objection. The target cases are representational
 % successes (beliefs, utterances, inscriptions, measurements, models, inferential
 % outputs), not truth-as-abstract-object. The mechanisms stabilise the EXTENSION of
 % truth-ascription and explain its projectibility; they do not individually define truth.
 % This blocks deflationism, pragmatist reduction, and crude evolutionary debunking.
 TODO.
 
-\section{Truth-tracking as a homeostatic property cluster}\label{sec:cluster}
+\section{Truth-tracking as a projectible mechanism profile}\label{sec:profile}
 
-The stabilisers of truth-tracking form a causal network in Khalidi's sense: each
-mechanism is a node, the links between them are causal, and the kind is the densely
-connected region where the nodes converge
-\citep{khalidi2013,khalidi_2018_natural_kinds_nodes_causal_networks}.
-Boyd's homeostatic property cluster is the special case in which those links are actively
-maintained, where the mechanisms correct one another so that the properties co-occur far
-more reliably than chance \citep{boyd1991,boyd1999}. Truth-tracking has such a
-homeostatic core, and the connections thin toward its edges.
+Khalidi's account supplies the network discipline behind this profile talk. Natural
+categories earn their status by supporting prediction and explanation, and they do so
+when associated properties stand in causal relations that make some properties
+projectible from others \citep{khalidi2013}.
 
-That picture does two jobs. The homeostatic core, everyday perception and basic
-coordination, is where mutual correction is tight, and the coupling there is what
+The present use is an adaptation: rather than treating the stabilisers of truth-tracking
+as natural kinds in their own right, it represents their relations as a causal profile.
+Perception, testimony, measurement, coherence, intervention, correction, and practical
+success are linked routes through which representational outputs become more or less
+answerable to the world. Khalidi's later \enquote{nodes in causal networks} formulation
+gives the graph vocabulary for this representation
+\citep{khalidi_2018_natural_kinds_nodes_causal_networks}.
+
+This profile view is Boydian in lineage. Homeostatic property cluster (HPC) theory
+explains how real kinds can be projectible without essences \citep{boyd1991,boyd1999}.
+Boyd's later accommodationism supplies the semantic background: successful reference is
+an achievement of whole practices, not a relation fixed term by term by accepted
+definitions. Perceptual skills, instruments, inferential routines, social arrangements,
+and representational uses all contribute when they help a practice align with relevant
+causal structures \citep{boyd_2019_rethinking_natural_kinds_reference_truth}.
+
+The present claim is narrower than Boyd's. It asks how the accommodation profile changes
+when the participant is a text-trained system. An LLM can inherit stabilized linguistic
+and testimonial patterns while missing the instrumental, perceptual, and practical
+routes that normally keep those patterns answerable. Stable or projectible profiles
+shouldn't automatically be called homeostatic; that stronger description should be
+reserved for cases where corrective coupling has been shown
+\citep{reynolds2026notEveryStableCluster}.
+
+That means the paper is continuous with accommodationism at the explanatory level and
+diagnostic at the level of system profile. Accommodationism tells us why
+representational practices can be answerable to causal structure; the profile account
+tracks how strongly a given system participates in the stabilisers that make that
+answerability possible. LLMs are the pressure case because they inherit accommodation
+through human text while missing or weakening several world-corrective paths.
+
+Boyd's homeostatic property cluster is the important special case in which links are
+actively maintained, where mechanisms correct one another so that the properties co-occur
+far more reliably than chance. The truth-tracking profile has tightly coupled regions,
+and the connections thin toward its edges. The profile view doesn't need the whole field
+to be literally homeostatic before it can project.
+
+That picture does two jobs. The tightly coupled core, everyday perception and basic
+coordination, is where mutual correction is strongest, and the coupling there is what
 predicts the language model's failure signature: remove the perceptual and verificational
-nodes and the maintained cluster comes apart in a specific way
+nodes and the profile comes apart in a specific way
 (Section~\ref{sec:llm}).
 
 It places the loose cases. Toward the edges, in theoretical physics, ethics, and
-large-number mathematics, the nodes are real but sparsely linked. Reading the kind as a
+large-number mathematics, the nodes are real but sparsely linked. Reading the profile as a
 network doesn't by itself fix where its boundaries fall: \textcite{onishi_serpico_2022}
 show that carving a kind from a causal graph stays relative to the chosen level of
-abstraction, the interest-relativity \textcite{craver_2009} found in mechanism talk. So
-the paper fixes the purpose: truth-tracking is individuated by representing the shared
-world well enough for goal achievement under perturbation
-(Section~\ref{sec:projectibility}). Relative to that purpose, its connections can thin at
-the edges without the kind dissolving \citep{khalidi2013}.
+abstraction, the interest-relativity \textcite{craver_2009} found in mechanism talk.
+
+So the paper fixes the epistemic purpose. Following Khalidi's distinction between
+epistemic purposes and merely practical or aesthetic ones, the profile is individuated by
+representing the shared world well enough for goal achievement under perturbation
+\citep{khalidi2013}. Relative to that purpose, its connections can thin at the edges
+without the profile dissolving.
+
 % TODO: enumerate the stabilising mechanisms as nodes (perceptual covariance, testimonial
 % inheritance, inferential coherence, intervention/measurement, error-correction,
 % practical success, counterfactual robustness); show no single mechanism is necessary;
 % develop the Boydian accommodation lineage (signalling practice <-> causal structure).
 
-\section{Why the cluster is projectible}\label{sec:projectibility}
+\section{Why the profile is projectible}\label{sec:projectibility}
 % Projectibility story: goal achievement under counterfactual perturbation, with
 % survival/reproduction as a LIMITING biological case, not the whole explanation.
 % Pre-empt Hoffman-style "fitness beats truth"; cite Martinez (usefulness drives
 % representations to truth) -- relation must be modelled, not asserted. In science,
-% testimony, engineering, medicine, law, and LLM eval the homeostasis is institutional,
-% technological, or task-relative.
+% testimony, engineering, medicine, law, and LLM eval the relevant stabilisers are
+% institutional, technological, or task-relative, and not all are homeostatic in the
+% strong corrective-control sense.
 TODO.
 
-\section{What the kind-structure does that component theories don't}\label{sec:adjudication}
+\section{What the profile structure does that component theories don't}\label{sec:adjudication}
 % SPINE ONLY (drafted 2026-05-24). Topic sentences and argument skeleton are real;
 % the bracketed TODO markers flag what still needs sources and worked examples. This
 % section discharges promises (2) and (3) from Section 1; promise (1), the failure
 % signature, is discharged in Section~\ref{sec:llm}.
 
-This section makes good on the claim from Section~\ref{sec:intro} that the cluster view
+This section makes good on the claim from Section~\ref{sec:intro} that the profile view
 earns its keep. The test isn't whether \enquote{truth depends on many mechanisms} sounds
-plausible; it's whether the kind-structure answers questions that reliabilism,
+plausible; it's whether the profile structure answers questions that reliabilism,
 coherentism, pragmatism, and correspondence can't pose from inside their own resources.
-Read as a causal network (Section~\ref{sec:cluster}), the kind has structure a
+
+The component theories enter here as local successes: each marks one stabiliser. The
+profile claim earns its keep only where couplings among those stabilisers support
+predictions a single-component theory cannot formulate.
+
+Read as a causal network (Section~\ref{sec:profile}), the profile has structure a
 single-mechanism theory cannot represent: the strength of the links between its nodes. Two
 questions turn on that structure; a third, the language-model failure signature, is taken
 up in Section~\ref{sec:llm}.
@@ -175,9 +228,15 @@ When two stabilisers disagree, say perception reports one thing and well-atteste
 testimony another, a single-mechanism theory has no internal verdict to give. Reliabilism
 can only ask which source is the more reliable here, which is the question at issue. The
 network view adds a resource the component theories lack: the strength of the links
-between the nodes, how tightly the mechanisms have co-varied, is itself evidence. Where
-the stabilisers are densely connected and have tracked one another, a lone dissenter is
-probably in error; where the links are weak, no single output earns much trust.
+between nodes.
+
+In Khalidi's terms, causal relations among associated properties underwrite projection;
+here the relevant projection runs from one stabiliser's output to another's
+\citep{khalidi2013}.
+
+Where the stabilisers are densely connected and have tracked one another, a lone
+dissenter is probably in error; where the links are weak, no single output earns much
+trust.
 % TODO: this escapes relabeling ONLY if the connection strength (degree of co-variation),
 % not the bare reliability of one mechanism, carries the epistemic weight. Build a worked
 % example (perception vs instrument vs testimony) where the co-variation history flips the
@@ -186,24 +245,28 @@ probably in error; where the links are weak, no single output earns much trust.
 \subsection{Domain-clustered co-variation}
 
 The network view also predicts a cross-domain pattern no one-mechanism theory can
-generate: because each component theory posits a single node, it has nothing to say about
-how connectivity varies from one region to another. The stabilisers should be densely
-linked where they've been jointly disciplined (everyday perception, basic coordination)
-and sparsely linked where they haven't (theoretical physics, ethics, large-number
-mathematics). Persistent disagreement should cluster in the sparsely connected regions.
+generate: a theory that privileges one node has little to say about how connectivity
+varies from one region to another. Khalidi treats causal strictness and network density
+as dimensions along which categories support stronger or weaker projection
+\citep{khalidi2013}. The stabilisers should be densely linked where they've been jointly
+disciplined (everyday perception, basic coordination) and sparsely linked where they
+haven't (theoretical physics, ethics, large-number mathematics). Persistent disagreement
+should cluster in the sparsely connected regions.
 
 The prediction is non-circular only if connectivity is characterised without appeal to
 whether the mechanisms agree, and it can't be read off the graph in a purpose-free way:
 \textcite{onishi_serpico_2022} show the abstraction level and boundaries stay
-interest-relative. The reply is to fix the purpose rather than disown it. Holding the
-representational aim of Section~\ref{sec:projectibility} fixed, connectivity is
-characterised by shared selection history, institutional age, and measurement
-infrastructure, each measurable without checking whether the mechanisms agree, and those
-measures are what predict where disagreement clusters.
+interest-relative.
+
+The reply is to fix the purpose rather than disown it. Holding the representational aim
+of Section~\ref{sec:projectibility} fixed, connectivity is characterised by shared
+selection history, institutional age, and measurement infrastructure, each measurable
+without checking whether the mechanisms agree, and those measures are what predict where
+disagreement clusters.
 % TODO (the real work): operationalise the three connectivity proxies (selection history,
 % institutional age, measurement infrastructure) and show on a worked case that they
 % predict the disagreement pattern. Cf. NOTES.md, "Claude's read", candidate 2;
-% Section~\ref{sec:cluster}.
+% Section~\ref{sec:profile}.
 
 \section{Objections}\label{sec:objections}
 % TODO: deflationism; scientific revision; remote truth; mathematical/logical truth;
@@ -212,12 +275,12 @@ measures are what predict where disagreement clusters.
 
 \subsection{Interest-relativity}
 
-One objection cuts at the kind-structure itself. \textcite{onishi_serpico_2022} argue that
+One objection cuts at the profile structure itself. \textcite{onishi_serpico_2022} argue that
 Khalidi's causal-network account inherits the interest-relativity \textcite{craver_2009}
-found in homeostatic-mechanism talk: which causal graph you draw, at what level of
+finds in mechanistic accounts: which causal graph you draw, at what level of
 abstraction, and where you set its boundaries all answer to explanatory interest, so the
 network never fixes a unique, interest-free carving of kinds. If that's right,
-truth-tracking-as-a-kind is only as objective as our purposes.
+truth-tracking-as-a-profile is only as objective as our purposes.
 
 The reply concedes the premise and denies the damage. The account never needed an
 interest-free carving. It makes two claims, both purpose-relative and both objective: a
@@ -225,17 +288,19 @@ system missing the perceptual and verificational stabilisers shows the failure s
 of Section~\ref{sec:llm}, and connectivity tracks selection history, institutional age, and
 measurement infrastructure (Section~\ref{sec:adjudication}). Each holds once the
 representational purpose is fixed, and neither requires that the purpose be read off nature.
+
 \textcite{onishi_serpico_2022} reach the same general verdict, that interest-relativity is
-ineliminable, and Khalidi grants domain pluralism; this account makes the operative
-interest explicit instead of disowning it.
+ineliminable, and Khalidi's domain pluralism leaves room for this move
+\citep{khalidi2013}. This account makes the operative interest explicit instead of
+disowning it.
 
 \section{The LLM payoff: participation, not a verdict}\label{sec:llm}
 % Promise (1) from Section~\ref{sec:intro} is discharged HERE: hallucination is the
 % predicted failure signature of a system with testimony + coherence but lacking
 % perception + verification. WARNING (NOTES.md, "Claude's read", candidate 3): a bare
-% "graded profile" is NOT HPC-specific -- the sibling (vector-grounding-problem_response)
-% already owns that move. The HPC-specific payoff is the failure SIGNATURE, not mere
-% unevenness. Do not re-run the sibling's argument.
+% "graded profile" is not enough -- the sibling (vector-grounding-problem_response)
+% already owns that move. The coupled-profile payoff is the failure SIGNATURE, not
+% mere unevenness. Do not re-run the sibling's argument.
 % Dissolve the binary. LLMs participate in some truth-stabilising mechanisms and not
 % others; grounding/truth-tracking becomes an empirical PROFILE. Mechanism-by-mechanism:
 % perception (absent text-only / partial multimodal), testimony (strong but indirect),

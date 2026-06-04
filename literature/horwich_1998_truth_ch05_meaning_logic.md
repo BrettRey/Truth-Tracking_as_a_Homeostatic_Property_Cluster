@@ -1,0 +1,1 @@
+/Users/brettreynolds/Documents/LLM-CLI-projects/literature/horwich_1998_truth_ch05_meaning_logic.md

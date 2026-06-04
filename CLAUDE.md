@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an academic research paper titled "Truth-Tracking as a Homeostatic Property Cluster" by Brett Reynolds.
+This is an academic research paper titled "Truth-Tracking Profiles: What LLMs Participate In" by Brett Reynolds.
 
 ## Build System
 

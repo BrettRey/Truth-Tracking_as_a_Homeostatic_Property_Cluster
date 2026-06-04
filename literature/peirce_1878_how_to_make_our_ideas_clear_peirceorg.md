@@ -1,0 +1,1 @@
+/Users/brettreynolds/Documents/LLM-CLI-projects/literature/peirce_1878_how_to_make_our_ideas_clear_peirceorg.md

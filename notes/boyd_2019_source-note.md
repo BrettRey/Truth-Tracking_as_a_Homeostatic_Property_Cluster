@@ -1,6 +1,6 @@
 # Boyd 2019 Source Note
 
-Source: Richard Boyd, "Rethinking natural kinds, reference and truth: towards more correspondence with reality, not less," Synthese 198(S12), 2863-2903. DOI: 10.1007/s11229-019-02138-4.
+Source: Richard Boyd, "Rethinking natural kinds, reference and truth: towards more correspondence with reality, not less," Synthese 198(Suppl 12), S2863-S2903. DOI: 10.1007/s11229-019-02138-4. Issue citation is 2021; the PDF states received 20 April 2018, accepted 11 February 2019, and published online 23 February 2019.
 
 Local files: `literature/boyd_2019_rethinking_natural_kinds_reference_truth.pdf` and `literature/boyd_2019_rethinking_natural_kinds_reference_truth.md`.
 
@@ -26,13 +26,13 @@ Fifth, Boyd broadens truth beyond neat Tarski-style cases. Scientific practice c
 
 The novelty target should be narrow and diagnostic:
 
-This paper should not present truth-tracking-as-HPC as a replacement theory of truth, nor as a discovery that truth and reference are accommodated by causal structures. Boyd already owns that frame.
+This paper should not present the truth-tracking profile as a replacement theory of truth, nor as a discovery that truth and reference are accommodated by causal structures. Boyd already owns that frame.
 
-The paper's distinctive contribution should be the LLM case: a text-trained system can participate in some truth-stabilizing mechanisms while missing or weakening others. It can inherit linguistic accommodation, testimonial patterns, inferential associations, calibration signals, and user feedback without direct perceptual, instrumental, or action-based coupling. The HPC claim earns its keep by explaining uneven participation, not by renaming truth.
+The paper's distinctive contribution should be the LLM case: a text-trained system can participate in some truth-stabilizing mechanisms while missing or weakening others. It can inherit linguistic accommodation, testimonial patterns, inferential associations, calibration signals, and user feedback without direct perceptual, instrumental, or action-based coupling. The profile claim earns its keep by explaining uneven participation and its failure signature, not by renaming truth.
 
 The relabeling test for Section 1:
 
-If "truth-tracking is an HPC" only means "truth depends on many mechanisms," the paper fails. If it predicts and explains why LLMs can be semantically fluent, often accurate, and still systematically vulnerable when coherence/testimony mechanisms outrun perception, instrumentation, intervention, and correction mechanisms, the paper has an independent role.
+If "truth-tracking has a projectible profile" only means "truth depends on many mechanisms," the paper fails. If it predicts and explains why LLMs can be semantically fluent, often accurate, and still systematically vulnerable when coherence/testimony mechanisms outrun perception, instrumentation, intervention, and correction mechanisms, the paper has an independent role.
 
 ## Drafting Implications
 
@@ -42,7 +42,7 @@ Boyd gives the accommodationist background: reference and truth are stabilizing 
 
 The core claim should be mechanism-profile language:
 
-Truth-tracking is not a single capacity that an LLM either has or lacks. It is a cluster of stabilizers, including perception, measurement, action, testimony, coherence, calibration, correction, and institutional feedback. LLMs expose the cluster structure because they dissociate several of these stabilizers.
+Truth-tracking is not a single capacity that an LLM either has or lacks. The relevant successes are stabilised by a projectible profile of mechanisms: perception, measurement, action, testimony, coherence, calibration, correction, and institutional feedback. LLMs expose the profile structure because they dissociate several of these stabilizers.
 
 This also gives the paper a prediction:
 
