@@ -58,26 +58,31 @@ these while sitting out the rest, which is just what a language model does.
 The paper's claim is that those stabilisers form a projectible profile around the
 representational successes picked out by the predicate \mention{true}: a pattern whose
 point is prediction and explanation rather than classification for its own sake
-\citep{khalidi2013}. LLMs matter because they make the dissociation visible: they
-participate strongly in testimony and coherence while lacking much of the perceptual and
-verificational coupling that normally keeps claims answerable to the world.
+\citep{Goodman1955,khalidi2013}. LLMs matter because they make the dissociation visible:
+they inherit dense testimonial traces and local coherence patterns while lacking much of
+the perceptual and verificational coupling that normally keeps claims answerable to the
+world.
 
 The contribution is diagnostic. \textcite{boyd_2019_rethinking_natural_kinds_reference_truth}
 treats reference and truth as special cases of accommodation: the alignment of
 perceptual, instrumental, cognitive, and representational practices with causally
 relevant structures. This paper asks what happens when a system enters some of that
 alignment through human text while missing other routes through which accommodation is
-normally maintained. LLMs inherit testimony and coherence, while lacking or weakening
-perception, measurement, intervention, and world-directed correction. The profile view
-predicts that this partial participation should have a characteristic failure signature.
+normally maintained. LLMs inherit textual products of testimony and coherence, while
+lacking or weakening perception, measurement, intervention, and world-directed
+correction. The profile view predicts that this partial participation should have a
+characteristic failure signature.
 
 That diagnostic has to be earned, because the profile view invites an obvious complaint.
 The component theories each isolate a genuine stabiliser. Reliabilism gets process
-reliability right; coherentism gets inferential integration right; pragmatism gets the
-corrective role of action and success right; social epistemology gets testimonial and
-institutional transmission right. The relabeling worry is that profile talk merely
-bundles these local insights and calls the bundle \enquote{projectible}. If that's all
-the view does, it adds nothing.
+reliability right \citep{goldman_1979_what_is_justified_belief}; coherentism gets
+inferential integration and the demand for truth-conducive input right
+\citep{bonjour_1985_structure_empirical_knowledge}; pragmatism gets the corrective role
+of action and success right; social epistemology gets testimonial and institutional
+transmission right
+\citep{coady_1994_testimony,lackey_2008_learning_from_words,goldberg_2010_relying_on_others}.
+The relabeling worry is that profile talk merely bundles these local insights and calls
+the bundle \enquote{projectible}. If that's all the view does, it adds nothing.
 
 It does more, in three ways no single-mechanism theory can match. First and most
 sharply, the profile structure predicts a characteristic failure signature: pull the
@@ -88,11 +93,12 @@ mechanisms should co-vary tightly across domains and where they should come apar
 
 The language-model case is where the first prediction pays off. A text-only system
 trained on human writing is strongly exposed to the textual traces of testimony and to
-local patterns of coherence, but it lacks direct perceptual contact, independent
-measurement, and ordinary correction through action in the world. The profile view
-therefore predicts a distinctive vulnerability: fluent and internally coherent outputs
-can track textual regularities while failing to remain answerable to the facts those
-regularities were originally used to report.
+local patterns of coherence, but it is not thereby a normal speaker or hearer in a
+testimonial exchange, and it lacks direct perceptual contact, independent measurement,
+and ordinary correction through action in the world. The profile view therefore predicts
+a distinctive vulnerability: fluent and internally coherent outputs can track textual
+regularities while failing to remain answerable to the facts those regularities were
+originally used to report.
 
 Human beings hallucinate, misremember, and confabulate too. The contrast lies in the
 profile of correction. In ordinary human cases, those failures occur against a
@@ -126,6 +132,11 @@ Section~\ref{sec:conclusion} concludes.
 TODO.
 
 \section{Truth-tracking as a projectible mechanism profile}\label{sec:profile}
+
+Goodman's new riddle fixes the projectibility problem: the hard question isn't whether
+past cases support some generalisation, but which predicates support projection from
+known to unknown cases \citep{Goodman1955}. The present paper asks that question about
+truth-tracking stabilisers rather than about one predicate in isolation.
 
 Khalidi's account supplies the network discipline behind this profile talk. Natural
 categories earn their status by supporting prediction and explanation, and they do so
@@ -225,10 +236,14 @@ up in Section~\ref{sec:llm}.
 \subsection{Adjudicating mechanism conflict}
 
 When two stabilisers disagree, say perception reports one thing and well-attested
-testimony another, a single-mechanism theory has no internal verdict to give. Reliabilism
-can only ask which source is the more reliable here, which is the question at issue. The
-network view adds a resource the component theories lack: the strength of the links
-between nodes.
+testimony another, a theory focused on one source at a time underdescribes the evidential
+situation. Goldman-style reliabilism can ask which process type is reliable, including
+conditional reliability; social reliabilism can extend the assessed process through
+testimonial production
+\citep{goldman_1979_what_is_justified_belief,goldberg_2010_relying_on_others}. Those
+are genuine resources. The profile question is different: how tightly have these sources
+been calibrated against one another in this domain? The network view adds a resource the
+component theories lack: the strength of the links between nodes.
 
 In Khalidi's terms, causal relations among associated properties underwrite projection;
 here the relevant projection runs from one stabiliser's output to another's
@@ -303,8 +318,9 @@ disowning it.
 % mere unevenness. Do not re-run the sibling's argument.
 % Dissolve the binary. LLMs participate in some truth-stabilising mechanisms and not
 % others; grounding/truth-tracking becomes an empirical PROFILE. Mechanism-by-mechanism:
-% perception (absent text-only / partial multimodal), testimony (strong but indirect),
-% coherence (strong local / weak long-range), verification (mostly absent w/o tools),
+% perception (absent text-only / partial multimodal), testimonial traces/inheritance
+% (strong but indirect; not full speaker/hearer standing), coherence (strong local / weak
+% long-range), verification (mostly absent w/o tools),
 % feedback/selection (RLHF tracks helpfulness/safety/preference, not truth alone),
 % practical success (weak chat-only / stronger for agents). Connect to Mahowald et al.
 % formal vs functional competence. This is the contribution boundary vs the two siblings.
