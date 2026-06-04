@@ -1,7 +1,9 @@
 # STATUS — Truth-Tracking Profiles
 
-**Stage:** Drafting. Reframed from strong HPC framing to projectible-profile framing; Section 1 (intro) drafted in prose; Section 5 spine sketched; remaining sections still stubs.
-**Last updated:** 2026-06-03
+**Stage:** Full draft in active revision. Reframed from strong HPC framing to
+projectible-profile framing; LLM payoff section drafted; second-paper incubator created
+for the inverse truth-theory argument.
+**Last updated:** 2026-06-04
 
 ## What this is
 
@@ -78,27 +80,43 @@ Third member of the HPC-to-LLM family alongside `hpc_to_vector` and
   Roughdraft timed out locally before returning a clean Done Reviewing signal, and
   the Markdown file contained no CriticMarkup comments or suggestions.
 
+## Done (LLM payoff and inverse-paper split, 2026-06-04)
+
+- Drafted the abstract, target section, projectibility section, objections, LLM payoff
+  section, and conclusion.
+- Added Section 7's mechanism-by-mechanism LLM profile: text-only, instruction-tuned/RLHF,
+  retrieval, tools, multimodal systems, and action-guided or expert-reviewed systems.
+- Added participation taxonomy: inherited, operational, corrective, and decorative.
+- Engaged Coelho Mollo and Millière directly: referential grounding may hold while
+  truth-tracking answerability remains profile-dependent.
+- Strengthened the non-relabeling reply with the prediction/transfer point and
+  architecture-sensitive failure signatures.
+- Added a light inverse framing to Paper 1: LLMs make single-stabiliser theories of
+  truth-tracking look too simple, while preserving the LLM-grounding spine.
+- Created `subprojects/llms-truth-theories/` as the incubator for the second paper,
+  with README, status, outline, source ledger, and draft notes.
+- Applied central house-style prose pass to `main.tex` and the second-paper scaffolding,
+  with special attention to contractions, linking words, paragraph length, and direct
+  statement of claims.
+- Rebuilt `main.pdf` successfully after the style pass.
+- Shipped commit `c8f7878` (`Complete truth-tracking LLM payoff`) before the inverse
+  hook/subproject setup pass.
+
 ## Next actions
 
-1. Flesh out Section 5: the worked adjudication example (co-variation degree must carry
-   the epistemic weight) and the independent characterisation of "jointly disciplined"
-   (the anti-circularity move). These are the two TODOs that turn the spine into the
-   actual non-relabeling argument.
+1. Review the current diff, then decide whether to ship the inverse-hook/subproject/style
+   pass as a new incremental commit.
 2. Read Pepp, Grindrod, Mallory, Mandelkern & Linzen closely; add Mandelkern & Linzen
-   bib entry; then draft Section 7 (the LLM failure-signature payoff) and fold the
-   rebuttal-cluster citations into S1 and S7.
-3. Draft Section 2 (target definition) and Section 4 (projectibility); run /check-hpc
-   once Section 4 exists (projectibility is where the mechanisms-vs-contribution gap bites).
-   The check should now ask whether the projectible-profile framing is doing the
-   work, not whether the paper has proved literal homeostasis.
-4. Optional: adopt the sibling's `docs/groundwork/` discipline (citation ledger,
-   definitions sheet, objection matrix) now that drafting is underway.
+   bib entry only after verification; then fold the rebuttal-cluster citations into S1
+   and S7 where they genuinely add pressure.
+3. Decide whether Paper 1 needs only the current light inverse hook or a slightly
+   stronger final-paragraph gesture to the second paper.
+4. For Paper 2, complete a truth-pluralism/functionalist source pass before drafting.
 
 ## Not yet done
 
-- GitHub remote exists at `BrettRey/Truth-Tracking_as_a_Homeostatic_Property_Cluster`;
-  current local reframe is unshipped until the next commit/push.
 - Acknowledgements still the generic template stub (fill with actual model names at draft time).
 - Full source reading is not done beyond the Boyd-first pass; Pepp, Grindrod, Mallory,
   Martinez, Hoffman, and the truth-pluralism cluster still need reading notes before
   heavy citation in prose.
+- Current Paper 2 subproject is an incubator, not yet a full LaTeX article draft.
