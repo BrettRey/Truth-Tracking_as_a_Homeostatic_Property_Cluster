@@ -1,11 +1,13 @@
 # Makefile for LaTeX paper compilation
-# Naturalizing Typological Kinds: Comparanda, Mechanisms, and Measurement
+# Truth-Tracking Profiles: What LLMs Participate In
 
 # Configuration
 LATEX = xelatex
 BIBER = biber
 MAIN = main
 OUTDIR = .
+PREAMBLE = .house-style/preamble.tex
+BIBS = references.bib $(wildcard references-local.bib)
 
 # Targets
 .PHONY: all clean distclean view help test
@@ -14,7 +16,7 @@ OUTDIR = .
 all: $(MAIN).pdf
 
 # Full build sequence with bibliography
-$(MAIN).pdf: $(MAIN).tex references.bib
+$(MAIN).pdf: $(MAIN).tex $(PREAMBLE) $(BIBS)
 	@echo "==> First LaTeX pass..."
 	$(LATEX) -output-directory=$(OUTDIR) $(MAIN).tex
 	@echo "==> Running Biber..."
@@ -26,7 +28,7 @@ $(MAIN).pdf: $(MAIN).tex references.bib
 	@echo "==> Build complete: $(MAIN).pdf"
 
 # Quick build (single pass, no bibliography update)
-quick: $(MAIN).tex
+quick: $(MAIN).tex $(PREAMBLE)
 	@echo "==> Quick build (single pass)..."
 	$(LATEX) -output-directory=$(OUTDIR) $(MAIN).tex
 
