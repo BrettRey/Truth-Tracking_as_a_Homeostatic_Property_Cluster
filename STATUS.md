@@ -1,9 +1,8 @@
 # STATUS — Truth-Tracking Profiles
 
-**Stage:** Full draft in active revision. Reframed from strong HPC framing to
-projectible-profile framing; LLM payoff section drafted; second-paper incubator created
-for the inverse truth-theory argument.
-**Last updated:** 2026-06-04
+**Stage:** Preprint posted to PhilArchive. Reframed from strong HPC framing to
+projectible-profile framing; final polished draft available as PhilArchive REYTPW.
+**Last updated:** 2026-06-12
 
 ## What this is
 
@@ -102,20 +101,22 @@ Third member of the HPC-to-LLM family alongside `hpc_to_vector` and
 - Shipped commit `c8f7878` (`Complete truth-tracking LLM payoff`) before the inverse
   hook/subproject setup pass.
 
+## Done (preprint, 2026-06-12)
+
+- Posted the polished preprint to PhilArchive:
+  <https://philarchive.org/rec/REYTPW>.
+- Updated the paper title to `Truth-Tracking Profiles: What Large Language Models
+  Participate In`.
+- Updated portfolio, website, and CV tracking surfaces with the PhilArchive link.
+
 ## Next actions
 
-1. Review the current diff, then decide whether to ship the inverse-hook/subproject/style
-   pass as a new incremental commit.
-2. Read Pepp, Grindrod, Mallory, Mandelkern & Linzen closely; add Mandelkern & Linzen
-   bib entry only after verification; then fold the rebuttal-cluster citations into S1
-   and S7 where they genuinely add pressure.
-3. Decide whether Paper 1 needs only the current light inverse hook or a slightly
-   stronger final-paragraph gesture to the second paper.
-4. For Paper 2, complete a truth-pluralism/functionalist source pass before drafting.
+1. Submit to *Minds and Machines* or adjust target if journal fit changes.
+2. Keep PhilArchive as the canonical preprint URL in future correspondence and CV entries.
+3. For Paper 2, complete a truth-pluralism/functionalist source pass before drafting.
 
 ## Not yet done
 
-- Acknowledgements still the generic template stub (fill with actual model names at draft time).
 - Full source reading is not done beyond the Boyd-first pass; Pepp, Grindrod, Mallory,
   Martinez, Hoffman, and the truth-pluralism cluster still need reading notes before
   heavy citation in prose.
