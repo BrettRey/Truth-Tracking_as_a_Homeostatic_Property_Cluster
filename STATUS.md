@@ -109,6 +109,19 @@ Third member of the HPC-to-LLM family alongside `hpc_to_vector` and
   Participate In`.
 - Updated portfolio, website, and CV tracking surfaces with the PhilArchive link.
 
+### 2026-06-12 Session Notes
+
+- Finalised submission-facing polish after review comments: OED `true` footnote,
+  Russell/coherence-theory paragraph, Geoff acknowledgement, abstract/table/footnote
+  fixes, and final PDF build.
+- Posted the preprint at PhilArchive REYTPW and shipped paper repo commit `aa209a2`.
+- Updated public tracking: website publication entry, generated Markdown/BibTeX
+  mirror at `papers/truth-tracking-profiles/`, rebuilt website CV PDF, updated CV
+  source and portfolio tracking on disk, and added central-bib entry
+  `reynolds2026truthTrackingProfiles`.
+- Shipped website commit `66c662b`, including the Truth-Tracking mirror plus
+  user-authorised unrelated dirty files.
+
 ## Next actions
 
 1. Submit to *Minds and Machines* or adjust target if journal fit changes.
