@@ -13,3 +13,7 @@
 
 # macOS
 .DS_Store
+
+# Local literature PDFs live in the central literature store.
+literature/*.pdf
+literature/**/*.pdf
