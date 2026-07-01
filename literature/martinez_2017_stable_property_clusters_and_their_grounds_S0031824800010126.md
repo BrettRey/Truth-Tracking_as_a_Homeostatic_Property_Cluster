@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/martinez_2017_stable_property_clusters_and_their_grounds_S0031824800010126.md
+../../../../literature/martinez_2017_stable_property_clusters_and_their_grounds_S0031824800010126.md

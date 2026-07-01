@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/brigandt_kinds_without_talking_natural_kinds.md
+../../../../literature/brigandt_kinds_without_talking_natural_kinds.md

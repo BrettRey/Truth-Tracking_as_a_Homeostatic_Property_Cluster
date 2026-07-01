@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/iep_coherentism_epistemology.md
+../../../../literature/iep_coherentism_epistemology.md

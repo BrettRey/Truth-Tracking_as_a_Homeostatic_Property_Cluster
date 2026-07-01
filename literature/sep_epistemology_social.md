@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/sep_epistemology_social.md
+../../../../literature/sep_epistemology_social.md

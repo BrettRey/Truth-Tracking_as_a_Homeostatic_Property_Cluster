@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/bender_gebru_mcmillan_major_mitchell_2021_stochastic_parrots.md
+../../../../literature/bender_gebru_mcmillan_major_mitchell_2021_stochastic_parrots.md

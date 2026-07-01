@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/boyd_2019_rethinking_natural_kinds_reference_truth.md
+../../../../literature/boyd_2019_rethinking_natural_kinds_reference_truth.md

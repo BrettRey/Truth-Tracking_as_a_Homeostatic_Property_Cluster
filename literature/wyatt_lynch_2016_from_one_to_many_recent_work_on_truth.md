@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/wyatt_lynch_2016_from_one_to_many_recent_work_on_truth.md
+../../../../literature/wyatt_lynch_2016_from_one_to_many_recent_work_on_truth.md

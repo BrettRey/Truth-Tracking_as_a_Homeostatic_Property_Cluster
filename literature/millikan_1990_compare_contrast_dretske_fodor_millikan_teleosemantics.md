@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/millikan_1990_compare_contrast_dretske_fodor_millikan_teleosemantics.md
+../../../../literature/millikan_1990_compare_contrast_dretske_fodor_millikan_teleosemantics.md

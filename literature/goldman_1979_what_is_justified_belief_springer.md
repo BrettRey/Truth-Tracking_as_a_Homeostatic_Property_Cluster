@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/goldman_1979_what_is_justified_belief_springer.md
+../../../../literature/goldman_1979_what_is_justified_belief_springer.md

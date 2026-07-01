@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/coady_1994_testimony_ch11_disappearance_of_history.md
+../../../../literature/coady_1994_testimony_ch11_disappearance_of_history.md

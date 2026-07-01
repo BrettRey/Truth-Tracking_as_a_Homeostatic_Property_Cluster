@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/coady_1994_testimony_ch15_witness_of_psychology.md
+../../../../literature/coady_1994_testimony_ch15_witness_of_psychology.md

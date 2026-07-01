@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/coady_1994_testimony_ch09_language_and_mind.md
+../../../../literature/coady_1994_testimony_ch09_language_and_mind.md

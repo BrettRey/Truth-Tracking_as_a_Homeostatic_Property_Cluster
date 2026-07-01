@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/mahowald-etal-2024-dissociating-language-thought.md
+../../../../literature/mahowald-etal-2024-dissociating-language-thought.md

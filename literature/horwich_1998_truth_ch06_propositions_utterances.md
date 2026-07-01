@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/horwich_1998_truth_ch06_propositions_utterances.md
+../../../../literature/horwich_1998_truth_ch06_propositions_utterances.md

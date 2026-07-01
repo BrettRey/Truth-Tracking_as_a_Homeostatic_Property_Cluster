@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/horwich_1998_truth_ch03_explanatory_role_truth.md
+../../../../literature/horwich_1998_truth_ch03_explanatory_role_truth.md

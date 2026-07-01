@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/david_1994_correspondence_disquotation.md
+../../../../literature/david_1994_correspondence_disquotation.md

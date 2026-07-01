@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/james_1909_meaning_of_truth_gutenberg.md
+../../../../literature/james_1909_meaning_of_truth_gutenberg.md

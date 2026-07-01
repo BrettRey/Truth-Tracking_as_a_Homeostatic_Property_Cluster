@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/horwich_1998_truth_ch04_methodology_scientific_realism.md
+../../../../literature/horwich_1998_truth_ch04_methodology_scientific_realism.md

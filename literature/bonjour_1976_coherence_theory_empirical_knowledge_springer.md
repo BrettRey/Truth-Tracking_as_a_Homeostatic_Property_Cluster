@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/bonjour_1976_coherence_theory_empirical_knowledge_springer.md
+../../../../literature/bonjour_1976_coherence_theory_empirical_knowledge_springer.md

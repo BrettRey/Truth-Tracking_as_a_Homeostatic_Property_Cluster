@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/pedersen_2006_mixed_inferences_alethic_pluralism.md
+../../../../literature/pedersen_2006_mixed_inferences_alethic_pluralism.md

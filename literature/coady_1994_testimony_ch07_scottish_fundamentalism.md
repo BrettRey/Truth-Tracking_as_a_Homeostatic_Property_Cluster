@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/coady_1994_testimony_ch07_scottish_fundamentalism.md
+../../../../literature/coady_1994_testimony_ch07_scottish_fundamentalism.md

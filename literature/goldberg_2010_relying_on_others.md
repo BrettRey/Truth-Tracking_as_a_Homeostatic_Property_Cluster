@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/goldberg_2010_relying_on_others.md
+../../../../literature/goldberg_2010_relying_on_others.md

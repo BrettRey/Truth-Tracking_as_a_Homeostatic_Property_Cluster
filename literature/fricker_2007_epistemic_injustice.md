@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/fricker_2007_epistemic_injustice.md
+../../../../literature/fricker_2007_epistemic_injustice.md

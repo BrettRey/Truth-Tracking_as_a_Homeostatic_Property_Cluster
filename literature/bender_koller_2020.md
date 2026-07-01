@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/bender_koller_2020.md
+../../../../literature/bender_koller_2020.md

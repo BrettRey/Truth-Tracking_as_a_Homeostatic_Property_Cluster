@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/james_1907_pragmatism_gutenberg.md
+../../../../literature/james_1907_pragmatism_gutenberg.md

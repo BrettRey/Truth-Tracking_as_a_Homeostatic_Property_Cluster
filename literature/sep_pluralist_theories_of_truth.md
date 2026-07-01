@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/sep_pluralist_theories_of_truth.md
+../../../../literature/sep_pluralist_theories_of_truth.md

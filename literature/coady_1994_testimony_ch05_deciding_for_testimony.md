@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/coady_1994_testimony_ch05_deciding_for_testimony.md
+../../../../literature/coady_1994_testimony_ch05_deciding_for_testimony.md

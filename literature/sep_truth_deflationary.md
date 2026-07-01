@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/sep_truth_deflationary.md
+../../../../literature/sep_truth_deflationary.md

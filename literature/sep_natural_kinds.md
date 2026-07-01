@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/sep_natural_kinds.md
+../../../../literature/sep_natural_kinds.md

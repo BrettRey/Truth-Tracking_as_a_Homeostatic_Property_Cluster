@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/price_2023_global_expressivism_and_alethic_pluralism.md
+../../../../literature/price_2023_global_expressivism_and_alethic_pluralism.md

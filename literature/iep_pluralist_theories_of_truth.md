@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/iep_pluralist_theories_of_truth.md
+../../../../literature/iep_pluralist_theories_of_truth.md

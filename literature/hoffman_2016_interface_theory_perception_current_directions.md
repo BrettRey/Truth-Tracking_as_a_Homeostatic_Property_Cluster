@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/hoffman_2016_interface_theory_perception_current_directions.md
+../../../../literature/hoffman_2016_interface_theory_perception_current_directions.md

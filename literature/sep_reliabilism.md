@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/sep_reliabilism.md
+../../../../literature/sep_reliabilism.md

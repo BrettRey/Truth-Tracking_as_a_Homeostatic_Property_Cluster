@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/chalmers_2024_thought_sensory_grounding_llms.md
+../../../../literature/chalmers_2024_thought_sensory_grounding_llms.md

@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/pepp_2025_reference_without_intentions_llms.md
+../../../../literature/pepp_2025_reference_without_intentions_llms.md

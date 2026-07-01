@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/lackey_2008_learning_from_words.md
+../../../../literature/lackey_2008_learning_from_words.md

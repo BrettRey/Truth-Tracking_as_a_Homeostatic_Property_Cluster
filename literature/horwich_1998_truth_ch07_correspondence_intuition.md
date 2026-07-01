@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/horwich_1998_truth_ch07_correspondence_intuition.md
+../../../../literature/horwich_1998_truth_ch07_correspondence_intuition.md

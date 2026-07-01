@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/magnus_2015_taxonomy_ontology_natural_kinds.md
+../../../../literature/magnus_2015_taxonomy_ontology_natural_kinds.md

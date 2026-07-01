@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/horwich_1998_truth_ch02_proper_formulation.md
+../../../../literature/horwich_1998_truth_ch02_proper_formulation.md

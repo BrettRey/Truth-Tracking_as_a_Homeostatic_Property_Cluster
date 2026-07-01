@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/sep_testimony_episprob.md
+../../../../literature/sep_testimony_episprob.md

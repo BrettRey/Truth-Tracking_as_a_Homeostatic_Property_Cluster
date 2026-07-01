@@ -1,1 +1,1 @@
-/Users/brettreynolds/Documents/LLM-CLI-projects/literature/millikan2017-ch1.md
+../../../../literature/millikan2017-ch1.md
