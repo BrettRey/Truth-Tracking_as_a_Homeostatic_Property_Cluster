@@ -1,3 +1,30 @@
+---
+slug: truth-tracking-profiles
+kind: paper
+title: 'Truth-Tracking Profiles: What Large Language Models Participate In'
+stage: complete
+external: preprint
+blocked_on:
+- brett-decision
+updated: 2026-06-12
+source:
+- STATUS.md
+- PORTFOLIO.md
+venue: Minds and Machines
+preprints:
+- philarchive/REYTPW
+next_action: Submit to Minds and Machines, sequenced against Delegation Assurance and the AGI-evaluation
+  paper, which also target M&M
+notes: 'STATUS.md "Next actions": "1. Submit to Minds and Machines or adjust target if journal fit changes."
+  No submission has been made yet (preprint only, PhilArchive REYTPW). PORTFOLIO.md:302 (Venue Coordination
+  Flags, updated 2026-07-28): "Three papers point at Minds and Machines ... Delegation Assurance, Truth-Tracking
+  Profiles ... and the AGI-evaluation paper ... all target M&M. ... These can''t all be under review at
+  M&M at once; sequence them or retarget one before submitting." Classified blocked_on: brett-decision
+  (which of the three to submit first, or whether to retarget one) rather than venue-decision, since the
+  venue itself (M&M) is already chosen for this paper -- the open question is sequencing, a call only
+  Brett can make.'
+---
+
 # STATUS — Truth-Tracking Profiles
 
 **Stage:** Preprint posted to PhilArchive. Reframed from strong HPC framing to
@@ -127,6 +154,12 @@ Third member of the HPC-to-LLM family alongside `hpc_to_vector` and
 1. Submit to *Minds and Machines* or adjust target if journal fit changes.
 2. Keep PhilArchive as the canonical preprint URL in future correspondence and CV entries.
 3. For Paper 2, complete a truth-pluralism/functionalist source pass before drafting.
+
+## Literature hook: Groeger, Wen, and Brbic (2026)
+
+Central note: `../../../literature/groeger_wen_brbic_2026_aristotelian_representation_hypothesis.notes.md`.
+
+Use in any pre-submission revision only if it helps the LLM-local-coherence point. Their calibrated result says local neighbourhood alignment can persist after global spectral convergence is deflated. That is a good technical analogue for this paper's distinction between local coherence and answerability: local representational order can support fluent continuation without supplying perception, verification, measurement, or world-directed correction.
 
 ## Not yet done
 
