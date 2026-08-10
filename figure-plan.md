@@ -10,9 +10,9 @@ down to a more disciplined shape. Target: `main.tex`, 31pp, Synthese.
 |---|---|---|
 | Table 1 | Four positions in the answerability architecture | exists |
 | §4 inline schematic | The coarse dependency relation over stability, directed dependence, maintenance, corrective control | **done 2026-08-10** |
-| Figure 1 | Derivative versus live answerability | **to build** |
+| Figure 1 | Derivative versus live answerability | **built 2026-08-10**, p19 |
 | Table 2 | Architecture-sensitive system predictions (was Table 3) | exists, renumbered automatically |
-| Figure 2 | The temporal discrimination design in §7.7 | **to build** |
+| Figure 2 | The temporal discrimination design in §7.7 | **built 2026-08-10**, p27 |
 
 Each has a distinct job: the first table defines the architecture, the first figure shows the
 central dissociation, the second table applies the architecture across arrangements, and the
@@ -84,8 +84,18 @@ qualitative annotation rather than becoming its own figure.
   it's a conditional capacity, with realized effectiveness kept separate.
 - **Decorative as a limit.** The prose formulation is enough.
 
-## Blocking question before building
+## Build record
 
-Neither figure can be built without `\usepackage{tikz}`, which the preamble snapshot lacks.
-That interacts with the arXiv/Springer two-bundle problem already on file, so it wants
-settling before the figures exist rather than after.
+`\usepackage{tikz}` plus `arrows.meta` added locally in `main.tex`, alongside the
+`\aidisclosure` block and for the same reason: the preamble snapshot carries guarded local
+font paths this build depends on. A `ttpbox` / `ttpar` / `ttpblocked` / `ttplab` style set is
+defined there so both figures share one idiom and no colour carries a distinction, since
+Synthese prints mono.
+
+**Still open, and now more pressing:** the arXiv/Springer two-bundle split. TikZ is fine on
+both, but Springer's instructions say not to use own macros, so the local `\tikzset` block
+should be checked against whatever class the submission ends up using.
+
+**Float placement is load-bearing here.** Figure 2 first floated onto the Conclusion page,
+where it sat under a running head naming the wrong section. Moving it earlier in the source
+put it back inside §7.7. Re-check both after any edit that repaginates.

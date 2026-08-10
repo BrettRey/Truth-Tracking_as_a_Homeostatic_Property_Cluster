@@ -3,6 +3,17 @@
 % House style preamble
 \input{.house-style/preamble.tex}
 \usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+% Figure idiom, greyscale-safe because Synthese prints mono: no colour carries a
+% distinction, and every contrast is line style, position, or label.
+\tikzset{
+  ttpbox/.style={draw, rounded corners=2pt, align=center, inner sep=4pt,
+                 minimum height=7.5mm, font=\small},
+  ttpar/.style={-{Stealth[length=2mm]}, thick},
+  ttpblocked/.style={-{Stealth[length=2mm]}, thick, dashed, draw=black!55},
+  ttplab/.style={font=\scriptsize\itshape, inner sep=2pt},
+}
 
 % Update PDF metadata
 \hypersetup{
@@ -13,7 +24,6 @@
 % The project's preamble snapshot predates \aidisclosure (added centrally 2026-07-16).
 % Defined here rather than by refreshing the snapshot, which carries guarded local font
 % paths this build depends on. Drop this block when the snapshot is refreshed.
-% Stop 'updating' hyphenating across the page break that Table 1 floats into.
 
 \providecommand{\aidisclosure}[1]{%
   \par\medskip
@@ -1084,8 +1094,48 @@ than against an audience, a rater, or a party line.
 Three things come apart here. Causal inheritance, which any dense corpus supplies.
 Derivative answerability, which needs the inherited corrections to have been
 world-directed. And live answerability, which needs a route from a fresh discrepancy to the
-current output. Inherited participation never supplies live answerability: once the training
-history is fixed, a discrepancy arising after it has no way to reach production.
+current output. Figure~\ref{fig:routes} sets the three out.
+
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[node distance=0pt]
+  % historical route
+  \node[ttpbox] (target) at (0,2.15)   {target};
+  \node[ttpbox] (prac)   at (2.5,2.15) {source\\practice};
+  \node[ttpbox] (docs)   at (5.9,2.15) {documents};
+  \node[ttpbox] (train)  at (8.9,2.15) {training\\history};
+  \node[ttpbox] (prod)   at (11.3,0)   {current\\production};
+
+  \draw[ttpar] (target) -- (prac);
+  \draw[ttpar] (prac) -- node[ttplab, below] {correction} (docs);
+  \draw[ttpar] (docs) -- (train);
+  \draw[ttpar] (train) -- node[ttplab, above right, pos=0.35]
+        {derivative answerability} (prod);
+
+  % the fresh discrepancy, with no route of its own
+  \node[ttpbox] (fresh) at (0,0) {fresh\\discrepancy};
+  \draw[ttpblocked] (fresh) -- node[pos=0.62, fill=white, inner sep=1.5pt] {$\times$}
+        node[ttplab, above, pos=0.62] {no live route} (prod);
+
+  % a live route, added
+  \node[ttpbox] (route) at (3.4,-2.15) {retrieval, sensor,\\checker, reviewer};
+  \node[ttpbox] (det)   at (7.9,-2.15) {detection and\\attribution};
+  \draw[ttpar] (fresh) -- (route);
+  \draw[ttpar] (route) -- (det);
+  \draw[ttpar] (det) -- node[ttplab, below right, pos=0.35]
+        {live answerability} (prod);
+\end{tikzpicture}
+\caption{Three routes to current production. The historical route supplies derivative
+answerability, and only where target-sensitive correction survives in the training
+distribution: dense causal ancestry on its own doesn't, which is why a propaganda corpus
+leaves equally robust traces and no answerability. A discrepancy arising after the training
+history is fixed has no route of its own. It reaches production only where a live route is
+active in the arrangement, which is a fact about the arrangement rather than about whether
+the weights can change.}\label{fig:routes}
+\end{figure}
+
+Inherited participation never supplies live answerability. Once the training history is
+fixed, a discrepancy arising after it has no way to reach production.
 
 Training against verifiable rewards tests this. When a model is optimized against unit
 tests, a proof checker, or execution results, a discrepancy between output and an
@@ -1530,7 +1580,35 @@ retrieval helps wherever the answer happens to sit in the retrieved text. Scorin
 twice, for substantive aptness and for whether verbatim anchors resolve, isn't sufficient
 either: a coverage account can predict that anchors improve more than aptness, since
 anchors can be copied from the retrieved material while aptness may already be near
-ceiling. Contrasting a live tool against a pasted string doesn't settle it either. A capable coverage
+ceiling. \begin{figure}[tbp]
+\centering
+\begin{tikzpicture}
+  \node[ttpbox] (t0) at (5,2.5) {\textsc{time 0}: both arrangements hold the same content};
+
+  \node[ttpbox] (upd) at (2.2,0.7) {corpus corrected};
+  \node[ttpbox] (ctl) at (7.9,0.7) {corpus unchanged\\(control arm)};
+
+  \node[ttpbox] (u1) at (0.35,-1.6) {static copy:\\stale};
+  \node[ttpbox] (u2) at (3.9,-1.6)  {live route:\\tracks the change};
+  \node[ttpbox] (c1) at (6.6,-1.6)  {static copy:\\unchanged};
+  \node[ttpbox] (c2) at (9.6,-1.6)  {live route:\\unchanged};
+
+  \draw[ttpar] (t0) -- (upd);
+  \draw[ttpar] (t0) -- (ctl);
+  \draw[ttpar] (upd) -- (u1);
+  \draw[ttpar] (upd) -- (u2);
+  \draw[ttpar] (ctl) -- (c1);
+  \draw[ttpar] (ctl) -- (c2);
+\end{tikzpicture}
+\caption{The discriminating contrast, with the profile's predictions shown. Substantive
+content is equated at time 0 by construction, so a coverage account defined over the
+information available to the arrangement predicts no difference between the two
+arrangements in either arm. The profile predicts a difference in the update arm and none in
+the control. No outcome magnitudes are implied, and none should be read
+in.}\label{fig:design}
+\end{figure}
+
+Contrasting a live tool against a pasted string doesn't settle it either. A capable coverage
 account can define coverage over the information available to the arrangement rather than
 over tokens already in the prompt, and a working lookup tool then counts as raising coverage
 dynamically. Any manipulation of how much can be got at is absorbable that way.
@@ -1544,8 +1622,11 @@ context. Coverage is equated at the start by construction, so a coverage account
 difference between the arrangements in either arm. The profile predicts that the live route
 tracks the change in the update arm and matches the frozen string in the control.
 
-This contrast tests the paper's own property rather than a proxy for it, namely whether a
-discrepancy arising after production is fixed can reach the output. It's also the
+Figure~\ref{fig:design} sets the arms out. The contrast tests the paper's own property
+rather than a proxy for it, namely whether a discrepancy arising after production is fixed
+can reach the output.
+
+ It's also the
 manipulation a coverage account has the hardest time absorbing, because the two arrangements
 differ in no quantity of information at the moment they're equipped.
 
