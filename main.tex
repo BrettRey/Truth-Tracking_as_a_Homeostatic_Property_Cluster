@@ -46,7 +46,8 @@ representations, handle discrepancies, and register practical success or failure
 Answerability comes in degrees; corrective control is the case where answerability
 includes both detection and an effective route to repair.
 
-Language models provide the pressure case. Text-trained systems inherit dense textual
+Language models provide the pressure case, with the text-only profile taken as a limiting
+position rather than a description of anything currently shipping. Text-trained systems inherit dense textual
 traces of testimony and local coherence, which leaves them derivatively answerable to
 corrections already made in the source practices, and participate weakly in perception,
 measurement, intervention, and practical correction, which leaves them without corrective
@@ -55,8 +56,8 @@ The result is a familiar failure signature: fluent, coherent outputs that hold u
 task needs an independent route to the facts. Self-consistency, retrieval, tools, code
 execution, multimodal input, and preference or action feedback should help where they
 supply the route a task requires and not otherwise, so the prediction is an interaction
-between intervention and task rather than a general gain. A matched-task design can test
-it. Surface improvement and truth-tracking improvement can come apart.
+between intervention and task rather than a general gain. A crossed design, varying route availability against
+task requirement, can test it. Surface improvement and truth-tracking improvement can come apart.
 \end{abstract}
 
 \noindent\textbf{Keywords:} large language models; grounding; answerability; corrective
@@ -157,9 +158,9 @@ Three things are new here. The first is the dissociation itself. On the stronges
 recent accounts of content and reference for these systems, it remains open whether a
 discrepancy can reach production. Grounding and corrective control, the capacity to
 detect a mismatch and act on it, come apart, and the second doesn't follow from the first.
-The second is an account of what closes that gap, stated as five conditions on the
+The second is an account of what closes that gap, stated as five graded dimensions of the
 output-producing arrangement rather than as a list of epistemic goods, with answerability
-graded beneath it. The third is a prediction the account can lose: because
+graded beneath it and the last dimension indexed to how often repair actually happens. The third is a prediction the account can lose: because
 interventions supply particular routes, their benefit should depend on which route a task
 requires, so the expected result is an interaction between intervention and task rather
 than a general gain, and indiscriminate transfer would count against the carving.
@@ -406,12 +407,12 @@ another. That coupling explains the familiar language-model failure signature: r
 perceptual and verificational nodes, and representational success should fail in a
 specific way (Section~\ref{sec:llm}).
 
-Second, it places the loose cases. Toward the edges, in frontier science, remote
-historical fact, and the contested empirical questions that arise in litigation, the nodes
-are real but sparsely linked. Error cost is delayed, diffuse, contested, or beyond current
-instruments. There may be proof norms, expert testimony, institutional procedures, and
-coherence constraints, but fewer shared routes of correction. Section~\ref{sec:adjudication} makes that diagnosis explicit:
-shared selection or training history, institutional age, and measurement infrastructure
+Second, it places the loose cases. Toward the edges, in frontier science and remote
+historical fact, the nodes are real but sparsely linked. Error cost is delayed, diffuse, or
+beyond current instruments. There may be inference norms, expert testimony, and coherence
+constraints, but fewer shared routes of correction. Section~\ref{sec:adjudication} makes that diagnosis explicit:
+shared selection or training history, accumulated correction procedures, and measurement
+infrastructure
 are often thin at the edges.
 
 Reading the profile as a network still leaves boundaries to be fixed.
@@ -461,8 +462,9 @@ range-relative rather than a property an arrangement has outright. Its strength,
 given target and perturbation range, depends on five features. Target-relevant variation
 reaches the arrangement through an operative route. A discrepancy is detectable against an
 applicable standard. The checking signal doesn't merely reproduce the production route's
-error. The discrepancy is attributable enough to guide a response. And detection can alter
-production, uptake, withdrawal, or later behaviour within the relevant range.
+error. The discrepancy is attributable enough to guide a response. And detection actually alters
+production, uptake, withdrawal, or later behaviour within the relevant range, at some
+rate.
 
 These are dimensions, not switches, and nothing turns on their being independent. Each
 admits of degree: a checker's errors can be partly correlated with the generator's,
@@ -471,7 +473,18 @@ run together in practice, which Section~\ref{sec:profile} should lead one to exp
 a single route can occupy several positions. Giving a checker access to repository state
 adds target access and may decorrelate its errors at the same time. An arrangement is
 under stronger corrective control as more of these hold more fully, and the interesting
-comparisons are between arrangements that differ on one of them.
+comparisons are between arrangements that differ on one of them. That ordering is partial.
+Two arrangements trading decorrelation against attributability aren't ranked by this
+account, and nothing here licenses a weighted score across the five.
+
+Condition five behaves unlike the other four, and the difference is easy to lose. The
+first four are counterfactual. They ask what routes exist, what an applicable standard
+would register, whether a checker's errors would track the generator's, and whether a
+discrepancy would be attributable. The fifth asks what the arrangement does. Effective
+repair isn't repair that could happen. A route nobody takes corrects nothing, whatever its
+design. So the fifth condition is rate-indexed, and a route contributes in proportion to how
+often detection alters production within the declared range. The account carries a frequency in exactly one
+place, and it carries one because repair is an achievement rather than an affordance.
 
 These conditions fix the relation to answerability rather than competing with it.
 Answerability comes in degrees, and its strength depends on how specific, repeatable, and
@@ -481,15 +494,15 @@ can be answerable in some measure while lacking corrective control over the targ
 issue, which is the situation Section~\ref{sec:llm} describes.
 
 A thermometer that no one calibrates makes the gap concrete. It satisfies Woodward's
-criterion, since interventions change its readings in stable and predictable ways, and it
-fails the second and fifth conditions: no standard is consulted, and nothing in the
-arrangement changes when it drifts.
+criterion, since interventions change its readings in stable and predictable ways, and
+applicable temperature standards exist, so the second condition is met as a capacity. It
+fails the fifth. Nobody consults those standards, nothing in the arrangement changes when
+it drifts, and the rate at which detection alters production is zero.
 
 Different regions of the profile are claimed at different rungs. Everyday perception and
 basic coordination carry routes that detect departures and repair them, so corrective
-control is claimed there and evidenced by the repairs. Frontier science, remote
-historical fact, and contested empirical questions in litigation often support stability
-and directed dependence without it. The
+control is claimed there and evidenced by the repairs. Frontier science and remote
+historical fact often support stability and directed dependence without it. The
 language-model case in Section~\ref{sec:llm} turns on that gap: text-only systems inherit
 stable and densely dependent textual structure while participating weakly in detection
 and repair.
@@ -537,7 +550,7 @@ correction channels. The projectible unit is the coupled pattern.
 
 Edge cases follow from the same structure. Where stabilizers thin or fail to calibrate one
 another, truth-relevant classifications should project less strongly.
-Frontier science, remote history, contested legal facts, and ethical disagreement should
+Frontier science and remote history should
 be treated as thinner regions of the profile. They may still involve real stabilizers,
 but the pattern supports weaker expectations about agreement, correction, and future
 success.
@@ -600,7 +613,8 @@ weakly answerable under perturbation if the target has no route for correcting i
 conditions change. Conversely, a newly calibrated instrument can be answerable before it
 has much of a track record: standards, logs, and downstream checks already specify how
 discrepancies would show up. Reliability is a statistical property of a process;
-answerability is a counterfactual property of a network.
+answerability is a counterfactual property of a network. Corrective control needs both,
+which is why its fifth condition carries a rate.
 
 A concrete transfer case shows the pressure. Suppose a retrieval-augmented system, which
 retrieves external records and places them in the model's context, scores well on
@@ -741,8 +755,8 @@ recurring error signals. Instruments, calibration routines, and expert reports i
 scientific practices can share a similar history, even when the relevant objects aren't
 available to unaided perception.
 
-Second, the practice can have institutional age. Age by itself isn't enough for
-reliability; a long-lived mistake remains a mistake. The relevant sign is the
+Second, the practice can have accumulated correction procedures. Longevity by itself isn't
+enough for reliability; a long-lived mistake remains a mistake. What matters is the
 accumulation of correction norms,
 records, role differentiation, and procedures for passing error reports forward. These
 features make one stabilizer available as a check on another before any present
@@ -761,8 +775,8 @@ familiar pressures combine with weak cross-source correction.
 
 Once the purpose is fixed, the profile predicts tighter agreement where shared training
 history, institutional correction, and measurement infrastructure are thick. It predicts
-looser agreement where those marks are absent. Frontier science, remote historical fact,
-and contested empirical questions in litigation are expected edge cases for that reason:
+looser agreement where those marks are absent. Frontier science and remote historical fact
+are expected edge cases for that reason:
 some stabilizers remain real while the links among them thin. Whether the pattern extends
 to normative disagreement is a further question, and Section~\ref{sec:objections} leaves
 it open.
@@ -790,22 +804,25 @@ own doesn't. He treats the sciences as studying a jumble of partially overlappin
 each with its own toolkit of categories and methods, and holds that where two schemes sort
 members into categories that don't coincide there's often no ground for ruling either
 scheme non-natural \citep{khalidi2013}. Isotopic and isobaric nuclides carve the same atoms
-differently. Both carve something real.
+differently. Neither is the privileged carving, and the projections each supports hold up.
 
 The reply has a metaontological cousin. On an easy approach to ontology, existence
 questions are settled by trivial inferences licensed by a concept's rules of use, which
 moves the substantive work from whether the entities exist to which concepts we should
 employ and why \citep{thomasson2015ontologyMadeEasy}. I take no stand on that general
-thesis. The direction is shared: asking whether a carving is interest-free is less useful
-than asking what the category is for and whether it delivers.
+thesis, and the account doesn't need it. What it borrows is the order of business. First
+ask which profile concept to adopt for which inferential and corrective purpose. Then ask
+the question the world settles, whether that concept's declared projections succeed. The
+second isn't answered by the first, which is what keeps the account from reducing to a
+report of our interests.
 
 So purpose-relativity isn't a concession wrung from the account. It's the condition under
 which the account says anything at all. What matters is whether the purpose is declared
 before the verdicts are collected, and whether the claims it licenses can fail. Held to
 the representational purpose of Section~\ref{sec:projectibility}, two claims follow:
 systems missing perceptual and verificational stabilizers should show the failure pattern
-of Section~\ref{sec:llm}, and connectivity should track selection history, institutional
-age, and measurement infrastructure (Section~\ref{sec:adjudication}).
+of Section~\ref{sec:llm}, and connectivity should track selection history, accumulated
+correction procedures, and measurement infrastructure (Section~\ref{sec:adjudication}).
 
 A sharper version of the objection would bite. If the purpose
 were chosen after the verdicts were in, to secure them, the account would be
@@ -832,8 +849,8 @@ concerns the default entitlement to transfer. For complex systems, that move rai
 generality problem for reliabilism at system scale
 \citep{conee_feldman_1998_generality_problem_reliabilism}.
 Pretraining, filtering, RLHF, retrieval, tools, prompts, and institutional uptake can be
-carved into many process types. If the reliabilist uses selection history, institutional
-age, measurement infrastructure, and architectural facts to choose the projectible
+carved into many process types. If the reliabilist uses selection history, accumulated
+correction procedures, measurement infrastructure, and architectural facts to choose the projectible
 carving, the profile view has supplied the individuation theory.
 
 In this respect, the account complements reliabilism, coherentism, correspondence,
@@ -1019,8 +1036,9 @@ feedback is attributable and reaches production. Decorative participation suppli
 them while resembling all.
 
 Corrective control is bounded by the union of the arrangement's live routes, and it's
-bounded target by target. A user who can check a claim adds corrective control for that
-claim and none for the next one. So the interesting case isn't an arrangement with no
+bounded target by target. A user who checks a claim adds corrective control for that
+claim at the rate they check, and none for the next one. A checking step that's available
+and routinely bypassed adds the look of one. So the interesting case isn't an arrangement with no
 corrective control anywhere, which is rare, but the ordinary one in which a system is
 asked about targets that no participant can independently check. Grounding is untouched by
 that boundary. Corrective control stops at it.
@@ -1344,9 +1362,11 @@ generator's errors, and the same model given genuinely independent environmental
 information may not. Independence has more than one dimension, among them development
 provenance, the environmental information available to the checker, objectives, and
 conditional error structure. The reported hardening came from giving the classifier more
-of the second, including repository visibility and git state, with no demonstrated change
-in lineage, which shows that access can help without decorrelation rather than that it
-matters more. And an approval step users routinely bypass or wave through is
+of the second, including repository visibility and git state. Whether that also
+decorrelated its errors wasn't measured, and lineage alone wouldn't settle it, since added
+environmental information is the kind of change that can alter conditional error structure.
+Measuring it takes conditional error rates for checker and generator on a shared held-out
+set. And an approval step users routinely bypass or wave through is
 decorative rather than corrective, whatever its nominal standing: users reject 3\% of
 individual permission requests against 39\% of plans put to them for
 approval.\footnote{Same users, same system, two approval dialogues, which is consistent
@@ -1366,7 +1386,7 @@ mechanisms. If text-only systems remain mainly dependent on inherited textual
 accommodation and local coherence, the same vulnerability should persist even as fluency
 improves.
 
-A matched clinical test would make this concrete.\footnote{The design parallels validity
+A clinical test makes this concrete.\footnote{The design parallels validity
 argumentation in measurement: inferences from performance are licensed relative to a
 purpose and tested by varying method while holding the target construct fixed
 \citep{messick_1989_validity,kane2013validating}.} One item set asks for recommendations
@@ -1395,16 +1415,44 @@ Declare in advance the smallest interaction that would matter, report the interv
 than a verdict, and run the reasonable alternatives for item matching, scoring, and
 exclusion instead of resting on one sample.
 
+That instruction should be followed here rather than passed on, so one declaration, for the
+retrieval case. The source feature is whether a live retrieval route over a fixed corpus is
+available. The outcome is the proportion of items whose verbatim anchors resolve against
+that corpus. The bearer is one named chat arrangement, retrieval switched on and off with
+the prompt template held constant. The population is a clinical item set split into
+record-recoverable and patient-specific halves, classified from the item text by raters who
+see no system output, and frozen before the first run.
+
+Predicted is an interaction, with the retrieval gain on record-recoverable items exceeding
+the gain on patient-specific items by at least ten percentage points. Ten is a
+stipulation, and it's chosen for the purpose the carving serves, since a smaller gap
+wouldn't change which tasks a deployment routes through retrieval. An interval that
+includes zero counts against the carving, and so does a gain that runs larger on the
+patient-specific half. The classification isn't revised once the effect is visible. If it
+has to be, that's the result.
+
 Accuracy alone still won't discriminate the profile from a coverage rival, on which
 retrieval helps wherever the answer happens to sit in the retrieved text. Scoring outputs
 twice, for substantive aptness and for whether verbatim anchors resolve, isn't sufficient
 either: a coverage account can predict that anchors improve more than aptness, since
 anchors can be copied from the retrieved material while aptness may already be near
-ceiling. What separates the accounts is holding substantive coverage fixed while varying
-archival support. Compare a full record carrying content, provenance, and exact anchors; a
-faithful paraphrase carrying the same content with identifiers, quotations, and provenance
-stripped; and an irrelevant record matched for wording. The profile view predicts that
-anchoring tracks the third variable and not the first two.
+ceiling. Stripping provenance from a pasted record doesn't settle it either: a rival
+allowed to copy anchor strings predicts the same ordering across pasted conditions that the
+profile predicts.
+
+What separates the accounts is a live route as against a present string. Hold substantive
+coverage fixed and cross the two. A pasted full record carries content, provenance, and
+exact anchors, and supplies no route. A pasted paraphrase carries the same content with
+identifiers, quotations, and provenance stripped. A working lookup tool over the same
+corpus supplies the route with nothing placed in the context. An irrelevant record matched
+for wording holds the floor.
+
+The accounts then order the middle two conditions oppositely. Coverage predicts that
+performance tracks what sits in the context, so the paraphrase beats the tool condition and
+anchors fail wherever the strings are absent. The profile predicts that anchors resolve in
+the tool condition, where the arrangement can go and get them, and fail in the paraphrase,
+where it can't. That's the operational and inherited contrast of
+Section~\ref{sec:llm} turned into a manipulation.
 
 Those defeat a carving. What would defeat the framework is different in kind, and the
 difference is worth being careful about. Observing that every grounded arrangement in some
@@ -1417,9 +1465,8 @@ variables that account for which arrangements catch which errors and where impro
 transfers. That claim loses if the features are manipulated successfully and repeatedly
 fail to explain the contrasts, or if some other variable explains them better with the
 features held fixed. Section~\ref{ssec:deployment} reports a case where a classifier
-improved through more environmental access without a demonstrated change in lineage, which
-is one observation about how two of the features trade off, and one observation isn't a
-result.
+improved through more environmental access with its error correlation unmeasured, which is
+one observation about a single feature, and one observation isn't a result.
 
 \section{Conclusion}\label{sec:conclusion}
 
