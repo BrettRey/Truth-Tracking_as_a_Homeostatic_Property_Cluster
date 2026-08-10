@@ -80,6 +80,28 @@ symbols and use; Coelho Mollo and Millière distinguish kinds of grounding; Chal
 separates sensory grounding from thought
 \citep{pavlick_2023_symbols_and_grounding_llms,coelho_mollo_milliere_2026_vector_grounding_problem,chalmers_2023_thought_sensory_grounding_llms}.
 
+The recent literature has been closing the sceptical routes one at a time, and closing
+them on the side of content. Reference can be secured by the natural histories of a
+model's inputs \citep{mandelkern_linzen_2024_do_language_models_words_refer}; intentions
+are the wrong place to look \citep{pepp_2025_reference_without_intentions_llms}; the
+argument from communicative intention fails at both premises
+\citep{attah_2025_do_language_models_lack_communicative_intentions}; linguistic
+metasemantics delivers meaning where mental metasemantics doesn't
+\citep{grindrod_2024_large_language_models_linguistic_intentionality}; and meaning can be
+grounded in a corpus rather than in the world
+\citep{havlik_2024_meaning_understanding_llms_synthese}. Ruyant reaches the further
+conclusion that what such systems represent is a class of appropriate linguistic
+production rather than the world at all
+\citep{ruyant_2026_what_do_llms_represent}.
+
+No party to that literature is my opponent, and the gap I'm pointing at isn't a mistake
+any of them made. It's a question none of them asks. The most direct evidence is
+negative: the field's current synthesis on what these systems teach us about language runs
+to eighty pages with twenty-five commentaries, mentions truth three times, twice in one
+commentary arguing about whether it's gradable, and never mentions answerability at all
+\citep{futrellMahowald2026LanguageModels}. The question of whether a discrepancy can reach
+production is simply not on the agenda that settles content.
+
 Pluralizing grounding still leaves open which dimensions explain truth-relevant success
 and failure across systems. Truth-tracking success depends on distinct
 \term{stabilizers} that ordinarily operate together: perception, testimony,
@@ -248,8 +270,8 @@ causal structures \citep{boyd_2019_rethinking_natural_kinds_reference_truth}. Th
 can be accepted while asking a narrower question: how strongly does a given system
 participate in the practices and mechanisms that make such alignment reliable?
 
-Language models make the lesson plain. Their outputs are assessed through some
-stabilizers and bypass others. A text-only model may inherit textual traces of testimony,
+Language models bypass some of these stabilizers and are assessed through others, which
+is what makes the lesson plain. A text-only model may inherit textual traces of testimony,
 statistical regularities, and local coherence pressures with attenuated perception,
 measurement, intervention, and ordinary practical correction. That profile is enough to
 make truth-relevant assessment possible, uneven, and empirically diagnostic.
@@ -271,8 +293,12 @@ Section~\ref{sec:target}; the stabilizers explain why those cases support projec
 Perception, testimony, coherence, measurement, intervention, error-correction, and
 practical success are the routes through which representational outputs become more or
 less answerable to the world. Khalidi's later \enquote{nodes in causal networks}
-formulation gives the graph vocabulary for this representation
-\citep{khalidi_2018_natural_kinds_nodes_causal_networks}.
+formulation supplies the graph vocabulary, and the borrowing needs stating precisely. On
+his account a kind is a node, a highly connected vertex whose core properties give rise to
+derivative ones, and the network is what the node sits in
+\citep{khalidi_2018_natural_kinds_nodes_causal_networks}. A profile isn't a kind in that
+sense. What the account takes from him is the discipline that connectivity does the
+projective work, not the claim that truth-tracking is a node with a core.
 
 Listed flat, they look like a miscellany of epistemic goods, and they aren't coordinate.
 They occupy four positions in an architecture. \term{Target access} covers the routes by
@@ -397,9 +423,8 @@ identified the stabilizers. Projectibility concerns the relation between them. T
 question is whether a partial description of an output and its stabilizing background
 lets us predict further truth-relevant success or failure.
 
-A guiding purpose individuates the profile: representing a target domain well enough for
-relevant inferential, practical, or corrective success under perturbation. Perturbation
-matters because it distinguishes lucky fit from robust answerability. A representation may
+Perturbation is what makes the purpose just fixed do any work. It distinguishes lucky fit
+from robust answerability. A representation may
 succeed in the training cases, the familiar environment, or the current conversational
 context. It projects more strongly when it continues to guide action, inference,
 measurement, and correction after conditions change.
@@ -499,7 +524,7 @@ be treated as thinner regions of the profile. They may still involve real stabil
 but the pattern supports weaker expectations about agreement, correction, and future
 success.
 
-Language models make the diagnosis concrete. A system that strongly inherits textual
+Applied to language models, the diagnosis becomes concrete. A system that strongly inherits textual
 traces of testimony and local coherence, with weak participation in perception,
 measurement, intervention, and practical correction, should show a specific failure
 profile. It can produce fluent outputs that look truth-relevant from inside the textual
@@ -932,13 +957,21 @@ as when an output mentions experiments, sources, or measurements with the releva
 constraint absent.
 
 The four modes map onto the conditions of Section~\ref{sec:projectibility}. Inherited
-participation supports answerability in some measure and supplies no detection, since
-nothing in a training corpus registers a discrepancy arising now. Operational
-participation supplies target access, the first condition. Corrective participation is
-what can carry the remaining four, and only when the feedback is attributable and reaches
-production. Decorative participation supplies none of them while resembling all of them.
-An arrangement built entirely from the first and last modes is answerable without being
-under corrective control, which is the paper's title case.
+participation supplies no answerability at all, which is worth stating plainly because the
+temptation is to grant it some. Nothing in a training corpus registers a discrepancy
+arising now, and answerability was defined as discrepancies bearing on production, uptake,
+correction, or withdrawal. What inheritance supplies is a disposition to be right, which
+is a fact about the arrangement's aetiology and shows up as reliability. Operational
+participation supplies target access, the first condition. Corrective participation can
+carry the remaining four, and only when the feedback is attributable and reaches
+production. Decorative participation supplies none while resembling all.
+
+Corrective control is bounded by the union of the arrangement's live routes, and it's
+bounded target by target. A user who can check a claim adds corrective control for that
+claim and none for the next one. So the interesting case isn't an arrangement with no
+corrective control anywhere, which is rare, but the ordinary one in which a system is
+asked about targets that no participant can independently check. Grounding is untouched by
+that boundary. Corrective control stops at it.
 
 With these distinctions, participation doesn't collapse into metaphor. Inherited
 participation explains why a text-only system can know its way around a domain whose
@@ -1239,7 +1272,7 @@ says so. Contact with the objects that shaped a user's text is inherited: the pe
 was done by someone else, and nothing in the exchange reports back when the user was
 wrong.
 
-\subsection{Corrective control in deployment}
+\subsection{Corrective control in deployment}\label{ssec:deployment}
 
 A deployed case shows what adding a checker actually takes. Anthropic's coding agent
 routes each proposed action through a classifier that blocks operations it judges
@@ -1255,7 +1288,9 @@ condition met by a second party rather than by introspection. Independence has m
 one dimension: development provenance, environmental information available to the checker,
 objectives, and error correlation. The reported hardening came from giving the classifier
 more of the second, including repository visibility and git state, not from making it less
-like the generator. And an approval step users routinely bypass or wave through is
+like the generator. That's worth registering as pressure rather than illustration: it's
+the ordering the framework leaves open, and the one datum available leans toward access
+mattering more than decorrelation. And an approval step users routinely bypass or wave through is
 decorative rather than corrective, whatever its nominal standing: users reject 3\% of
 individual permission requests against 39\% of plans put to them for
 approval.\footnote{Same users, same system, two approval dialogues, so the lapse is
@@ -1280,10 +1315,16 @@ too safe. The dissociation is the first. If arrangements that satisfy metasemant
 conditions for content and reference turned out, without further engineering, to detect
 and repair fresh errors about their targets at the rate engineered arrangements do, then
 grounding would deliver corrective control after all and this paper's central claim would
-be false. The conditions are the second. If an arrangement meeting none of the five
-conditions of Section~\ref{sec:projectibility} caught and repaired fresh errors as often
-as one meeting all five, the conditions wouldn't be tracking what makes correction
-possible, and no adjustment to the list of routes would repair that.
+be false. The ordering among the conditions is the second, and it has to be put empirically
+rather than definitionally, since an arrangement meeting none of the conditions and
+correcting anyway is excluded by what the conditions say. Put it as a comparison instead.
+Hold inherited reliability fixed and add either target access or decorrelation of the
+checker. The account says both should help and neither should substitute for the other. If
+decorrelation alone reliably closed the gap, condition~1 would be doing less than claimed;
+if access alone did, condition~3 would be. Section~\ref{ssec:deployment} reports a case
+that leans the second way, where a classifier improved through more environmental
+information rather than through being made less like the generator, and one case isn't a
+result.
 
 \section{Conclusion}\label{sec:conclusion}
 
@@ -1304,13 +1345,13 @@ A thin truth predicate can coexist with thick truth-tracking practices. Where th
 are actively maintained, the coupling can become homeostatic in Boyd's strong sense;
 elsewhere the profile can remain projectible below that threshold.
 
-Reliabilism, coherentism, correspondence theory, pragmatism, and social epistemology
-each foreground a relation or process that can contribute to answerability. The reason to
-look past any one of them lies in their relations: the history of correction among sources, the density of the causal network in
-which they operate, and the degree to which one route to success can compensate for or
-expose the failure of another. The pattern can carry the epistemic fact.
+The older epistemologies keep their subject matter and lose their rivalry. What no one of
+them supplies is the relations among the processes each describes: the history of
+correction between sources, the density of the network in which they operate, and the
+degree to which one route can compensate for or expose the failure of another. The
+pattern can carry the epistemic fact.
 
-Component theories can stay in place while their stabilizers interact. In ordinary cases,
+Nothing here displaces those theories; their stabilizers interact. In ordinary cases,
 the interaction is easy to miss because the routes run
 together. In language models, the routes come apart.
 
