@@ -2,7 +2,7 @@
 <!-- SUMMARY: settled apparatus for Truth-Tracking Profiles: 2 tables, 1 inline schematic, 2 figures; all built · status: complete, tikz-vs-Springer split still open · updated: 2026-08-10 -->
 
 Settled after the external figures review of 2026-08-10, which revised my "two, maybe three"
-down to a more disciplined shape. Target: `main.tex`, 32pp, Synthese. All items built.
+down to a more disciplined shape. Target: `truth-tracking-profiles.tex`, 32pp, Synthese. All items built.
 
 ## Final apparatus
 
@@ -86,7 +86,7 @@ qualitative annotation rather than becoming its own figure.
 
 ## Build record
 
-`\usepackage{tikz}` plus `arrows.meta` added locally in `main.tex`, alongside the
+`\usepackage{tikz}` plus `arrows.meta` added locally in `truth-tracking-profiles.tex`, alongside the
 `\aidisclosure` block and for the same reason: the preamble snapshot carries guarded local
 font paths this build depends on. A `ttpbox` / `ttpar` / `ttpblocked` / `ttplab` style set is
 defined there so both figures share one idiom and no colour carries a distinction, since

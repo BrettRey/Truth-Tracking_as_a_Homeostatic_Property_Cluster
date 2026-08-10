@@ -102,7 +102,7 @@ As the fourth member of the concession cluster, not as a separate argument. Grin
 
 ## Leads
 
-- **Mallory (2023)** on chatbots as fictions -- Ruyant's convergence partner, and distinct from the Mallory 2026 teleosemantics paper already cited in `main.tex`. Two different Mallory papers; do not conflate them.
+- **Mallory (2023)** on chatbots as fictions -- Ruyant's convergence partner, and distinct from the Mallory 2026 teleosemantics paper already cited in `truth-tracking-profiles.tex`. Two different Mallory papers; do not conflate them.
 - **Arvan (2024)** on opacity and whether intended values are actually incorporated.
 - **Boesch (2022)**, **Suárez (2024)** on engineering models and deflationary representation -- Ruyant's frame for why LLMs are engineering artefacts, not scientific models.
 - **Abercrombie et al. (2023)** on anthropomorphic talk.

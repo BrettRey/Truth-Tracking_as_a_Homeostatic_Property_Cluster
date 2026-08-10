@@ -4,7 +4,7 @@
 # Configuration
 LATEX = xelatex
 BIBER = biber
-MAIN = main
+MAIN = truth-tracking-profiles
 OUTDIR = .
 PREAMBLE = .house-style/preamble.tex
 BIBS = references.bib $(wildcard references-local.bib)

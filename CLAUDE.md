@@ -16,10 +16,10 @@ This LaTeX project requires **XeLaTeX** (not pdfLaTeX) due to the Charis SIL fon
 
 ```bash
 # Full build sequence
-xelatex main.tex
-biber main
-xelatex main.tex
-xelatex main.tex
+xelatex truth-tracking-profiles.tex
+biber truth-tracking-profiles
+xelatex truth-tracking-profiles.tex
+xelatex truth-tracking-profiles.tex
 
 # Or use automated build
 make              # Full build
@@ -33,7 +33,7 @@ The multiple runs are necessary to resolve all cross-references and citations.
 
 ```
 Truth-Tracking_as_a_Homeostatic_Property_Cluster/
-├── main.tex                  # Main document
+├── truth-tracking-profiles.tex   # The paper
 ├── references.bib            # Bibliography
 ├── .house-style/             # House style snapshot
 │   ├── preamble.tex         # LaTeX preamble
