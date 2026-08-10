@@ -1,21 +1,22 @@
 ---
 slug: truth-tracking-profiles
 kind: paper
-title: 'Truth-Tracking Profiles: What Large Language Models Participate In'
+title: 'Grounding Without Corrective Control: Truth-Tracking Profiles for Large Language Models'
 stage: complete
 external: preprint
 blocked_on:
 - manuscript-revision
-updated: 2026-08-08
+updated: 2026-08-10
 source:
 - STATUS.md
 - PORTFOLIO.md
 venue: Synthese
 preprints:
 - philarchive/REYTPW
-next_action: Reading done 2026-08-08 (all five read bar a closer Pepp pass; notes in notes/). Now draft
-  the seven integration items in "Next actions", led by the new §6 reply to Ruyant's fictionalism and
-  the Millikan stabilizing-function footnote, then run the terminology gate and build the Synthese package.
+next_action: Retitled `Grounding Without Corrective Control` and rebuilt to earn it; two review-board
+  rounds run and worked through (unanimous R&R both rounds, desk-editor proxy now send-for-review).
+  Next is Brett's read, then the submission package: the paper is NOT anonymised and has no Declarations
+  section, which would bounce it before any argument is read.
 notes: 'STATUS.md "Next actions": "1. Submit to Minds and Machines or adjust target if journal fit changes."
   No submission has been made yet (preprint only, PhilArchive REYTPW). PORTFOLIO.md:302 (Venue Coordination
   Flags, updated 2026-07-28): "Three papers point at Minds and Machines ... Delegation Assurance, Truth-Tracking
