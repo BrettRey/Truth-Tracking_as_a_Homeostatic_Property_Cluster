@@ -17,3 +17,9 @@
 # Local literature PDFs live in the central literature store.
 literature/*.pdf
 literature/**/*.pdf
+
+# Venue decision records and submission packages: contain live manuscript
+# numbers, venues siblings are under review with, named candidate reviewers,
+# and acceptance forecasts. This repo is public. Keep local.
+submission/
+notes/agi-evaluation-cross-paper-note.md

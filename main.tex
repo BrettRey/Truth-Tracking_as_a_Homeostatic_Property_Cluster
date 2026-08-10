@@ -58,14 +58,25 @@ separates sensory grounding from thought
 \citep{pavlick_2023_symbols_and_grounding_llms,coelho_mollo_milliere_2026_vector_grounding_problem,chalmers_2023_thought_sensory_grounding_llms}.
 
 Pluralizing grounding still leaves open which dimensions explain truth-relevant success
-and failure across systems. Truth-tracking success depends on distinct stabilizing
-mechanisms that ordinarily operate together: perception, testimony,
-coherence, measurement, intervention, error-correction, and practical success. A system
+and failure across systems. Truth-tracking success depends on distinct
+\term{stabilizers} that ordinarily operate together: perception, testimony,
+coherence, measurement, intervention, error-correction, and practical
+success.\footnote{The term isn't Millikan's. On
+\textcite{grindrod_2024_large_language_models_linguistic_intentionality}'s reading of her
+teleosemantics, a \term{stabilizing function} is conventional and inter-agent: it sits
+between speaker and hearer and explains why a linguistic device keeps being reproduced,
+and he puts that notion to work on language models. A stabilizer here is epistemic and
+world-directed: it explains why a
+representation is answerable to how things are. The distinction matters for
+Section~\ref{sec:llm}, since a device can have a robust stabilizing function in
+Millikan's sense while participating in none of the stabilizers in mine, which is
+arguably the text-only case.} A system
 can take part in some of these and sit out others. Text-only and weakly tooled language
 models make that possibility especially visible.
 
-I argue that these stabilizers form a projectible profile around the successes
-picked out by the predicate \mention{true}. A profile, in
+I argue that these stabilizers form a \term{profile}, and that a system's profile
+warrants bounded projections about the successes picked out by the predicate
+\mention{true}. A profile, in
 this sense, isn't a checklist of individually necessary conditions. It's a pattern of
 routes whose presence, absence, and coupling let us project how a system will do in
 nearby cases \citep{Goodman1955,khalidi2013}.
@@ -78,7 +89,8 @@ they add and where improvement should transfer.
 
 Comparison drives the argument. Self-consistency should help most where the missing support
 is coherence. Retrieval should help most where the missing support is record access.
-Preference feedback should improve conversational fit before it improves answerability.
+Preference feedback should improve conversational fit before it improves answerability,
+the relation that lets discrepancies bear on what a system produces.
 Multimodal input should help some perceptual tasks before it helps calibrated measurement.
 Success for the profile view depends on these contrasts illuminating LLM behaviour better than a single
 verdict about grounding.
@@ -95,7 +107,7 @@ models, inferential outputs), with truth as an abstract object left to one side.
 Section~\ref{sec:profile}
 sets out the stabilizing mechanisms and their Boydian lineage.
 Section~\ref{sec:projectibility} says how the profile supports projection under
-counterfactual perturbation. Section~\ref{sec:adjudication} shows how calibration history
+counterfactual perturbation, and separates stability from corrective control. Section~\ref{sec:adjudication} shows how calibration history
 handles conflict and transfer. Section~\ref{sec:objections} takes objections.
 Section~\ref{sec:llm} develops the language-model profile mechanism by mechanism.
 Section~\ref{sec:conclusion} concludes.
@@ -127,7 +139,7 @@ the clinician's assertion do different representational jobs. Only the last may 
 explicit assertion that the sample contains 3.2 mg of lead, but the others make that
 assertion available, checkable, and defeasible.
 
-Accordingly, the paper leaves a reductive definition of truth to one side. Deflationary
+So the paper leaves a reductive definition of truth to one side. Deflationary
 and minimalist theories can insist that the truth predicate has a
 thin logical or generalizing role, with a substantive causal story kept out of the basic
 theory of truth \citep{horwich_1998_truth}. The profile account can
@@ -142,7 +154,8 @@ that truth involves answerability to how things are
 Here, \term{answerability} names a constraint relation. A representation is answerable
 to a target when discrepancies between the representation and the target can bear on the
 production, uptake, correction, or withdrawal of the representation.\footnote{The lexical
-history of \mention{true} is suggestive evidence only. The OED records Old English
+history of \mention{true} is suggestive evidence only. The \textit{Oxford English
+Dictionary} records Old English
 senses of loyalty, trustworthiness, and veracity, early senses of accordance with fact,
 and later medieval senses of accurate fit, proper purpose, and mechanical alignment
 \citep{oed_true_2026}. A ruler, balance, wheel, or surface can be true when it meets the
@@ -207,7 +220,7 @@ statistical regularities, and local coherence pressures with attenuated percepti
 measurement, intervention, and ordinary practical correction. That profile is enough to
 make truth-relevant assessment possible, uneven, and empirically diagnostic.
 
-\section{Truth-tracking as a projectible mechanism profile}\label{sec:profile}
+\section{Truth-tracking as a stabilizer profile}\label{sec:profile}
 
 Goodman's new riddle fixes the projectibility problem: which predicates support
 projection from known to unknown cases \citep{Goodman1955}? Here, that question concerns
@@ -234,7 +247,7 @@ Second, the epistemic force often lies in the relations among routes. Testimony 
 differently when it's backed by records, instruments, and correction than when it's an
 isolated report.
 
-Boyd supplies the lineage for this profile view. Homeostatic property cluster (HPC) theory
+Boyd supplies the lineage for this profile view. Homeostatic property cluster theory
 explains how real kinds can be projectible in the absence of essences
 \citep{boyd1991,boyd1999}.
 Boyd's later accommodationism supplies the semantic background: successful reference is
@@ -260,11 +273,10 @@ than chance. The truth-tracking profile has tightly coupled regions, and the con
 thin toward its edges. It can project without the whole profile being literally
 homeostatic.
 
-Keeping that distinction in view limits the claim. A stable association can be
-useful below the threshold of homeostasis. A set of features can support some projection
-without corrective feedback actively maintaining it. Homeostasis is the stronger case,
-where mechanisms actively sustain the links and pull the profile back into shape when it
-drifts \citep{reynolds2026notEveryStableCluster}.
+Keeping that distinction in view limits the claim, since a set of features can support
+projection without corrective feedback actively maintaining it
+\citep{reynolds2026notEveryStableCluster}.
+Section~\ref{sec:projectibility} makes the gradations precise.
 
 I narrow Boyd's question to text-trained participants. An LLM can inherit stabilized
 linguistic and testimonial patterns while its instrumental, perceptual, and practical
@@ -317,6 +329,38 @@ succeed in the training cases, the familiar environment, or the current conversa
 context. It projects more strongly when it continues to guide action, inference,
 measurement, and correction after conditions change.
 
+The causal backbone stays deliberately light. In Pearl's hierarchy, the profile begins
+as association among stabilizers, mechanism is identified by perturbation, and
+projectibility is the counterfactual question of what would hold nearby; Pearl's
+intervention operator formalizes that perturbation test
+\citep{pearl2009,pearl2010foundations}. Woodward supplies the manipulability reading: a
+stabilizer is explanatory when interventions on it change the cluster in stable,
+predictable ways \citep{woodward2003MakingThingsHappen,woodward2001}. This
+argument doesn't assume a specifiable graph; it uses the ascent from
+association to intervention to counterfactual projection rather than a full structural
+causal model.
+
+That machinery establishes invariance, which is the weaker of the two things at issue
+here. World-directed claims form a partial order
+\citep{reynolds2026projectibilityHistory}. \term{Stability} says a profile recurs or
+survives declared variation without saying what produces it. \term{Directed dependence}
+says a specified non-accidental relation makes one feature informative about another.
+Neither entails the other, and maintenance includes both.
+
+\term{Corrective control} adds detection and effective correction. It requires a detected
+departure from a reference range or trajectory, a stated higher-scale relation, and an
+admissible perturbation range. A thermometer that no one calibrates satisfies Woodward's
+criterion and sits below that rung: interventions change its readings in stable,
+predictable ways, and nothing in the arrangement catches it when it drifts.
+
+Different regions of the profile are claimed at different rungs. Everyday perception and
+basic coordination carry routes that detect departures and repair them, so corrective
+control is claimed there and evidenced by the repairs. Frontier science, contested law,
+and remote history often support stability and directed dependence without it. The
+language-model case in Section~\ref{sec:llm} turns on that gap: text-only systems inherit
+stable and densely dependent textual structure while participating weakly in detection
+and repair.
+
 A simple example helps. A weather claim repeated from an old webpage may be true when
 the weather is stable and the page is recent. It projects weakly once the date, location,
 or local conditions change. A claim constrained by live measurement, calibrated
@@ -338,9 +382,9 @@ failure. These routes help a truth-relevant output become robust under perturbat
 
 Useful classifications show why \enquote{works in practice} is too coarse on its own. A
 classification can succeed because it tracks a real structure, because the environment
-has been arranged around it, or because a task rewards a proxy. Only the first and some
-forms of the second support the kind of projection at issue here. The profile has to say
-which route is doing the stabilizing.
+has been arranged around it, or because a task rewards a proxy. Only structure-tracking,
+and some forms of environmental arrangement, support the kind of projection at issue
+here. The profile has to say which route is doing the stabilizing.
 
 Coupled routes support projection. A perceptual judgement
 supported by immediate appearance alone projects weakly if it's easily overturned by
@@ -492,6 +536,19 @@ select truth \citep{russell_1907_nature_truth}. The profile account inherits the
 without adopting Russell's theory. Coherence stabilizes as one route among several, and
 its force depends on its coupling to input and correction routes.
 
+Semantic fragmentism gives the coherence-only case its most developed contemporary
+statement. \textcite{havlik_2024_meaning_understanding_llms_synthese} argues that
+linguistic meanings are grounded in a corpus rather than in the world or in any internal
+representation of it, a corpus counting as minimal once further additions leave the
+grounding of its parts unchanged.
+
+His target is meaning rather than truth, so Russell's objection doesn't transfer as a
+refutation. The structural parallel holds anyway. A saturated corpus fixes the meanings
+of its parts whether or not those parts are true of anything, and nothing inside it
+registers drift. Havlík grants that models
+are sensitive to their training data, and that errors in it degrade what they do. Errors
+enter by that route, and the account supplies none by which they leave.
+
 Bayesian work on witness independence and coherence establishes the evidential point:
 agreement confirms more when sources are sufficiently independent than when they
 share a source or an error process
@@ -639,9 +696,38 @@ of a normal hearer who can trust a speaker under standing norms of assertion nor
 of a speaker who takes responsibility for what's asserted. That derivative status
 explains both the reach and the fragility of text-only systems.
 
+\subsection{Outputs as fiction}
+
+A fourth objection denies that the outputs are the right kind of thing to assess.
+\textcite{ruyant_2026_what_do_llms_represent} applies accounts of epistemic
+representation from philosophy of science and concludes that a language model represents
+a constructed class of appropriate linguistic production, fixed by its makers' norms,
+rather than the world. Conversation with a chatbot is then a fiction, and its outputs are
+\enquote{props in a game of make-believe}. Auditing props for answerability would be a
+category error.
+
+Two things about it are right. It reaches by a different route the same fictionalist
+conclusion others have argued for directly. And it states its own scope: Ruyant's
+generalization holds \enquote{to the extent that} such systems aren't trained on direct
+worldly inputs, which is a claim about routes in another vocabulary.
+
+Ruyant supplies the reply himself. He grants that fictions can be performative, since
+generated text becomes student dissertations, professional emails, computer programs,
+news and scientific articles once a human appropriates it. At that point the output stops
+being a prop and becomes something someone is answerable for. His analysis stops there,
+and the ethical conclusion he draws next, that deployment promotes applications for which
+such systems are \enquote{fundamentally untrustworthy}, needs an answerability notion his
+account doesn't supply.
+
+Whether an appropriation is safe depends on which stabilizers were active when the text
+was produced and which ones the appropriating practice adds. A draft taken up by a
+practice with measurement, review, and correction routes is a different object from the
+same draft pasted into a filing. That extends the fictionalist analysis rather than
+refuting it.
+
 \subsection{Non-empirical domains}
 
-A fourth objection comes from mathematics, logic, ethics, fiction, and law. In these
+A fifth objection comes from mathematics, logic, ethics, fiction, and law. In these
 domains, perception, measurement, intervention, and practical success seem peripheral or
 misplaced. If the profile is built around world-contact, it may overfit ordinary
 empirical truth.
@@ -651,8 +737,8 @@ inferential structure, proof norms, notation, memory, testimony, and error-corre
 carry much of the projection. In legal and ethical domains, institutional procedures,
 role differentiation, public reasons, precedents, and contestation can be stabilizing
 even when agreement remains fragile. Fictional truth has its own textual and
-practice-bound constraints. These are thinner or differently coupled regions of the
-profile structure.
+practice-bound constraints. Mathematical, legal, and fictional cases are thinner or
+differently coupled regions of the profile structure.
 
 \subsection{Deflationism and pluralism}
 
@@ -757,8 +843,8 @@ purpose and tested by varying method while holding the target construct fixed
 recoverable from guidelines or institutional records. A paired set uses the same disease
 area, answer format, and difficulty cues and requires a patient-specific lab value,
 observed sign, dose calculation, or intervention-sensitive causal judgement. The profile
-predicts a retrieval gain on the first set and little transfer to the second unless the
-needed measurement or tool route is supplied. Retrieval alone producing the same gain on
+predicts a retrieval gain on the record-recoverable set and little transfer to the
+patient-specific set unless the needed measurement or tool route is supplied. Retrieval alone producing the same gain on
 both sets would count against the carving.
 
 A separate control handles difficulty. Under a pure difficulty explanation, adding
@@ -829,7 +915,8 @@ sequence, live measurement, changing local conditions, or intervention in the ta
 system. Robust transfer across those boundaries would count against the profile
 diagnosis.
 
-Coherence gives the second strong stabilizer. Training and decoding reward genre fit,
+After inherited testimony, coherence is the second stabilizer these systems participate
+in strongly. Training and decoding reward genre fit,
 local well-formedness, smooth inference, and continuation from context. Those
 pressures explain why these systems can display impressive formal linguistic competence,
 in the sense separated from functional world use by \textcite{mahowald2024}. They also
@@ -896,6 +983,80 @@ on its own \citep{shapira2026rlhf}. In the profile terms, these processes streng
 social and evaluative stabilizers and leave perception, measurement, and intervention
 proxy-based.
 
+What fine-tuning does is disputed, and the dispute is worth resolving rather than joining.
+\textcite{grindrod_2024_large_language_models_linguistic_intentionality} treats it as a
+relatively marginal procedure that can't be what makes the difference between
+intentionality and its absence, since models produce apparently meaningful text without
+it. \textcite{ruyant_2026_what_do_llms_represent} treats it as constitutive of what the
+system represents, because the norms of appropriateness a model is tuned toward are what
+fix its target.
+
+Both are right about different stabilizers. Fine-tuning is constitutive of
+appropriateness for a purpose, which is Ruyant's target and is fixed by whoever sets the
+norms. It's marginal to world-directed correction, which is Grindrod's, because nothing
+in preference feedback routes a discrepancy between output and world back into
+production. Reading the disagreement as one about a single quantity called grounding is
+what makes it look unresolvable.
+
+Automated approval layers put the independence question into deployed infrastructure.
+Anthropic's coding agent routes each proposed action through a classifier that blocks
+operations that are \enquote{irreversible, destructive, or aimed outside your
+environment} and passes the rest \citep{anthropic2026automode}. The arrangement adds a
+corrective route. The acting system doesn't detect its own error; a separate component
+gates the action before it lands.
+
+Whether that route is independent is a question about lineage. A gate trained on similar
+data, by the same developer, from a related model family, inherits the error structure of
+the system it checks. Section~\ref{sec:adjudication} separated agreement among
+independently calibrated routes from agreement inherited through a copied source, and a
+same-lineage gate is the copied-source case, whatever its measured accuracy.
+
+Existing evidence fits that concern without settling it.
+\textcite{zheng2023judging} find that model judges misgrade where they lack the relevant
+competence, and misgrade problems they can solve when asked separately, because the
+candidate answer misleads them; GPT-3.5, GPT-4, and Claude-v1 all show the pattern. They
+report self-preference as undetermined rather than established.
+\textcite{gu2025judgeSurvey} treat self-enhancement as a recognized evaluation bias and
+warn that judge-based labelling can amplify biases already present.
+
+The same deployment shows two different ways to make a checking route independent. Apollo
+Research supplied held-out attacks the developer never saw, and the reported gain is
+credited to exactly that: because the set couldn't be tuned against, improvement suggests
+generalization rather than patching \citep{anthropic2026automode}. The hardening itself
+consisted largely of giving the classifier more contact with its environment, including
+repository visibility and git state.
+
+Those work differently, and the difference matters for the lineage worry. Held-out
+testing makes a checker independent in provenance. Environmental context makes it
+independent in what it can see. A gate reading repository visibility and git state has
+access that a text-prediction route doesn't, whatever the two share upstream. Independence
+is a fact about which routes feed a checker, not only about where it came from.
+
+Deployment figures complicate this usefully. Users reject 3\% of individual permission
+requests and 39\% of plans put to them for approval, and a quarter of interactive
+sessions begin with permissions bypassed outright \citep{anthropic2026automode}. Same
+users, same system, two approval dialogues. Whatever explains the 3\%, it isn't that
+attention is scarce in general.
+
+A controlled study points the same way. Across 1,053 paid testers, one prompt per session
+was swapped for a clearly dangerous command; testers caught 13.6\% while the classifier
+blocked 89\%, and head to head it blocked 800 commands a human had approved against six
+the other way. Catch rates fell with session length, from about 17\% early to about 5\%
+after fifty prior prompts, while the classifier's held flat.
+
+Its setting isn't the deployment, which limits what it shows. Participants worked in a
+purpose-built environment rather than their own repositories, and knew they were being
+evaluated. Those two departures pull opposite ways, since observation should raise care
+and absent stakes should lower it, so the figure can't be signed in either direction. It
+corroborates the usage numbers rather than replacing them.
+
+Read as a verdict on human oversight, this counts against the profile view. Read through
+the participation distinction it says something narrower. An approval step that gets
+clicked through is decorative rather than corrective, and a route nobody exercises
+stabilizes nothing. Decay over a session is what non-exercise looks like from outside,
+and the gap between 3\% and 39\% locates the lapse in this route rather than in the
+people using it.
+
 Coelho Mollo and Millière press the strongest neighbouring challenge. They distinguish
 kinds of grounding and argue that some LLM states can satisfy causal-historical or
 teleosemantic conditions for referential grounding
@@ -908,11 +1069,43 @@ system \citep{mallory_2026_teleosemantics_word_embeddings}.
 Teleosemantic pressure of this kind fits the baseline text-only case. The reply grants content and
 asks which stabilizers that content participates in.
 
+The concession is worth making in full, because recent work has closed the easy routes to
+scepticism one at a time. Reference can be secured by the natural histories of a model's
+inputs, without beliefs about or experience of the referent
+\citep{mandelkern_linzen_2024_do_language_models_words_refer}. The historical picture of
+Intentions are the wrong place to look, and the live
+question is whether such systems achieve a basic reference prior to propositional
+attitudes \citep{pepp_2025_reference_without_intentions_llms}. The argument from communicative
+intention fails at both premises
+\citep{attah_2025_do_language_models_lack_communicative_intentions}. And linguistic
+metasemantics, unlike mental metasemantics, delivers meaning for systems that depend on a
+pre-existing language \citep{grindrod_2024_large_language_models_linguistic_intentionality}.
+
+Grant all of it. What none of these results supplies is an account of how a practice
+detects error about the world and repairs it. Meaning and reference can be inherited
+whole from a pre-existing system. Detection and repair can't, because they need routes
+that inheriting the system doesn't deliver.
+
 Referential grounding covers one dimension of world-connection. Truth-tracking answerability
 depends on a wider profile of stabilizers, including correction, measurement,
 intervention, perception, and practical feedback. An LLM state might be referentially
 grounded in their sense even as the deployed system has a fragile truth-tracking profile
 for tasks requiring independent checking.
+
+Mandelkern and Linzen make the gap vivid without meaning to. They close with Izzy, isolated from
+birth in a sensory-deprivation chamber and reaching the world only through a text screen,
+and they argue that externalism dissolves the puzzle about how his words
+refer \citep{mandelkern_linzen_2024_do_language_models_words_refer}. Grant it. Izzy also
+can't check anything. His reference is secure and his answerability is nil, which is the
+dissociation this paper is about, drawn by philosophers arguing the other side.
+
+Pepp presses the harder version. She suggests that such systems may contact objects
+through their exchanges with users, coming into contact with whatever shaped a user's
+input \citep{pepp_2025_reference_without_intentions_llms}. The participation distinction
+splits that case. An uploaded image is an operational perceptual route, and the profile
+says so. Contact with the objects that shaped a user's text is inherited: the perceiving
+was done by someone else, and nothing in the exchange reports back when the user was
+wrong.
 
 Route-specific transfer gives the strongest test. Improvements in one route should remain
 limited where a task depends on a different stabilizer. If reliable perception,
