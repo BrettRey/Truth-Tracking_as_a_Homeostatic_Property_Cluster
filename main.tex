@@ -455,7 +455,8 @@ here. World-directed claims form a partial order
 \citep{reynolds2026projectibilityHistory}. \term{Stability} says a profile recurs or
 survives declared variation without saying what produces it. \term{Directed dependence}
 says a specified non-accidental relation makes one feature informative about another.
-Neither entails the other, and maintenance includes both.
+Neither entails the other, which is what makes the order partial rather than a ladder, and
+maintenance includes both.
 
 \term{Corrective control} adds detection and effective correction, and it's target- and
 range-relative rather than a property an arrangement has outright. Its strength, for a
@@ -630,18 +631,25 @@ answering under a particular profile of records, tools, and checks. At that poin
 reliabilist has reproduced the profile-level carving. The difference is methodological:
 the profile account requires that carving before the transfer is granted.
 
-Two cases pull the accounts apart rather than letting either absorb the other. A newly
-calibrated instrument has no track record, so an estimate of process reliability has
-nothing to work from, while its standards, logs, and downstream checks already fix how a
-discrepancy would show up. The profile licenses use now and a track-record account has to
-wait. Run it the other way: a long-reliable procedure whose checks are quietly withdrawn
-keeps its record intact and loses its answerability the moment they go, and the profile
-predicts failures under perturbation before any appear in the record.
+Two cases show where the accounts come apart in practice. A newly
+calibrated instrument has no track record of its own, while its standards, logs, and
+downstream checks already fix how a discrepancy would show up. Run it the other way: a
+long-reliable procedure whose checks are quietly withdrawn keeps its record intact while
+the routes that produced it are gone.
 
-The reliabilist can re-individuate after either case, and will. Re-individuating requires
-knowing which checks were carrying the reliability, and supplying that's the profile's
-job. So the disagreement isn't between two theories of one property. It's between taking a
-track record at face value and asking what produced it.
+Neither case refutes reliabilism. A reliabilist
+who assesses process types rather than individual track records handles both. The new
+instrument inherits the reliability of a type it belongs to by calibration, and withdrawing
+the checks changes which type is in play. The reliabilist can re-individuate after either
+case, and will.
+
+What that concedes is smaller than it looks. Type membership has to be fixed by something,
+and re-individuating requires knowing which checks were carrying the reliability, which is
+what the profile supplies. So the disagreement isn't about
+entitlement to project. It's about which variable predicts when projection fails, and the
+profile names one: a reliability estimate carried across a change that removes the
+cross-source checks should degrade, and an account that leaves that variable out will
+predict worse. Section~\ref{ssec:transfer} says how to test it.
 
 \subsection{Adjudicating mechanism conflict}
 
@@ -844,8 +852,9 @@ Section~\ref{sec:adjudication} gave the central case. A source can retain
 its local success record while losing the correction background that made that success
 travel. The profile view predicts weaker transfer in that case, because the missing
 cross-source links matter before a fresh reliability score has been established.
-A careful reliabilist can reconstruct the same grain after the fact; the divergence
-concerns the default entitlement to transfer. For complex systems, that move raises the
+A careful reliabilist can reconstruct the same grain after the fact; the divergence is
+predictive rather than deontic. The profile names the variable whose absence predicts
+degraded transfer, and an account that ignores it makes worse predictions. For complex systems, that move raises the
 generality problem for reliabilism at system scale
 \citep{conee_feldman_1998_generality_problem_reliabilism}.
 Pretraining, filtering, RLHF, retrieval, tools, prompts, and institutional uptake can be
@@ -912,17 +921,23 @@ worldly inputs, which is a claim about routes in another vocabulary.
 
 Ruyant supplies the reply himself. He grants that fictions can be performative, since
 generated text becomes student dissertations, professional emails, computer programs,
-news and scientific articles once a human appropriates it. At that point the output stops
-being a prop and becomes something someone is answerable for. His analysis stops there,
+news and scientific articles once a human appropriates it. His analysis stops there,
 and the ethical conclusion he draws next, that deployment promotes applications for which
 such systems are \enquote{fundamentally untrustworthy}, needs an answerability notion his
 account doesn't supply.
 
-Whether an appropriation is safe depends on which stabilizers were active when the text
-was produced and which ones the appropriating practice adds. A draft taken up by a
-practice with measurement, review, and correction routes is a different object from the
-same draft pasted into a filing. That extends the fictionalist analysis rather than
-refuting it.
+Appropriation doesn't have to convert one kind of object into another, and the profile
+doesn't need it to. One string can be correct in the game, false about the world, effective
+as an artifact, and something a user is answerable for, all at once. Those are different
+correctness targets, and the account is target-indexed already.
+
+So the question isn't whether the output is still a prop. It's which target is being
+assessed, and which routes were live for it: the ones active when the text was produced,
+and the ones the appropriating practice adds. A draft taken into a practice with
+measurement, review, and correction has a different profile against the world as target
+than the same draft pasted into a filing, while remaining the same string and, in the
+make-believe, the same prop. That extends the fictionalist analysis rather than refuting
+it.
 
 \subsection{Non-empirical domains}
 
@@ -994,6 +1009,12 @@ corrective, as when feedback changes later behaviour. It can also be decorative,
 as when an output mentions experiments, sources, or measurements with the relevant
 constraint absent.
 
+These are modes, not bins. A retrieval that returns a passage half-containing the answer
+constrains the output partly, and decorative participation is the limit of operational
+participation as the constraint goes to zero. The name earns its place because that limit
+is common and has a characteristic look, which is the language of measurement without
+measurement.
+
 Corrective participation divides by horizon, and in-context correction is the case that
 makes the division visible. A user who supplies a counterexample mid-session can change
 what the arrangement produces from that turn on, which satisfies the fifth condition
@@ -1007,15 +1028,50 @@ The four modes bear on the conditions of Section~\ref{sec:projectibility}, thoug
 apiece. Section~\ref{sec:profile} said a single route can occupy several positions, and
 the same holds here: a live measurement can supply target access, register the
 discrepancy, attribute it, and drive the revision. What follows are characteristic
-contributions, not assignments.
+contributions, not assignments. Table~\ref{tab:crosswalk} indexes the three enumerations
+against one another so they can be applied together.
 
-Inherited participation supplies \term{derivative answerability}. Discrepancies already
-registered in the source practices shape present production through the training history,
-which is a delayed route of the kind Section~\ref{sec:target} allows. What it doesn't
-supply is a live route: a discrepancy arising after that history is fixed has no way to
-reach the current output. The distinction isn't between answerability and none. It's
-between answerability inherited from corrections that already happened and answerability
-to what's the case now.
+\begin{table}[tbp]
+\centering\small
+\caption{Positions, the conditions they chiefly bear on, and the mode that characteristically
+supplies them. A single route can occupy several positions, so the mapping is characteristic
+rather than exhaustive.}\label{tab:crosswalk}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.21\linewidth}
+ >{\raggedright\arraybackslash}p{0.42\linewidth}
+ >{\raggedright\arraybackslash}p{0.29\linewidth}@{}}
+\toprule
+Position & Condition it chiefly bears on & Characteristic mode \\
+\midrule
+Target access & first: target-relevant variation reaches the arrangement &
+operational, or inherited where the route is historical \\
+Integration & third: whether the checking signal reproduces the production route's error &
+operational \\
+Discrepancy handling & second and fourth: detectable against a standard, attributable
+enough to guide a response &
+corrective \\
+Practical feedback & fifth: detection actually alters production, at a rate &
+corrective \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Decorative participation has no column of its own because it mimics any row and supplies
+none of them.
+
+Inherited participation supplies \term{derivative answerability}, and supplies it only on a
+condition. Discrepancies already registered in the source practices shape present
+production through the training history, which is a delayed route of the kind
+Section~\ref{sec:target} allows. Causal descent isn't enough by itself. Dense propaganda
+leaves distributional traces as robust as a measurement literature's, and a system trained
+on it inherits the shape of a practice with no truth-sensitive signal in it. What has to
+survive the training history is the residue of corrections made against the world rather
+than against an audience, a rater, or a party line.
+
+Three things come apart here. Causal inheritance, which any dense corpus supplies.
+Derivative answerability, which needs the inherited corrections to have been
+world-directed. And live answerability, which needs a route from a fresh discrepancy to the
+current output. Inherited participation never supplies the third: once the training history
+is fixed, a discrepancy arising after it has no way to reach production.
 
 Training against verifiable rewards tests this. When a model is optimized against unit
 tests, a proof checker, or execution results, a discrepancy between output and world is
@@ -1374,9 +1430,13 @@ with route-specific non-exercise though it doesn't isolate the route from interf
 burden, action granularity, or perceived stakes. A controlled study points the same
 way, with human testers catching 13.6\% of planted dangerous commands against the
 classifier's 89\%, though its participants worked in a purpose-built environment and knew
-they were being evaluated \citep{anthropic2026automode}.}
+they were being evaluated \citep{anthropic2026automode}. Both figures are a vendor's
+self-report about its own product and haven't been independently audited, which is worth
+saying in a paper whose third condition asks that a checking signal not reproduce the
+production route's error. They're used here to illustrate the availability and exercise
+gap, not to measure it.}
 
-\subsection{Empirical transfer}
+\subsection{Empirical transfer}\label{ssec:transfer}
 
 Route-specific transfer gives the strongest test. Improvements in one route should remain
 limited where a task depends on a different stabilizer. If reliable perception,
