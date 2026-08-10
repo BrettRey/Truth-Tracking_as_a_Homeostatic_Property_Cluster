@@ -6,10 +6,23 @@
 
 % Update PDF metadata
 \hypersetup{
-  pdftitle={Truth-Tracking Profiles: What Large Language Models Participate In}
+  pdftitle={Grounding Without Corrective Control: Truth-Tracking Profiles for Large Language Models},
+  pdfkeywords={large language models; grounding; answerability; corrective control; projectibility; truth-tracking; philosophy of AI}
 }
 
-\title{Truth-Tracking Profiles:\\ What Large Language Models Participate In}
+% The project's preamble snapshot predates \aidisclosure (added centrally 2026-07-16).
+% Defined here rather than by refreshing the snapshot, which carries guarded local font
+% paths this build depends on. Drop this block when the snapshot is refreshed.
+\providecommand{\aidisclosure}[1]{%
+  \par\medskip
+  \noindent{\small\textsc{AI use.}\enspace The large language models #1 served as
+  drafting and editing aids throughout the preparation of this paper. I am
+  responsible for all theoretical claims, arguments, errors, and interpretive
+  choices.\par}%
+  \medskip
+}
+
+\title{Grounding Without Corrective Control:\\ Truth-Tracking Profiles for Large Language Models}
 \author{Brett Reynolds \orcidlink{0000-0003-0073-7195}%
 \thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
 Humber Polytechnic \& University of Toronto}
@@ -19,24 +32,34 @@ Humber Polytechnic \& University of Toronto}
 \maketitle
 
 \begin{abstract}
-Debates about large language model grounding often ask whether model representations
-connect to the world. That framing is too coarse. This paper treats world-connection as a
-profile: a pattern of participation in several stabilizing routes to representational
-success~-- perception, testimony, coherence, measurement, intervention, error-correction,
-and practical success. A route is stabilizing when it lets facts, or practices already
-adjusted to facts, constrain what a system produces and how its errors are corrected. The
-profile explains why truth-relevant successes travel together, why they fail in patterned
-ways, and what a system's stabilizing background lets us predict.
+Recent work makes a strong case that at least some large language model representations
+have content or reference. That leaves a different question open. Grounding can secure
+content, reference, or correctness conditions without supplying the live, sufficiently
+independent routes through which a discrepancy with the target is detected and made to
+alter production, uptake, withdrawal, or later behaviour. Call the weaker relation
+answerability and the stronger one corrective control. This paper analyses both as a
+profile: a pattern of participation in routes that give target access, integrate
+representations, handle discrepancies, and register practical success or failure.
+Answerability comes in degrees; corrective control is the case where answerability
+includes both detection and an effective route to repair.
 
 Language models provide the pressure case. Text-trained systems inherit dense textual
-traces of testimony and local coherence and participate weakly in perception,
-measurement, intervention, and practical correction. The result is a familiar failure
-signature: fluent, coherent outputs can lose answerability when tasks require
-independent routes to the facts. Self-consistency, retrieval, tools, code execution,
-multimodal input, and preference or action feedback should help only where they
-strengthen the needed stabilizer~-- a contrast a matched-task design can test. Surface
-improvement and truth-tracking improvement can come apart.
+traces of testimony and local coherence, which leaves them answerable in some measure,
+and participate weakly in perception, measurement, intervention, and practical
+correction, which leaves them without corrective control over most of what they assert.
+The result is a familiar failure signature: fluent, coherent outputs that hold up until a
+task needs an independent route to the facts. Self-consistency, retrieval, tools, code
+execution, multimodal input, and preference or action feedback should help where they
+supply the route a task requires and not otherwise, so the prediction is an interaction
+between intervention and task rather than a general gain. A matched-task design can test
+it. Surface improvement and truth-tracking improvement can come apart.
 \end{abstract}
+
+\noindent\textbf{Keywords:} large language models; grounding; answerability; corrective
+control; projectibility; truth-tracking; philosophy of AI
+
+\aidisclosure{Anthropic Claude Opus 4.8, Fable 5, and Opus 5; and OpenAI Codex using
+GPT-5.5}
 
 \section{Introduction: from grounding to profiles}\label{sec:intro}
 
@@ -95,11 +118,22 @@ Multimodal input should help some perceptual tasks before it helps calibrated me
 Success for the profile view depends on these contrasts illuminating LLM behaviour better than a single
 verdict about grounding.
 
-A modest lesson for truth theory follows. Correspondence, coherence, pragmatism,
-reliabilism, deflationism, and social epistemology each capture a real
-stabilizer once located inside a wider ecology of answerability, correction, and
-projection. I aim to make that ecology precise enough to guide
-comparison.
+A modest lesson follows, and it's about epistemic architecture rather than about truth.
+Correspondence, coherence, pragmatism, reliabilism, deflationism, and social epistemology
+each foreground a relation or process that can contribute to answerability. They're not
+thereby competing theories of one stabilizer, and the profile isn't a reconciliation of
+them. I aim to make the architecture precise enough to guide comparison.
+
+Three things are new here. The first is the dissociation itself: recent metasemantics
+settles content and reference for these systems and leaves untouched whether a
+discrepancy can reach production, so grounding and corrective control, the capacity to
+detect a mismatch and act on it, come apart, and the second doesn't follow from the first.
+The second is an account of what closes that gap, stated as five conditions on the
+output-producing arrangement rather than as a list of epistemic goods, with answerability
+graded beneath it. The third is a prediction the account can lose: because
+interventions supply particular routes, their benefit should depend on which route a task
+requires, so the expected result is an interaction between intervention and task rather
+than a general gain, and indiscriminate transfer would count against the carving.
 
 Section~\ref{sec:target} first fixes the target: the relevant
 cases are representational successes (beliefs, assertions, inscriptions, measurements,
@@ -235,10 +269,51 @@ projectible from others \citep{khalidi2013}.
 I adapt the framework narrowly to the representational successes fixed in
 Section~\ref{sec:target}; the stabilizers explain why those cases support projection.
 Perception, testimony, coherence, measurement, intervention, error-correction, and
-practical success are linked routes through which representational outputs become more or
+practical success are the routes through which representational outputs become more or
 less answerable to the world. Khalidi's later \enquote{nodes in causal networks}
 formulation gives the graph vocabulary for this representation
 \citep{khalidi_2018_natural_kinds_nodes_causal_networks}.
+
+Listed flat, they look like a miscellany of epistemic goods, and they aren't coordinate.
+They occupy four positions in an architecture. \term{Target access} covers the routes by
+which the world reaches a representation: perception, testimony and records, measurement,
+and intervention. \term{Integration} covers relations among representations, chiefly
+coherence and inference. \term{Discrepancy handling} covers what happens once a mismatch
+appears: detection, attribution, correction, withdrawal, updating. \term{Practical
+feedback} covers success and failure in use.
+
+An item can occupy more than one position, which is why the flat list misleads.
+Measurement supplies target access, generates discrepancies, and takes part in
+calibration. Practical failure can reveal that perception, testimony, or inference has
+drifted. Table~\ref{tab:layers} sets the positions out.
+
+\begin{table}[tbp]
+\centering\small
+\caption{Positions in the answerability architecture.}\label{tab:layers}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\linewidth}
+ >{\raggedright\arraybackslash}p{0.34\linewidth}
+ >{\raggedright\arraybackslash}p{0.36\linewidth}@{}}
+\toprule
+Position & Routes & What its absence costs \\
+\midrule
+Target access & perception; testimony and records; measurement; intervention &
+the world can't reach the representation at all \\
+Integration & coherence; inference &
+inputs can't be brought into contact with one another \\
+Discrepancy handling & detection; attribution; correction; withdrawal; updating &
+a mismatch can arise and leave nothing changed \\
+Practical feedback & success and failure in use &
+error stays costless, so nothing selects against it \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Section~\ref{sec:projectibility} grades the third position in particular. Target access,
+integration, and practical feedback say where constraint comes from; discrepancy handling
+says whether constraint does anything when it conflicts with what the arrangement
+produced. That's why error-correction sits oddly in a flat list: it isn't a further source
+alongside perception and testimony, but the dimension on which an arrangement with
+plenty of sources can still fail.
 
 Calling the result a profile marks two points. First, different routes can dominate in
 different domains. Proof norms matter more in mathematics than ordinary perception does;
@@ -347,11 +422,26 @@ survives declared variation without saying what produces it. \term{Directed depe
 says a specified non-accidental relation makes one feature informative about another.
 Neither entails the other, and maintenance includes both.
 
-\term{Corrective control} adds detection and effective correction. It requires a detected
-departure from a reference range or trajectory, a stated higher-scale relation, and an
-admissible perturbation range. A thermometer that no one calibrates satisfies Woodward's
-criterion and sits below that rung: interventions change its readings in stable,
-predictable ways, and nothing in the arrangement catches it when it drifts.
+\term{Corrective control} adds detection and effective correction, and it's target- and
+range-relative rather than a property an arrangement has outright. An arrangement exhibits
+it, for a given target and perturbation range, when five conditions hold. Target-relevant
+variation can reach the arrangement through an operative route. A discrepancy can be
+detected against an applicable standard. The checking signal isn't merely a reproduction
+of the production route's error. The discrepancy is attributable enough to guide a
+response. And detection can alter production, uptake, withdrawal, or later behaviour
+within the relevant range.
+
+These conditions fix the relation to answerability rather than competing with it.
+Answerability comes in degrees, and its strength depends on how specific, repeatable, and
+proximate the route is. Corrective control is the stronger case, where answerability
+includes both discrepancy detection and an effective route to repair. So an arrangement
+can be answerable in some measure while lacking corrective control over the targets at
+issue, which is the situation Section~\ref{sec:llm} describes.
+
+A thermometer that no one calibrates makes the gap concrete. It satisfies Woodward's
+criterion, since interventions change its readings in stable and predictable ways, and it
+fails the second and fifth conditions: no standard is consulted, and nothing in the
+arrangement changes when it drifts.
 
 Different regions of the profile are claimed at different rungs. Everyday perception and
 basic coordination carry routes that detect departures and repair them, so corrective
@@ -483,6 +573,19 @@ answering under a particular profile of records, tools, and checks. At that poin
 reliabilist has reproduced the profile-level carving. The difference is methodological:
 the profile account requires that carving before the transfer is granted.
 
+Two cases pull the accounts apart rather than letting either absorb the other. A newly
+calibrated instrument has no track record, so an estimate of process reliability has
+nothing to work from, while its standards, logs, and downstream checks already fix how a
+discrepancy would show up. The profile licenses use now and a track-record account has to
+wait. Run it the other way: a long-reliable procedure whose checks are quietly withdrawn
+keeps its record intact and loses its answerability the moment they go, and the profile
+predicts failures under perturbation before any appear in the record.
+
+The reliabilist can re-individuate after either case, and will. Re-individuating requires
+knowing which checks were carrying the reliability, and supplying that's the profile's
+job. So the disagreement isn't between two theories of one property. It's between taking a
+track record at face value and asking what produced it.
+
 \subsection{Adjudicating mechanism conflict}
 
 When two stabilizers disagree, say perception reports one thing and well-attested
@@ -572,8 +675,10 @@ under perturbations that remove the missing checks.
 
 A network view also foregrounds a cross-domain pattern that source-by-source accounts
 tend to leave implicit: disagreement should cluster where the independent marks of
-connectivity are thin. Khalidi treats causal strictness and network density as dimensions
-along which categories support stronger or weaker projection \citep{khalidi2013}. The
+connectivity are thin. Khalidi plots degrees of projectibility along two dimensions, the generality of the
+projections a predicate supports and their variety, taking these to be orthogonal though
+each can compensate for weakness in the other
+\citep{khalidi_2018_natural_kinds_nodes_causal_networks}. The
 stabilizers of truth-relevant success should be densely linked where they've been
 jointly disciplined, and sparsely linked where they haven't. Persistent disagreement
 should cluster in the sparsely connected regions.
@@ -635,17 +740,33 @@ abstraction, and where you set its boundaries all answer to explanatory interest
 network never fixes a unique, interest-free carving of kinds. If that's right, the
 profile of truth-relevant success is only as objective as our purposes.
 
-I concede the premise and limit the consequence. The account makes two
-claims, both purpose-relative and both revisable: systems missing perceptual and
-verificational stabilizers should show the failure pattern described in Section~\ref{sec:llm},
-and connectivity should track selection history, institutional age, and measurement
-infrastructure (Section~\ref{sec:adjudication}). Each holds once the representational
-purpose is fixed, and either can fail if the stabilizers are misdescribed.
+The objection assumes that an account of kinds owes an interest-free carving. Khalidi's
+own doesn't. He treats the sciences as studying a jumble of partially overlapping domains,
+each with its own toolkit of categories and methods, and holds that where two schemes sort
+members into categories that don't coincide there's often no ground for ruling either
+scheme non-natural \citep{khalidi2013}. Isotopic and isobaric nuclides carve the same atoms
+differently. Both carve something real.
 
-\textcite{onishi_serpico_2022} reach the same general verdict, that interest-relativity is
-ineliminable, and Khalidi's domain pluralism leaves room for this move
-\citep{khalidi2013}. The account makes the operative interest explicit and keeps it
-visible.
+The reply has a metaontological cousin. On an easy approach to ontology, existence
+questions are settled by trivial inferences licensed by a concept's rules of use, which
+moves the substantive work from whether the entities exist to which concepts we should
+employ and why \citep{thomasson2015ontologyMadeEasy}. Nothing here depends on that general
+thesis. The direction is shared: asking whether a carving is interest-free is less useful
+than asking what the category is for and whether it delivers.
+
+So purpose-relativity isn't a concession wrung from the account. It's the condition under
+which the account says anything at all. What matters is whether the purpose is declared
+before the verdicts are collected, and whether the claims it licenses can fail. Held to
+the representational purpose of Section~\ref{sec:projectibility}, two claims follow:
+systems missing perceptual and verificational stabilizers should show the failure pattern
+of Section~\ref{sec:llm}, and connectivity should track selection history, institutional
+age, and measurement infrastructure (Section~\ref{sec:adjudication}).
+
+A sharper version of the objection would bite, and it's worth separating. If the purpose
+were chosen after the verdicts were in, to secure them, the account would be
+unfalsifiable. Section~\ref{sec:adjudication} blocks that by characterizing connectivity
+through marks established before present agreement is checked. Declaring the interest is
+what makes the account refutable, not what excuses it.
 
 \subsection{Relabeling and absorption}
 
@@ -696,6 +817,21 @@ of a normal hearer who can trust a speaker under standing norms of assertion nor
 of a speaker who takes responsibility for what's asserted. That derivative status
 explains both the reach and the fragility of text-only systems.
 
+The objection has a sharper form that the concession doesn't yet answer. Causal descent
+from testimonial practice isn't participation in it, and something has to survive corpus
+selection, tokenization, optimization, and generation for epistemic support rather than
+mere influence to be inherited. So the claim needs a preservation condition, and the
+distributional character of the inheritance supplies one. What survives is whatever shapes
+the distribution of forms: the shape of a practice, its characteristic moves, the
+regularities that hold across many reports. What doesn't survive is anything carried by a
+particular token rather than by the pattern, which is why source identity, provenance, and
+defeaters go, and why verbatim anchors get fabricated at the rate they do.
+
+Call the surviving relation \term{documentary inheritance} if \enquote{testimony} strains
+too far. The label matters less than the condition, which is checkable in the way
+Section~\ref{sec:llm} sets out: properties recoverable from distribution should be
+inherited, and properties carried by individual provenance shouldn't be.
+
 \subsection{Outputs as fiction}
 
 A fourth objection denies that the outputs are the right kind of thing to assess.
@@ -732,13 +868,19 @@ domains, perception, measurement, intervention, and practical success seem perip
 misplaced. If the profile is built around world-contact, it may overfit ordinary
 empirical truth.
 
-Different regions privilege different stabilizers. In mathematical and logical cases,
-inferential structure, proof norms, notation, memory, testimony, and error-correction
-carry much of the projection. In legal and ethical domains, institutional procedures,
-role differentiation, public reasons, precedents, and contestation can be stabilizing
-even when agreement remains fragile. Fictional truth has its own textual and
-practice-bound constraints. Mathematical, legal, and fictional cases are thinner or
-differently coupled regions of the profile structure.
+Narrow the scope and the objection loses its grip. This account targets world-directed
+representational success, where getting it right means getting some independently
+variable matter right, and where the LLM argument lives. Mathematics is
+instructive as a contrast rather than as an extension: proof and formal checking supply
+detection and correction of their own, so an arrangement can be under corrective control
+there with no perceptual or instrumental route at all. That the architecture has
+non-empirical instances is a point in its favour; it isn't a claim that this paper has
+characterized them.
+
+Law, ethics, and fiction I mark as possible extensions and leave open. Institutional
+procedure, role differentiation, precedent, and contestation look like discrepancy
+handling in the sense used here, but saying so would need the kind of case work the
+empirical argument has received, and nothing below depends on it.
 
 \subsection{Deflationism and pluralism}
 
@@ -755,8 +897,24 @@ projectible stabilizer profile of truth-relevant success.
 
 \section{The LLM case: participation, not a verdict}\label{sec:llm}
 
-Start with the bearer. Different LLM systems have different
-truth-tracking profiles. A pretrained text model, an
+\subsection{The bearer and the modes of participation}
+
+Start with the bearer, because the obvious candidates don't work. A profile doesn't belong
+to a model, since the same model has different profiles on different tasks. It doesn't
+belong to an output, which has no routes of its own. And it can't belong to the whole
+surrounding practice, or every deployment inherits the epistemic credit of human science.
+
+The bearer is the \term{arrangement}: whatever produces the output, indexed to a target, a
+task, and the routes actually live for that task. An arrangement may include the model,
+the prompt, retrieved records, tools, sensors, checkers, human reviewers, and update
+channels. Fixing it this way settles several questions at once. Retrieval belongs to the
+arrangement when it runs, not to the model. Human appropriation changes the arrangement
+rather than adding a gloss to a fixed one. Inherited participation belongs to the
+arrangement's causal history. And a nominally multimodal or tool-using system reverts to a
+text-only profile whenever those channels sit idle, which is why the same product earns
+different verdicts on different work.
+
+Different arrangements then have different profiles. A pretrained text model, an
 instruction-tuned chat model, a retrieval-augmented system, a tool-using agent, a
 multimodal model, and an experimentally embedded robot have different stabilizing
 backgrounds. The theory asks us to compare them: change the stabilizers, and the
@@ -772,6 +930,15 @@ retrieval, tools, sensors, or instruments constrain the present output. It can b
 corrective, as when feedback changes later behaviour. It can also be decorative,
 as when an output mentions experiments, sources, or measurements with the relevant
 constraint absent.
+
+The four modes map onto the conditions of Section~\ref{sec:projectibility}. Inherited
+participation supports answerability in some measure and supplies no detection, since
+nothing in a training corpus registers a discrepancy arising now. Operational
+participation supplies target access, the first condition. Corrective participation is
+what can carry the remaining four, and only when the feedback is attributable and reaches
+production. Decorative participation supplies none of them while resembling all of them.
+An arrangement built entirely from the first and last modes is answerable without being
+under corrective control, which is the paper's title case.
 
 With these distinctions, participation doesn't collapse into metaphor. Inherited
 participation explains why a text-only system can know its way around a domain whose
@@ -799,6 +966,8 @@ attributable feedback about the produced artifact.
 Self-consistency prompting samples multiple completions or reasoning paths and privileges
 convergence among them; it strengthens internal convergence. An external check requires a
 separate route to the relevant facts.
+\subsection{Route-specific interventions}
+
 Instruction tuning and RLHF change the model's policy through demonstrations,
 preferences, benchmarks, or evaluations; they add a social or evaluative correction
 channel whose target depends on the feedback.\footnote{Preference signals have factual
@@ -841,15 +1010,27 @@ argumentation in measurement: inferences from performance are licensed relative 
 purpose and tested by varying method while holding the target construct fixed
 \citep{messick_1989_validity,kane2013validating}.} One item set asks for recommendations
 recoverable from guidelines or institutional records. A paired set uses the same disease
-area, answer format, and difficulty cues and requires a patient-specific lab value,
-observed sign, dose calculation, or intervention-sensitive causal judgement. The profile
+area and answer format and requires a patient-specific lab value, observed sign, dose
+calculation, or intervention-sensitive causal judgement. The profile
 predicts a retrieval gain on the record-recoverable set and little transfer to the
 patient-specific set unless the needed measurement or tool route is supplied. Retrieval alone producing the same gain on
 both sets would count against the carving.
 
-A separate control handles difficulty. Under a pure difficulty explanation, adding
-the relevant lab value or calculator should leave the gap in place. Under the stabilizer
-explanation, the added route should selectively restore performance.
+Matching the sets on difficulty cues won't do, and the reason is worth stating. An
+intervention that supplies a missing lab value also makes the item easier, so a
+difficulty explanation and a route explanation both predict a gain, and a cue-matched
+design can't separate them. Equate the sets instead on measured baseline accuracy without
+the intervention. A differential gain across sets already equated on baseline performance
+isn't a difficulty effect.
+
+Accuracy alone still won't discriminate the profile from a coverage rival, on which
+retrieval helps wherever the answer happens to sit in the retrieved text. The distinction
+between distributional and archival inheritance supplies a test that does. Score each
+output twice, once for substantive aptness and once for whether its verbatim anchors
+resolve: quotations, identifiers, dosages, citations. A text-only system should be apt
+more often than it's anchored, and retrieval should move anchoring sharply while moving
+aptness less. A coverage explanation predicts the two move together, since more of the
+right text should improve both.
 
 A deployed product may occupy several rows at once. A chat system can be
 instruction-tuned, retrieval-augmented, partly tool-using, and multimodal. The profile
@@ -891,6 +1072,8 @@ Action-guided or expert-reviewed system & Practical feedback, review, and downst
 \caption{Architecture-sensitive profile predictions.}
 \label{tab:llm-profiles}
 \end{table}
+
+\subsection{Inherited structure and missing anchors}
 
 Derivative inheritance cuts both ways. Human text is saturated with world-directed
 practice. It contains the residue of people looking, measuring, arguing, repairing,
@@ -971,6 +1154,8 @@ unavailable to a text-only model. A deployed chatbot that receives delayed appro
 engagement metrics, or sparse user edits has a thinner corrective route. The label
 \enquote{feedback} hides that difference unless the stabilizer is specified.
 
+\subsection{What the correction channels correct}
+
 Instruction tuning, RLHF, benchmark evaluation, red-teaming, and expert review function as
 correction channels, and they should be classified by what they correct. They often impose
 helpfulness, harmlessness, preference satisfaction, conversational fit, and benchmark
@@ -993,69 +1178,13 @@ fix its target.
 
 Both are right about different stabilizers. Fine-tuning is constitutive of
 appropriateness for a purpose, which is Ruyant's target and is fixed by whoever sets the
-norms. It's marginal to world-directed correction, which is Grindrod's, because nothing
-in preference feedback routes a discrepancy between output and world back into
-production. Reading the disagreement as one about a single quantity called grounding is
+norms. It's marginal to world-directed correction, which is Grindrod's, because preference
+feedback supplies that only when the feedback is itself generated through a
+target-sensitive route: verified factuality, tool results, or action outcomes rather than
+approval. Reading the disagreement as one about a single quantity called grounding is
 what makes it look unresolvable.
 
-Automated approval layers put the independence question into deployed infrastructure.
-Anthropic's coding agent routes each proposed action through a classifier that blocks
-operations that are \enquote{irreversible, destructive, or aimed outside your
-environment} and passes the rest \citep{anthropic2026automode}. The arrangement adds a
-corrective route. The acting system doesn't detect its own error; a separate component
-gates the action before it lands.
-
-Whether that route is independent is a question about lineage. A gate trained on similar
-data, by the same developer, from a related model family, inherits the error structure of
-the system it checks. Section~\ref{sec:adjudication} separated agreement among
-independently calibrated routes from agreement inherited through a copied source, and a
-same-lineage gate is the copied-source case, whatever its measured accuracy.
-
-Existing evidence fits that concern without settling it.
-\textcite{zheng2023judging} find that model judges misgrade where they lack the relevant
-competence, and misgrade problems they can solve when asked separately, because the
-candidate answer misleads them; GPT-3.5, GPT-4, and Claude-v1 all show the pattern. They
-report self-preference as undetermined rather than established.
-\textcite{gu2025judgeSurvey} treat self-enhancement as a recognized evaluation bias and
-warn that judge-based labelling can amplify biases already present.
-
-The same deployment shows two different ways to make a checking route independent. Apollo
-Research supplied held-out attacks the developer never saw, and the reported gain is
-credited to exactly that: because the set couldn't be tuned against, improvement suggests
-generalization rather than patching \citep{anthropic2026automode}. The hardening itself
-consisted largely of giving the classifier more contact with its environment, including
-repository visibility and git state.
-
-Those work differently, and the difference matters for the lineage worry. Held-out
-testing makes a checker independent in provenance. Environmental context makes it
-independent in what it can see. A gate reading repository visibility and git state has
-access that a text-prediction route doesn't, whatever the two share upstream. Independence
-is a fact about which routes feed a checker, not only about where it came from.
-
-Deployment figures complicate this usefully. Users reject 3\% of individual permission
-requests and 39\% of plans put to them for approval, and a quarter of interactive
-sessions begin with permissions bypassed outright \citep{anthropic2026automode}. Same
-users, same system, two approval dialogues. Whatever explains the 3\%, it isn't that
-attention is scarce in general.
-
-A controlled study points the same way. Across 1,053 paid testers, one prompt per session
-was swapped for a clearly dangerous command; testers caught 13.6\% while the classifier
-blocked 89\%, and head to head it blocked 800 commands a human had approved against six
-the other way. Catch rates fell with session length, from about 17\% early to about 5\%
-after fifty prior prompts, while the classifier's held flat.
-
-Its setting isn't the deployment, which limits what it shows. Participants worked in a
-purpose-built environment rather than their own repositories, and knew they were being
-evaluated. Those two departures pull opposite ways, since observation should raise care
-and absent stakes should lower it, so the figure can't be signed in either direction. It
-corroborates the usage numbers rather than replacing them.
-
-Read as a verdict on human oversight, this counts against the profile view. Read through
-the participation distinction it says something narrower. An approval step that gets
-clicked through is decorative rather than corrective, and a route nobody exercises
-stabilizes nothing. Decay over a session is what non-exercise looks like from outside,
-and the gap between 3\% and 39\% locates the lapse in this route rather than in the
-people using it.
+\subsection{What grounding leaves open}
 
 Coelho Mollo and Millière press the strongest neighbouring challenge. They distinguish
 kinds of grounding and argue that some LLM states can satisfy causal-historical or
@@ -1072,19 +1201,20 @@ asks which stabilizers that content participates in.
 The concession is worth making in full, because recent work has closed the easy routes to
 scepticism one at a time. Reference can be secured by the natural histories of a model's
 inputs, without beliefs about or experience of the referent
-\citep{mandelkern_linzen_2024_do_language_models_words_refer}. The historical picture of
-Intentions are the wrong place to look, and the live
-question is whether such systems achieve a basic reference prior to propositional
-attitudes \citep{pepp_2025_reference_without_intentions_llms}. The argument from communicative
+\citep{mandelkern_linzen_2024_do_language_models_words_refer}. Intentions are the wrong
+place to look, and the live question is whether such systems achieve a basic reference
+prior to propositional attitudes
+\citep{pepp_2025_reference_without_intentions_llms}. The argument from communicative
 intention fails at both premises
 \citep{attah_2025_do_language_models_lack_communicative_intentions}. And linguistic
 metasemantics, unlike mental metasemantics, delivers meaning for systems that depend on a
 pre-existing language \citep{grindrod_2024_large_language_models_linguistic_intentionality}.
 
 Grant all of it. What none of these results supplies is an account of how a practice
-detects error about the world and repairs it. Meaning and reference can be inherited
-whole from a pre-existing system. Detection and repair can't, because they need routes
-that inheriting the system doesn't deliver.
+detects error about the world and repairs it. Training text carries correction procedures,
+defeaters, and records, and a system can inherit some capacity to reproduce them. What
+inheritance alone doesn't deliver is a live route by which a fresh discrepancy reaches
+production and changes it.
 
 Referential grounding covers one dimension of world-connection. Truth-tracking answerability
 depends on a wider profile of stabilizers, including correction, measurement,
@@ -1095,9 +1225,11 @@ for tasks requiring independent checking.
 Mandelkern and Linzen make the gap vivid without meaning to. They close with Izzy, isolated from
 birth in a sensory-deprivation chamber and reaching the world only through a text screen,
 and they argue that externalism dissolves the puzzle about how his words
-refer \citep{mandelkern_linzen_2024_do_language_models_words_refer}. Grant it. Izzy also
-can't check anything. His reference is secure and his answerability is nil, which is the
-dissociation this paper is about, drawn by philosophers arguing the other side.
+refer \citep{mandelkern_linzen_2024_do_language_models_words_refer}. Grant it. Izzy's
+answerability is nonetheless confined to the testimonial and inferential routes his screen
+supplies, with perception, measurement, and intervention absent. Secure reference
+alongside a radically restricted profile is the dissociation this paper is about, drawn by
+philosophers arguing the other side.
 
 Pepp presses the harder version. She suggests that such systems may contact objects
 through their exchanges with users, coming into contact with whatever shaped a user's
@@ -1107,6 +1239,33 @@ says so. Contact with the objects that shaped a user's text is inherited: the pe
 was done by someone else, and nothing in the exchange reports back when the user was
 wrong.
 
+\subsection{Corrective control in deployment}
+
+A deployed case shows what adding a checker actually takes. Anthropic's coding agent
+routes each proposed action through a classifier that blocks operations it judges
+irreversible, destructive, or aimed outside the working environment
+\citep{anthropic2026automode}. The case concerns safety control rather than factual truth
+directly. Its role here is to isolate the architecture by which an independent discrepancy
+signal becomes behaviourally effective.
+
+Three things follow, and they're the conditions of
+Section~\ref{sec:projectibility} in miniature. A separate classifier can supply a
+corrective route even where the acting model detects nothing itself, which is the third
+condition met by a second party rather than by introspection. Independence has more than
+one dimension: development provenance, environmental information available to the checker,
+objectives, and error correlation. The reported hardening came from giving the classifier
+more of the second, including repository visibility and git state, not from making it less
+like the generator. And an approval step users routinely bypass or wave through is
+decorative rather than corrective, whatever its nominal standing: users reject 3\% of
+individual permission requests against 39\% of plans put to them for
+approval.\footnote{Same users, same system, two approval dialogues, so the lapse is
+specific to that route rather than general inattention. A controlled study points the same
+way, with human testers catching 13.6\% of planted dangerous commands against the
+classifier's 89\%, though its participants worked in a purpose-built environment and knew
+they were being evaluated \citep{anthropic2026automode}.}
+
+\subsection{Empirical transfer}
+
 Route-specific transfer gives the strongest test. Improvements in one route should remain
 limited where a task depends on a different stabilizer. If reliable perception,
 measurement, retrieval, tool use, expert correction, or action feedback fails to alter
@@ -1115,25 +1274,39 @@ mechanisms. If text-only systems remain mainly dependent on inherited textual
 accommodation and local coherence, the same vulnerability should persist even as fluency
 improves.
 
+Those defeat a carving. Two others would defeat the framework, and they're worth stating
+separately, since an account that can only ever be wrong about its own subdivisions is
+too safe. The dissociation is the first. If arrangements that satisfy metasemantic
+conditions for content and reference turned out, without further engineering, to detect
+and repair fresh errors about their targets at the rate engineered arrangements do, then
+grounding would deliver corrective control after all and this paper's central claim would
+be false. The conditions are the second. If an arrangement meeting none of the five
+conditions of Section~\ref{sec:projectibility} caught and repaired fresh errors as often
+as one meeting all five, the conditions wouldn't be tracking what makes correction
+possible, and no adjustment to the list of routes would repair that.
+
 \section{Conclusion}\label{sec:conclusion}
 
-The opening question asked whether the representations inside a large language model
-connect to the world. The answer has been a change in what the question
-asks. World-connection is better treated as a profile of participation in the mechanisms
-by which representational outputs become answerable to what they're about.
+Settle whether the representations inside a large language model connect to the world,
+and the question this paper asks remains open. An arrangement can acquire content, reference, and correctness conditions
+without acquiring the live, sufficiently independent routes by which a discrepancy with
+the target is detected and made to alter what it produces. Grounding doesn't entail
+corrective control.
 
-Truth-relevant representational success, I've argued, depends on a projectible
-profile of stabilizers: perception, testimony, coherence, measurement,
-intervention, error-correction, and practical success. These stabilizers explain why the
-cases picked out by successful truth-ascription travel together, fail in patterned ways,
-and support predictions from partial knowledge of a system's background. A thin truth
-predicate can coexist with thick truth-tracking practices. Where the links are
-actively maintained, the coupling can become homeostatic in Boyd's strong sense;
+Language models make the dissociation visible because they instantiate it at scale. They
+inherit dense textual residues of testimony and coherence, which leaves them answerable in
+some measure, and they participate weakly in the routes that would detect a fresh error
+and route it back into production. The profile says which routes an arrangement has, at
+what strength, for which targets, and so says when the gap has actually been closed rather
+than merely narrowed.
+
+A thin truth predicate can coexist with thick truth-tracking practices. Where the links
+are actively maintained, the coupling can become homeostatic in Boyd's strong sense;
 elsewhere the profile can remain projectible below that threshold.
 
 Reliabilism, coherentism, correspondence theory, pragmatism, and social epistemology
-each isolate a real stabilizer. The reason to move beyond them lies in their
-relations: the history of correction among sources, the density of the causal network in
+each foreground a relation or process that can contribute to answerability. The reason to
+look past any one of them lies in their relations: the history of correction among sources, the density of the causal network in
 which they operate, and the degree to which one route to success can compensate for or
 expose the failure of another. The pattern can carry the epistemic fact.
 
@@ -1150,7 +1323,9 @@ action.
 Comparison rather than classification follows. Retrieval, multimodal input, tool use,
 expert review, experimental embedding, and action-guided feedback alter the stabilizer
 profile. The question is which route they add, whether that route is live in the task
-being assessed, and where improvement should transfer. A system can improve along one
+being assessed, and where improvement should transfer. The prediction is an interaction
+between intervention and task, not a general gain: an intervention should help where it
+supplies the route the task requires and not otherwise. A system can improve along one
 dimension and remain fragile along another.
 
 Empirical constraints remain. Participation is fixed by causal and architectural facts
@@ -1166,10 +1341,6 @@ those absences should matter.
 
 \section*{Acknowledgements}
 I thank Geoff for comments on coherence theory and the history of \mention{true}.
-The large language models Anthropic Claude Opus 4.8; Anthropic Claude Fable 5;
-and OpenAI Codex using GPT-5.5 served as drafting and editing aids throughout
-the preparation of this paper. I am responsible for all theoretical claims,
-arguments, errors, and interpretive choices.
 
 \clearpage
 \printbibliography

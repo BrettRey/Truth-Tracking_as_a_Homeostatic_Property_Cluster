@@ -23,3 +23,6 @@ literature/**/*.pdf
 # and acceptance forecasts. This repo is public. Keep local.
 submission/
 notes/agi-evaluation-cross-paper-note.md
+
+# Simulated reviews written in the voice of real, named scholars. Keep local.
+reviews/
