@@ -295,7 +295,7 @@ Section~\ref{sec:target}; the stabilizers explain why those cases support projec
 Perception, testimony, coherence, measurement, intervention, error-correction, and
 practical success are the routes through which representational outputs become more or
 less answerable to the world. Khalidi's later \enquote{nodes in causal networks}
-formulation supplies the graph vocabulary, and the borrowing needs stating precisely. On
+formulation supplies the graph vocabulary. On
 his account a kind is a node, a highly connected vertex whose core properties give rise to
 derivative ones, and the network is what the node sits in
 \citep{khalidi_2018_natural_kinds_nodes_causal_networks}. A profile isn't a kind in that
@@ -789,7 +789,7 @@ systems missing perceptual and verificational stabilizers should show the failur
 of Section~\ref{sec:llm}, and connectivity should track selection history, institutional
 age, and measurement infrastructure (Section~\ref{sec:adjudication}).
 
-A sharper version of the objection would bite, and it's worth separating. If the purpose
+A sharper version of the objection would bite. If the purpose
 were chosen after the verdicts were in, to secure them, the account would be
 unfalsifiable. Section~\ref{sec:adjudication} blocks that by characterizing connectivity
 through marks established before present agreement is checked. Declaring the interest is
@@ -958,12 +958,34 @@ corrective, as when feedback changes later behaviour. It can also be decorative,
 as when an output mentions experiments, sources, or measurements with the relevant
 constraint absent.
 
+Corrective participation divides by horizon, and in-context correction is the case that
+makes the division visible. A user who supplies a counterexample mid-session can change
+what the arrangement produces from that turn on, which satisfies the fifth condition
+within the session and nothing beyond it. The weights don't move, the next session starts
+where the last one began, and no other user benefits. That's real corrective
+participation with a horizon of one conversation, and distinguishing it from correction
+that reaches policy matters for the same reason the inherited case did: what looks like
+one route is two, differing in how far the repair travels.
+
 The four modes map onto the conditions of Section~\ref{sec:projectibility}. Inherited
 participation supplies no answerability at all, which is worth stating plainly because the
 temptation is to grant it some. Nothing in a training corpus registers a discrepancy
 arising now, and answerability was defined as discrepancies bearing on production, uptake,
 correction, or withdrawal. What inheritance supplies is a disposition to be right, which
-is a fact about the arrangement's aetiology and shows up as reliability. Operational
+is a fact about the arrangement's aetiology and shows up as reliability.
+
+Training against verifiable rewards tests this. When a model is optimized against unit
+tests, a proof checker, or execution results, a discrepancy between output and world is
+detected and does alter production. All five conditions are met, and they're met at
+training time.
+
+A model trained that way has been corrected; it isn't thereby correctible.
+Verifiable-reward training delivers corrective control over the targets its verifier
+covers, while it runs. It delivers none over targets the verifier doesn't cover, and none
+at inference, where no verifier is present and the weights are fixed. A model that has
+learned arithmetic against a checker still can't tell you whether today's figure is right.
+What a deployed arrangement inherits is a disposition, whatever produced it, and
+dispositions don't detect. Operational
 participation supplies target access, the first condition. Corrective participation can
 carry the remaining four, and only when the feedback is attributable and reaches
 production. Decorative participation supplies none while resembling all.
@@ -991,7 +1013,12 @@ then tests whether those architectural facts were the right stabilizers to mark.
 
 The main interventions can be described in stabilizer terms. Retrieval augmentation
 queries an external corpus or search system and places retrieved material into the
-model's context; it adds record access. Tool use routes a subtask
+model's context; it adds record access when it works. Its characteristic failures are
+diagnostic rather than incidental: a stale index supplies a record of the wrong time, a
+chunk boundary supplies half a record, and an embedding match on wording rather than
+content supplies a passage that resembles the answer. Each leaves the archival route
+nominally present and materially absent, which is decorative participation arriving
+through a mechanism rather than through a turn of phrase. Tool use routes a subtask
 through a calculator, database, code interpreter, application programming interface, or
 instrument; it adds calculation or measurement only when the right tool is called and its
 result is integrated. Coding adds a stronger correction loop when generated code is run:
@@ -1051,7 +1078,7 @@ predicts a retrieval gain on the record-recoverable set and little transfer to t
 patient-specific set unless the needed measurement or tool route is supplied. Retrieval alone producing the same gain on
 both sets would count against the carving.
 
-Matching the sets on difficulty cues won't do, and the reason is worth stating. An
+Matching the sets on difficulty cues won't do. An
 intervention that supplies a missing lab value also makes the item easier, so a
 difficulty explanation and a route explanation both predict a gain, and a cue-matched
 design can't separate them. Equate the sets instead on measured baseline accuracy without
@@ -1076,7 +1103,15 @@ retrieval, tools, or multimodal channels occupies the baseline whenever those ch
 idle or appear decoratively. The text-only case is the profile to which richer systems
 revert when added stabilizers are unavailable, inappropriate, or unintegrated.
 
-As a pressure test, the text-only baseline gives the cleanest case. Such a model inherits
+As a pressure test, the text-only baseline gives the cleanest case. It's a limiting position in the profile space, not a
+description of anything currently shipping. Frontier systems are trained on interleaved
+image and text, on large code corpora, and against verifiers, so a purely text-trained
+model is a reconstruction rather than a product. It earns its place because richer
+arrangements revert to it whenever their added routes are idle, inappropriate, or
+unintegrated for the task at hand, which happens often enough to make the limiting case
+the common one.
+
+Such a model inherits
 textual products of human accommodation: reports written by perceivers, explanations
 corrected by teachers, records produced by institutions, descriptions shaped by
 instruments, and genres whose norms often reward coherence and accuracy. That inheritance
@@ -1125,6 +1160,15 @@ Such cases fit the profile view where the target structure is densely and system
 encoded in the sequence stream. They show that inherited
 participation can be strong when the relevant world is small, rule-governed, and
 recoverable from the training signal.
+
+Othello is a thin base for a claim this size. It's finite, fully observable, and its legal moves are a deterministic function
+of a state the move sequence determines, so the training signal contains the world
+entirely. The result is striking for that reason and unrepresentative for the same one.
+Nothing follows about domains where the state isn't recoverable from the record, which is
+the class the argument concerns. A reader who wants the general claim should read the
+interpretability literature rather than this example; what the example establishes here is
+narrower, that inherited participation isn't limited to surface statistics when the world
+is small enough to fit in the stream.
 
 Limits matter. Internal world-model evidence should be strongest where the relevant
 state variables are encoded in the sequence and the loss function penalizes violations
@@ -1198,12 +1242,20 @@ success. Those constraints can reduce some errors and can also reward
 answer-shaped behaviour when users or raters prefer confidence, agreement, or plausible
 explanation.
 
+Post-training isn't one thing, and the profile splits it in two. Where the reward comes from a rater's approval, the target is the rater. Where
+it comes from a unit test, a proof checker, or an executed result, the target is whatever
+the checker checks, and the correction is world-directed in the sense that matters here.
+Both are called post-training and they build different profiles. Treating the second as
+preference feedback understates what it supplies; treating the first as truth feedback
+overstates it. The relevant question is never how much post-training an arrangement
+received but which targets its rewards were computed against.
+
 Work on sycophancy shows the risk of treating preference feedback as truth feedback
 on its own \citep{shapira2026rlhf}. In the profile terms, these processes strengthen some
 social and evaluative stabilizers and leave perception, measurement, and intervention
 proxy-based.
 
-What fine-tuning does is disputed, and the dispute is worth resolving rather than joining.
+What fine-tuning does is disputed, and the disagreement dissolves rather than needing a side.
 \textcite{grindrod_2024_large_language_models_linguistic_intentionality} treats it as a
 relatively marginal procedure that can't be what makes the difference between
 intentionality and its absence, since models produce apparently meaningful text without
