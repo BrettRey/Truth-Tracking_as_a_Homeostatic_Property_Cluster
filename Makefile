@@ -1,10 +1,11 @@
 # Makefile for LaTeX paper compilation
-# Truth-Tracking Profiles: What LLMs Participate In
+# Grounding Without Corrective Control: Truth-Tracking Profiles for Large Language Models
 
 # Configuration
 LATEX = xelatex
 BIBER = biber
 MAIN = truth-tracking-profiles
+SUPPLEMENT = online-resource-1
 OUTDIR = .
 PREAMBLE = .house-style/preamble.tex
 BIBS = references.bib $(wildcard references-local.bib)
@@ -13,7 +14,7 @@ BIBS = references.bib $(wildcard references-local.bib)
 .PHONY: all clean distclean view help test
 
 # Default target: build the PDF
-all: $(MAIN).pdf
+all: $(MAIN).pdf $(SUPPLEMENT).pdf
 
 # Full build sequence with bibliography
 $(MAIN).pdf: $(MAIN).tex $(PREAMBLE) $(BIBS)
@@ -26,6 +27,17 @@ $(MAIN).pdf: $(MAIN).tex $(PREAMBLE) $(BIBS)
 	@echo "==> Third LaTeX pass (finalizing)..."
 	$(LATEX) -output-directory=$(OUTDIR) $(MAIN).tex
 	@echo "==> Build complete: $(MAIN).pdf"
+
+$(SUPPLEMENT).pdf: $(SUPPLEMENT).tex $(PREAMBLE) $(BIBS)
+	@echo "==> First LaTeX pass for $(SUPPLEMENT)..."
+	$(LATEX) -output-directory=$(OUTDIR) $(SUPPLEMENT).tex
+	@echo "==> Running Biber for $(SUPPLEMENT)..."
+	$(BIBER) $(SUPPLEMENT)
+	@echo "==> Second LaTeX pass for $(SUPPLEMENT)..."
+	$(LATEX) -output-directory=$(OUTDIR) $(SUPPLEMENT).tex
+	@echo "==> Third LaTeX pass for $(SUPPLEMENT)..."
+	$(LATEX) -output-directory=$(OUTDIR) $(SUPPLEMENT).tex
+	@echo "==> Build complete: $(SUPPLEMENT).pdf"
 
 # Quick build (single pass, no bibliography update)
 quick: $(MAIN).tex $(PREAMBLE)
@@ -42,12 +54,15 @@ clean:
 	rm -f $(MAIN).aux $(MAIN).bbl $(MAIN).bcf $(MAIN).blg $(MAIN).log
 	rm -f $(MAIN).out $(MAIN).run.xml $(MAIN).toc $(MAIN).fdb_latexmk
 	rm -f $(MAIN).fls $(MAIN).synctex.gz
+	rm -f $(SUPPLEMENT).aux $(SUPPLEMENT).bbl $(SUPPLEMENT).bcf $(SUPPLEMENT).blg $(SUPPLEMENT).log
+	rm -f $(SUPPLEMENT).out $(SUPPLEMENT).run.xml $(SUPPLEMENT).toc $(SUPPLEMENT).fdb_latexmk
+	rm -f $(SUPPLEMENT).fls $(SUPPLEMENT).synctex.gz
 	@echo "==> Clean complete"
 
 # Clean everything including PDF
 distclean: clean
 	@echo "==> Removing PDF..."
-	rm -f $(MAIN).pdf
+	rm -f $(MAIN).pdf $(SUPPLEMENT).pdf
 	@echo "==> Deep clean complete"
 
 # Open PDF viewer (macOS)
@@ -64,6 +79,7 @@ test:
 help:
 	@echo "Available targets:"
 	@echo "  make          - Build PDF with full bibliography (default)"
+	@echo "                  and Online Resource 1"
 	@echo "  make quick    - Quick build (single pass, no bib update)"
 	@echo "  make lualatex - Build using LuaLaTeX (not recommended)"
 	@echo "  make clean    - Remove build artifacts (keep PDF)"

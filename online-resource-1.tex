@@ -1,0 +1,179 @@
+\documentclass[12pt]{article}
+
+\input{.house-style/preamble.tex}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\tikzset{
+  ttpbox/.style={draw, rounded corners=2pt, align=center, inner sep=4pt,
+                 minimum height=7.5mm, font=\small},
+  ttpar/.style={-{Stealth[length=2mm]}, thick},
+}
+
+\fancyhead[L]{\small\scshape Online Resource 1: Proposed Empirical Designs}
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\hypersetup{
+  pdftitle={Online Resource 1: Proposed Empirical Designs},
+  pdfkeywords={large language models; corrective control; empirical design; projectibility},
+}
+
+\title{Online Resource 1:\\ Proposed Empirical Designs\\[0.5ex]
+\large Supplement to \textit{Grounding Without Corrective Control:\\
+Truth-Tracking Profiles for Large Language Models}}
+\author{Brett Reynolds\\
+Humber Polytechnic \& University of Toronto\\
+\href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Journal:} \textit{Synthese}
+
+\section{Purpose}
+
+This resource specifies three component tests proposed in the accompanying article: a
+crossed route-by-task design, a comparison that varies checking-route independence, and a
+temporal test of live answerability. The designs don't jointly identify the profile against
+an unrestricted effective-coverage description. Their purpose is to test whether a
+decomposition fixed before the outcomes are observed supports selective transfer,
+diagnosis, and intervention. No results or outcome magnitudes are reported.
+
+\section{A crossed route-by-task design}
+
+The worked example uses clinical questions. One item set asks for recommendations
+recoverable from guidelines or institutional records. A paired set uses the same disease
+area and answer format and requires a patient-specific lab value, observed sign, dose
+calculation, or intervention-sensitive causal judgement. The prediction is a retrieval
+gain on the record-recoverable set and little transfer to the patient-specific set unless
+the needed measurement or tool route is supplied. Retrieval producing the same gain on
+both sets would count against the proposed distinction between routes. The design parallels
+validity argumentation in measurement: inferences from performance are licensed relative
+to a purpose and tested by varying method while holding the target construct fixed
+\citep{messick_1989_validity,kane2013validating}.
+
+Matching the sets on difficulty cues isn't sufficient. An intervention that supplies a
+missing lab value also makes the item easier, so a difficulty explanation and a route
+explanation both predict a gain. Equating measured baseline accuracy weakens the simplest
+difficulty account without eliminating differences in discrimination, ceiling structure,
+response variance, latent subskills, or treatment-effect heterogeneity. Matching on noisy
+estimates also invites regression to the mean. Use baseline performance as a covariate and
+design diagnostic, not as evidence that difficulty has been removed.
+
+The primary design is crossed rather than merely matched. Build item families in which the
+relevant route can be supplied or withheld within closely related items, then cross route
+availability against task requirement. Estimate the interaction in a hierarchical model
+with varying effects for items, domains, prompt templates, and systems. Declare in advance
+the smallest interaction that would matter, report its interval, and run reasonable
+alternatives for item matching, scoring, and exclusion rather than relying on one sample.
+
+In the single-pair implementation, the comparison uses two named chat arrangements that
+differ only in whether retrieval over a fixed corpus is available, with the prompt template
+held constant. The estimate is conditional on that pair; variation across model families
+and deployment setups lies outside the estimand and belongs to a multi-system extension.
+The population is a clinical item set split into record-recoverable and patient-specific
+halves. Raters classify the items from their text without seeing system output, and the
+classification is frozen before the first run.
+
+The primary outcome is substantive correctness of the recommendation, scored blind, which
+applies to both halves of the item set. Whether verbatim anchors resolve is secondary and
+applies only within the record-dependent half. Making anchor resolution primary would
+manufacture the interaction because patient-specific items have no corpus anchors to
+resolve.
+
+The worked prediction is that the retrieval gain on record-recoverable items exceeds the
+gain on patient-specific items by at least ten percentage points. Ten is illustrative, not
+derived. A defensible threshold needs a decision basis: the cost of a wrong recommendation,
+the cost of retrieval latency, and what a deployment would do differently at nine points
+rather than eleven. Fix the value before outcomes are observed so that the prediction can
+fail.
+
+The interval is interpreted against that threshold rather than zero. Concentration above
+ten points supports the worked claim; concentration near zero or on the wrong side counts
+against it. An interval extending from below zero to well above ten describes an
+uninformative experiment, not evidence either way. The threshold isn't revised after the
+effect becomes visible.
+
+A stronger implementation crosses both interventions with both task types. Retrieval
+should selectively help record-dependent items; a measurement tool should selectively help
+items requiring measurement. This double dissociation tests the proposed route
+carving, though a relevance-sensitive information account can predict the same qualitative
+interaction.
+
+\section{Checking-route independence}
+
+Compare two checkers: one from the generator's lineage and the other trained and calibrated
+on separate data and feedback. Give them the same candidate output and task evidence
+supplied from outside the checkers. Match standalone accuracy, confidence, latency,
+response format, and revision policy as closely as possible. Measure detection and
+correction conditional on generator error, especially under perturbations expected to
+produce common-mode failure.
+
+For this comparison, input coverage is measured before either checker produces a
+task-specific signal. Checker outputs are downstream consequences of the architecture,
+not part of baseline input coverage. If coverage is measured after a checker responds, the
+predicted advantage is already a conditional-coverage effect.
+
+The profile predicts an advantage for the checker with lower conditional error overlap.
+Calibration history matters only insofar as it predicts that overlap; if admissible
+perturbations produce no difference, the profile has no reason to privilege one history.
+An input-coverage account predicts no advantage once externally supplied task information
+and standalone accuracy are matched. A conditional-coverage account can predict one by
+representing the joint error structure, but that prediction incorporates the relation that
+checking-route independence names.
+
+\section{A temporal test of live answerability}
+
+Give two arrangements the same target information at the outset, one holding a frozen
+pasted record and the other holding a live route to its source. In the update arm, correct
+the source record and ask a follow-up whose answer turns on the correction. In the control
+arm, leave the record unchanged. The live route should track the update in the first arm
+and match the frozen copy in the second. Figure~\ref{fig:design-supplement} summarizes the
+design.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \node[ttpbox] (t0) at (5,2.5) {\textsc{time 0}: same target information available to both};
+
+  \node[ttpbox] (upd) at (2.2,0.7) {source record updated};
+  \node[ttpbox] (ctl) at (7.9,0.7) {source record unchanged\\(control arm)};
+
+  \node[ttpbox] (u1) at (0.35,-1.6) {static copy:\\stale};
+  \node[ttpbox] (u2) at (3.9,-1.6)  {live route:\\tracks the update};
+  \node[ttpbox] (c1) at (6.6,-1.6)  {static copy:\\unchanged};
+  \node[ttpbox] (c2) at (9.6,-1.6)  {live route:\\unchanged};
+
+  \draw[ttpar] (t0) -- (upd);
+  \draw[ttpar] (t0) -- (ctl);
+  \draw[ttpar] (upd) -- (u1);
+  \draw[ttpar] (upd) -- (u2);
+  \draw[ttpar] (ctl) -- (c1);
+  \draw[ttpar] (ctl) -- (c2);
+\end{tikzpicture}
+\caption{A temporal test of live answerability. At time 0, both arrangements have the same
+target information. In the update arm, the source record is corrected: the static copy
+stays stale while the live route transmits the correction. In the control arm, neither
+should change. No outcome magnitudes are implied.}\label{fig:design-supplement}
+\end{figure}
+
+A dynamic coverage account predicts the same pattern because the arrangements receive
+different information at follow-up. The manipulation operationalizes live answerability and
+isolates updateability from initial content equivalence; it doesn't adjudicate between the
+profile and dynamic coverage.
+
+\section{Manipulation checks and failure conditions}
+
+Failure of a declared route-specific interaction or update effect counts against the
+decomposition only after confirming that the focal route was invoked and that its output
+reached production in time to affect the answer. A stale index, failed tool call, or ignored
+checker signal shows that the intended manipulation wasn't instantiated. Once those checks
+pass, failure of the declared contrast is evidence that the proposed route carving or
+corrective feature has been misdescribed.
+
+\printbibliography
+
+\end{document}
