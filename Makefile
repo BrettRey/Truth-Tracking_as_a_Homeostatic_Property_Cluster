@@ -6,15 +6,31 @@ LATEX = xelatex
 BIBER = biber
 MAIN = truth-tracking-profiles
 SUPPLEMENT = online-resource-1
+ANON_MAIN = truth-tracking-profiles-anonymous
+ANON_SUPPLEMENT = online-resource-1-anonymous
 OUTDIR = .
 PREAMBLE = .house-style/preamble.tex
 BIBS = references.bib $(wildcard references-local.bib)
 
 # Targets
-.PHONY: all clean distclean view help test
+.PHONY: all anonymous clean distclean view help test
 
 # Default target: build the PDF
 all: $(MAIN).pdf $(SUPPLEMENT).pdf
+
+# Double-anonymized review copies. Author information, acknowledgements, and the
+# in-manuscript AI disclosure remain in the named build but are suppressed here.
+anonymous:
+	@echo "==> Building anonymous review copy..."
+	$(LATEX) -jobname=$(ANON_MAIN) "\def\TTPANONYMOUS{}\input{$(MAIN).tex}"
+	$(BIBER) $(ANON_MAIN)
+	$(LATEX) -jobname=$(ANON_MAIN) "\def\TTPANONYMOUS{}\input{$(MAIN).tex}"
+	$(LATEX) -jobname=$(ANON_MAIN) "\def\TTPANONYMOUS{}\input{$(MAIN).tex}"
+	$(LATEX) -jobname=$(ANON_SUPPLEMENT) "\def\TTPANONYMOUS{}\input{$(SUPPLEMENT).tex}"
+	$(BIBER) $(ANON_SUPPLEMENT)
+	$(LATEX) -jobname=$(ANON_SUPPLEMENT) "\def\TTPANONYMOUS{}\input{$(SUPPLEMENT).tex}"
+	$(LATEX) -jobname=$(ANON_SUPPLEMENT) "\def\TTPANONYMOUS{}\input{$(SUPPLEMENT).tex}"
+	@echo "==> Anonymous review copies complete"
 
 # Full build sequence with bibliography
 $(MAIN).pdf: $(MAIN).tex $(PREAMBLE) $(BIBS)
@@ -57,12 +73,16 @@ clean:
 	rm -f $(SUPPLEMENT).aux $(SUPPLEMENT).bbl $(SUPPLEMENT).bcf $(SUPPLEMENT).blg $(SUPPLEMENT).log
 	rm -f $(SUPPLEMENT).out $(SUPPLEMENT).run.xml $(SUPPLEMENT).toc $(SUPPLEMENT).fdb_latexmk
 	rm -f $(SUPPLEMENT).fls $(SUPPLEMENT).synctex.gz
+	rm -f $(ANON_MAIN).aux $(ANON_MAIN).bbl $(ANON_MAIN).bcf $(ANON_MAIN).blg $(ANON_MAIN).log
+	rm -f $(ANON_MAIN).out $(ANON_MAIN).run.xml $(ANON_MAIN).toc $(ANON_MAIN).synctex.gz
+	rm -f $(ANON_SUPPLEMENT).aux $(ANON_SUPPLEMENT).bbl $(ANON_SUPPLEMENT).bcf $(ANON_SUPPLEMENT).blg $(ANON_SUPPLEMENT).log
+	rm -f $(ANON_SUPPLEMENT).out $(ANON_SUPPLEMENT).run.xml $(ANON_SUPPLEMENT).toc $(ANON_SUPPLEMENT).synctex.gz
 	@echo "==> Clean complete"
 
 # Clean everything including PDF
 distclean: clean
 	@echo "==> Removing PDF..."
-	rm -f $(MAIN).pdf $(SUPPLEMENT).pdf
+	rm -f $(MAIN).pdf $(SUPPLEMENT).pdf $(ANON_MAIN).pdf $(ANON_SUPPLEMENT).pdf
 	@echo "==> Deep clean complete"
 
 # Open PDF viewer (macOS)
@@ -80,6 +100,7 @@ help:
 	@echo "Available targets:"
 	@echo "  make          - Build PDF with full bibliography (default)"
 	@echo "                  and Online Resource 1"
+	@echo "  make anonymous - Build double-anonymized review copies"
 	@echo "  make quick    - Quick build (single pass, no bib update)"
 	@echo "  make lualatex - Build using LuaLaTeX (not recommended)"
 	@echo "  make clean    - Remove build artifacts (keep PDF)"

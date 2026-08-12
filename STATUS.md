@@ -5,8 +5,8 @@ title: 'Grounding Without Corrective Control: Truth-Tracking Profiles for Large 
 stage: complete
 external: preprint
 blocked_on:
-- manuscript-revision
-updated: 2026-08-10
+- submission-package
+updated: 2026-08-11
 source:
 - STATUS.md
 - PORTFOLIO.md

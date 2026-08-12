@@ -19,14 +19,22 @@
   pdftitle={Online Resource 1: Proposed Empirical Designs},
   pdfkeywords={large language models; corrective control; empirical design; projectibility},
 }
+\ifdefined\TTPANONYMOUS
+  \hypersetup{pdfauthor={}}
+\fi
 
 \title{Online Resource 1:\\ Proposed Empirical Designs\\[0.5ex]
 \large Supplement to \textit{Grounding Without Corrective Control:\\
 Truth-Tracking Profiles for Large Language Models}}
+\ifdefined\TTPANONYMOUS
+\author{}
+\date{}
+\else
 \author{Brett Reynolds\\
 Humber Polytechnic \& University of Toronto\\
 \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}
 \date{\today}
+\fi
 
 \begin{document}
 \maketitle
@@ -37,8 +45,8 @@ Humber Polytechnic \& University of Toronto\\
 
 This resource specifies three component tests proposed in the accompanying article: a
 crossed route-by-task design, a comparison that varies checking-route independence, and a
-temporal test of live answerability. The designs don't jointly identify the profile against
-an unrestricted effective-coverage description. Their purpose is to test whether a
+temporal test of live answerability. The designs don't jointly distinguish the decomposition
+from an unrestricted effective-coverage description. Their purpose is to test whether a
 decomposition fixed before the outcomes are observed supports selective transfer,
 diagnosis, and intervention. No results or outcome magnitudes are reported.
 
@@ -117,9 +125,9 @@ task-specific signal. Checker outputs are downstream consequences of the archite
 not part of baseline input coverage. If coverage is measured after a checker responds, the
 predicted advantage is already a conditional-coverage effect.
 
-The profile predicts an advantage for the checker with lower conditional error overlap.
+The decomposition predicts an advantage for the checker with lower conditional error overlap.
 Calibration history matters only insofar as it predicts that overlap; if admissible
-perturbations produce no difference, the profile has no reason to privilege one history.
+perturbations produce no difference, the decomposition has no reason to privilege one history.
 An input-coverage account predicts no advantage once externally supplied task information
 and standalone accuracy are matched. A conditional-coverage account can predict one by
 representing the joint error structure, but that prediction incorporates the relation that
@@ -163,7 +171,7 @@ should change. No outcome magnitudes are implied.}\label{fig:design-supplement}
 A dynamic coverage account predicts the same pattern because the arrangements receive
 different information at follow-up. The manipulation operationalizes live answerability and
 isolates updateability from initial content equivalence; it doesn't adjudicate between the
-profile and dynamic coverage.
+decomposition and dynamic coverage.
 
 \section{Manipulation checks and failure conditions}
 
@@ -174,6 +182,7 @@ checker signal shows that the intended manipulation wasn't instantiated. Once th
 pass, failure of the declared contrast is evidence that the proposed route carving or
 corrective feature has been misdescribed.
 
+\clearpage
 \printbibliography
 
 \end{document}
