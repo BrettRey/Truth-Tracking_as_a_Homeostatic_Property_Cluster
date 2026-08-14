@@ -1,0 +1,12 @@
+master_seed=481516
+replications=200
+arrangements_per_replication=30
+task_families=record,measurement
+interventions=none,retrieval,measurement,checker,gate
+trials_per_cell=120
+scenario_A=structural uptake bottleneck, accurately measured
+scenario_B=conditional signal sufficient; attribution and uptake scores non-causal
+scenario_C=latent structural process with noisy attribution and uptake measures
+scenario_D=latent structural process without intervention-choice surplus
+training_pairs=record:{none,retrieval,checker};measurement:{none,measurement,gate}
+held_out_pairs=record:{measurement,gate};measurement:{retrieval,checker}

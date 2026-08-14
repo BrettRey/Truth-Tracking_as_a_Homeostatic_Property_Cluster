@@ -48,14 +48,104 @@ crossed route-by-task design, a comparison that varies checking-route independen
 temporal test of live answerability. The designs don't jointly distinguish the decomposition
 from an unrestricted effective-coverage description. Their purpose is to test whether a
 decomposition fixed before the outcomes are observed supports selective transfer,
-diagnosis, and intervention. No results or outcome magnitudes are reported.
+diagnosis, and intervention. No empirical results are reported; the numerical results below
+come only from constructed data.
+
+Table~\ref{tab:rivals} states the inferential role of each design. It treats the tests as
+validation arguments: an observed contrast supports a specified component only under the
+declared architectural boundary, auxiliary assumptions, and manipulation checks. None is a
+crucial experiment against every informational redescription.
+
+\begin{table}[!t]
+\centering
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedright\arraybackslash}p{0.24\linewidth}@{}}
+\toprule
+Test & Decomposition & Strongest coverage reply & Evidential role \\
+\midrule
+Route by task & A supplied route should help most where the task requires it. & Conditional or effective coverage predicts the same pattern by distinguishing kinds of task-relevant information. & Tests the proposed route carving and selective transfer, not uniqueness. \\
+Checker relation & Lower conditional error overlap should improve repair when marginal accuracy and baseline inputs are matched. & Conditional coverage predicts the advantage by representing information added given generator error. & Tests checking-route independence; distinguishes only a fixed input-coverage comparator. \\
+Temporal update & A live route should transmit a source update that a frozen record can't. & Dynamic coverage predicts the same result because follow-up information differs. & Operationalizes live answerability; doesn't discriminate against dynamic coverage. \\
+\bottomrule
+\end{tabular}
+\caption{Predictions and limits of the three component tests.}
+\label{tab:rivals}
+\end{table}
+
+\section{Fake-data checks of explanatory surplus}
+
+Constructed data can test whether a proposed model and design recover a known structure and
+can reveal cases in which a simpler comparator is sufficient \citep{gelman2020bayesianworkflow}.
+They aren't evidence that the decomposition is true. The exercise here instead asks whether
+the declared comparison is capable of exposing both success and failure before empirical
+outcomes are observed.
+
+Let $p_0$ be an arrangement's probability of an initially correct answer. For a correction
+opportunity, let $x$, $d$, and $i$ represent target access, detectability, and checking-route
+independence as operationalized by task-specific conditional non-overlap, and let $c=xdi$ be
+the route's conditional signal. Let $a$ and $u$ represent
+attribution and uptake, $f$ the false-signal probability on an initially correct answer,
+$\rho$ the probability that an exercised correction succeeds, and $\eta$ the probability
+that an unwarranted intervention causes harm. The structural data-generating model is
+\begin{align*}
+ P(\text{repair}\mid\text{initial error}) &= c a u \rho, \\
+ P(\text{harm}\mid\text{initially correct}) &= f a u \eta, \\
+ P(\text{final correctness}) &= p_0(1-P(\text{harm}))
+ +(1-p_0)P(\text{repair}).
+\end{align*}
+This multiplication is one deliberately simple data-generating specification, not a
+profile score or an assumption that the features are mutually independent. It represents a
+serial path whose stages all have to succeed on a correction opportunity.
+The fixed conditional-coverage comparator omits $a$ and $u$, using $c\rho$ and $f\eta$;
+the input-coverage comparator uses target access alone for repair. Each model estimates one
+repair and one harm multiplier from training cells. To isolate the route comparison, every
+model receives the same true $p_0$; an empirical implementation would estimate that baseline
+with uncertainty.
+
+The simulation draws 30 heterogeneous arrangements, record and measurement tasks, and five
+equal-cost choices: no intervention, retrieval, measurement, independent checking, and
+enforced uptake. Each arrangement--task--intervention cell contains 120 trials. Four
+intervention--task combinations are withheld from fitting. The models are compared on those
+cells by logarithmic loss for repair conditional on initial error and by regret from choosing
+an intervention other than the truly best one. Table~\ref{tab:fake-data} reports means over
+200 replications from a fixed master seed. Negative differences favour the decomposition;
+positive differences favour conditional coverage.
+
+\begin{table}[!t]
+\centering
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.27\linewidth}rr>{\raggedright\arraybackslash}p{0.37\linewidth}@{}}
+\toprule
+Constructed world & $\Delta$ repair loss & $\Delta$ regret & Result \\
+\midrule
+Uptake bottleneck, accurately measured & $-0.00639$ & $-0.00657$ & The decomposition predicts repair and selects the intervention better. \\
+Conditional signal is sufficient & $+0.05695$ & $+0.00348$ & Conditional coverage wins; the proposed attribution and uptake structure is mistaken. \\
+True route structure, noisy feature measures & $+0.01478$ & $+0.00409$ & Conditional coverage wins in practice despite the latent structural process. \\
+True route structure, no decision surplus & $-0.00415$ & $+0.00001$ & The decomposition predicts repair better but doesn't improve intervention choice. \\
+\bottomrule
+\end{tabular}
+\caption{Paired fake-data comparisons. Differences are decomposition minus conditional
+coverage, so lower logarithmic loss and lower regret appear as negative values.}
+\label{tab:fake-data}
+\end{table}
+
+The first world verifies that the workflow can recover the intended uptake bottleneck. The
+other three prevent the exercise from becoming a demonstration by construction. In
+particular, better prediction of conditional repair doesn't entail better intervention
+choice, and a true but poorly measured decomposition can be less useful than its simpler
+comparator. Differences in final-accuracy loss are much smaller because initially correct
+answers dominate that aggregate, which is why the article treats repair conditional on error
+and harmful intervention as the more diagnostic quantities. The repair and regret
+comparisons in each of the first three worlds have the same direction in all 200 replications;
+in the fourth, decision regret is effectively tied. The reproducible R script and
+machine-readable results accompany this resource.
 
 \section{A crossed route-by-task design}
 
 The worked example uses clinical questions. One item set asks for recommendations
 recoverable from guidelines or institutional records. A paired set uses the same disease
 area and answer format and requires a patient-specific lab value, observed sign, dose
-calculation, or intervention-sensitive causal judgement. The prediction is a retrieval
+calculation, or intervention-sensitive causal judgment. The prediction is a retrieval
 gain on the record-recoverable set and little transfer to the patient-specific set unless
 the needed measurement or tool route is supplied. Retrieval producing the same gain on
 both sets would count against the proposed distinction between routes. The design parallels
@@ -119,6 +209,13 @@ supplied from outside the checkers. Match standalone accuracy, confidence, laten
 response format, and revision policy as closely as possible. Measure detection and
 correction conditional on generator error, especially under perturbations expected to
 produce common-mode failure.
+
+Verify rather than assume the match. Use held-out calibration items to compare standalone
+accuracy, confidence calibration, and latency, and route both checker outputs through the
+same response format and revision policy. The primary cross-route quantity is conditional
+error overlap: how often the checker repeats the generator's error when the generator is
+wrong. Report it together with false interventions on generator outputs that were already
+correct.
 
 For this comparison, input coverage is measured before either checker produces a
 task-specific signal. Checker outputs are downstream consequences of the architecture,

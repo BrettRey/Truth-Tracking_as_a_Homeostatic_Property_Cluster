@@ -70,14 +70,14 @@ Humber Polytechnic \& University of Toronto}
 
 \begin{abstract}
 Recent work suggests that some large language model representations
-have content or reference. Grounding can secure either without supplying live correction
-routes. \term{Answerability} is the graded relation in which discrepancies can affect what
-a target- and task-specific \term{arrangement}
-produces, accepts, or withdraws. \term{Corrective control} is the stronger
-arrangement-level capacity in which live, sufficiently independent routes can detect and
-repair fresh discrepancies. This paper analyses \term{truth-tracking} (patterned support
-for representational success) through an arrangement's route \term{profile} (its
-constraining routes and their relations).
+have content or reference. Grounding can secure either without supplying live routes for
+correction. This paper asks what follows from that gap. An output is \term{answerable} when
+discrepancies can affect what a target- and task-specific \term{arrangement} produces,
+accepts, or withdraws. The arrangement has \term{corrective control} only when live,
+sufficiently independent routes can detect and repair fresh discrepancies. A route
+\term{profile} records which routes constrain the arrangement and how they're related.
+Those profiles support analysis of \term{truth-tracking}: patterned support for
+representational success.
 
 Language models are the pressure case; text-only arrangements provide a task-relative
 limiting case. Text-trained models inherit patterns of testimony, coherence, and
@@ -103,9 +103,11 @@ control; projectibility; truth-tracking
 \section{Introduction: from grounding to corrective control}\label{sec:intro}
 
 Do the representations inside large language models (LLMs) connect to the world? The
-question is often put as a yes/no. \textcite{bender2020} say no: a system trained on
-form alone, like an octopus eavesdropping on telegraph traffic, learns the statistics
-of language apart from what language is about. Others reply that such systems
+question is often put as a yes/no. \textcite{bender2020} say no. They imagine two
+stranded people communicating by underwater cable. An octopus that can tap the cable
+but can't observe either island learns to predict their messages and attempts to impersonate
+one correspondent. Because it has access only to linguistic form, they argue, its responses
+remain disconnected from what the speakers discuss. Others reply that such systems
 meet some conditions on reference, or that sensory grounding can be optional
 for thought in the first place
 \citep{coelho_mollo_milliere_2026_vector_grounding_problem,chalmers_2023_thought_sensory_grounding_llms}.
@@ -162,22 +164,27 @@ from practical success or failure. Some bring target
 information into production; others integrate, check, or correct what's already there.
 
 An \term{arrangement} is a language model together with whatever prompts, records, tools,
-sensors, checkers, or reviewers are live for a particular target and task. Its
+sensors, checkers, or reviewers are live for a particular target and task.\footnote{This
+explanatory unit echoes the extended-mind treatment of functionally integrated external
+resources as parts of a cognitive system \citep{clark_chalmers_1998_extended_mind}. It needn't
+itself be a cognitive subject.} Its
 \term{profile} records which routes constrain it and how those routes are coupled: which
-can check, calibrate, or correct which others. An
-output is \term{answerable} to a target to the extent that discrepancies can affect what
+can check, calibrate, or correct which others.
+
+An output is \term{answerable} to a target to the extent that discrepancies can affect what
 the arrangement produces or accepts, including through later correction or withdrawal.
 That influence may be inherited, delayed, or supplied by external audit. The arrangement
 has \term{corrective control} only when live routes let it detect and repair a fresh
 discrepancy.
 
-The arrangement bears the profile and corrective control; the language model or output
-alone doesn't. Taking the surrounding practice without limit would instead
-confer the epistemic credit of human science on every deployment. The practical limitation
-is familiar: information that never reaches an arrangement can't correct its output. The
-philosophical task is to explain why a grounding verdict leaves that limitation untouched
-and to distinguish inherited constraint from live correction. The decomposition earns its
-keep only if those distinctions improve prediction or intervention.
+The arrangement, not the language model or its output alone, bears the profile and any
+corrective control. Nor can it include the surrounding practice without limit: doing so
+would credit every deployment with the epistemic resources of human science. Its boundary
+is causal. Information outside it can't correct the output. The decomposition is an account
+of epistemic architecture for explaining and predicting performance and guiding
+intervention, not a semantic theory or scalar metric. It asks why grounding leaves that
+boundary untouched and whether distinguishing inherited constraint from live correction
+improves prediction or intervention.
 
 LLMs matter because they separate routes that human epistemic life normally bundles
 together. The separation is clearest in the limiting case of an arrangement whose contact with
@@ -192,6 +199,50 @@ routes, reducing reliance on inherited constraints for the tasks those routes ca
 Their diagnostic value depends on which route each adds and where any resulting improvement
 transfers.
 Figure~\ref{fig:routes} sets out the difference.
+
+An intervention should help only where it supplies a route the task needs. Self-consistency
+should help most where the missing support is coherence; retrieval should help most where
+the missing support is record access.
+Feedback based on human preference judgments should improve conversational fit before it
+improves answerability.
+Multimodal input should help some perceptual tasks before it helps calibrated measurement.
+These contrasts provide an initial test of the proposed distinctions among routes. Indiscriminate transfer would
+count against the proposed decomposition.
+
+These contrasts compare epistemic routes while leaving open what truth consists in.
+Correspondence, coherence, pragmatism, reliabilism, and social epistemology each identify a
+relation or process that can constrain representations in ways relevant to getting things
+right. Deflationism leaves those
+explanatory questions open while denying that truth itself requires a substantive
+reduction. The comparison concerns how these relations and processes combine within an
+arrangement and what follows when one is missing. It's a framework for comparison, not a
+reconciliation of the theories.
+
+This paper develops that account of epistemic architecture in three steps. First, it isolates the
+live, task-indexed routes by which a fresh discrepancy reaches production as something to
+be explained in its own right rather than a corollary of content. A positive grounding verdict can
+settle what a system's representations mean or refer to without licensing an inference
+about which fresh errors a deployed arrangement can catch.
+
+Second, it separates the profile from corrective control. Route identity and coupling
+determine the kind of target constraint available and where it should help. Five
+arrangement-level features then diagnose whether target-relevant variation can expose a
+sufficiently independent and attributable discrepancy and produce a target-improving
+revision. They also separate the capacity to correct from observed correction performance.
+
+Third, it turns the full decomposition into predictions that can fail. Route-by-task
+interactions test whether the proposed routes track selective transfer. An information
+account can predict them too by appealing to the task-relevant material available to the
+arrangement. The stronger test is held-out transport to new cases. A decomposition
+fixed in advance should predict new combinations of routes, tasks, and perturbations better
+than a prespecified model of the task-relevant information supplied to an arrangement. It
+should also guide intervention choice without conceptual refitting.
+
+Sections~\ref{sec:target}--\ref{sec:projectibility} fix the target, explain route profiles,
+and define the corrective-control features. Section~\ref{sec:llm} applies the decomposition
+to language-model arrangements and derives the empirical transfer tests.
+Section~\ref{sec:adjudication} compares it with component theories and addresses the
+principal objections.
 
 \begin{figure}[H]
 \centering
@@ -262,54 +313,11 @@ revision improves the output. Section~\ref{sec:projectibility}
 separates those conditions into five graded features.}\label{fig:routes}
 \end{figure}
 
-An intervention should help only where it supplies a route the task needs. Self-consistency
-should help most where the missing support is coherence; retrieval should help most where
-the missing support is record access.
-Feedback based on human preference judgements should improve conversational fit before it
-improves answerability.
-Multimodal input should help some perceptual tasks before it helps calibrated measurement.
-These contrasts provide an initial test of the proposed distinctions among routes. Indiscriminate transfer would
-count against the proposed decomposition.
-
-These contrasts compare epistemic routes while leaving open what truth consists in.
-Correspondence, coherence, pragmatism, reliabilism, and social epistemology each identify a
-relation or process that can constrain representations in ways relevant to getting things
-right. Deflationism leaves those
-explanatory questions open while denying that truth itself requires a substantive
-reduction. The comparison concerns how these relations and processes combine within an
-arrangement and what follows when one is missing. It's a framework for comparison, not a
-reconciliation of the theories.
-
-This paper develops that account of epistemic architecture in three steps. First, it isolates the
-live, task-indexed routes by which a fresh discrepancy reaches production as something to
-be explained in its own right rather than a corollary of content. A positive grounding verdict can
-settle what a system's representations mean or refer to without licensing an inference
-about which fresh errors a deployed arrangement can catch.
-
-Second, it separates the profile from corrective control. Route identity and coupling
-determine the kind of target constraint available and where it should help. Five
-arrangement-level features then diagnose whether target-relevant variation can expose a
-sufficiently independent and attributable discrepancy and produce a target-improving
-revision. They also separate the capacity to correct from observed correction performance.
-
-Third, it turns the full decomposition into predictions that can fail. Route-by-task
-interactions test whether the proposed routes track selective transfer. An information
-account can predict them too by appealing to the task-relevant material available to the
-arrangement. The stronger test is held-out transport to new cases. A decomposition
-fixed in advance should predict new combinations of routes, tasks, and perturbations better
-than a prespecified model of the task-relevant information supplied to an arrangement. It
-should also guide intervention choice without conceptual refitting.
-
-Sections~\ref{sec:target}--\ref{sec:projectibility} fix the target, explain route profiles,
-and define the corrective-control features. Section~\ref{sec:llm} applies the decomposition
-to language-model arrangements and derives the empirical transfer tests.
-Section~\ref{sec:adjudication} compares it with component theories and addresses the
-principal objections.
-
 \transitionpagehead{1\quad Introduction: from grounding to corrective control}
 \section{The target: truth-relevant representational success}\label{sec:target}
 
-Before an arrangement's profile can support projection, its target has to be fixed. This paper doesn't profile
+Before evidence about an arrangement's profile can support expectations about nearby cases,
+its target has to be fixed. This paper doesn't profile
 truth considered as an abstract property or as the role of the truth predicate, neither of
 which has perceptual, testimonial, or instrumental mechanisms as parts. It profiles
 \term{truth-relevant representational success}: beliefs, assertions, inscriptions,
@@ -448,13 +456,14 @@ isolated report.
 Part of this decomposition comes from Boyd's property-cluster account
 \citep{boyd1991,boyd1999}. Causally related property clusters can make real kinds support
 projection without essences.
-\posscite{boyd_2019_rethinking_natural_kinds_reference_truth} accommodationism adds the
-detail that matters here. Perceptual skills, instruments, inferential routines, social
-arrangements, and
-representational uses each contribute when they help a practice align with relevant causal
-structures. The routes form a coupled pattern, not coordinate epistemic goods.
+\posscite{boyd_2019_rethinking_natural_kinds_reference_truth} accommodationism explains
+why such support can be patterned. Reference and truth are achievements of practices that
+align perceptual, instrumental, cognitive, and representational activity with relevant
+causal structures, not products of definitions in isolation. The narrower question here is
+how strongly those practices constrain a given arrangement. Their routes form a coupled
+pattern, not coordinate epistemic goods.
 
-Accommodation, in this sense, is the gradual fitting of representational practice to the
+That accommodation is a gradual fitting of representational practice to the
 structures it's used to track. Practices of using scientific terms, producing instrument
 readings, and applying ordinary object names become more reliable as perception,
 measurement, inference, correction, and use are adjusted together. Definitions alone don't
@@ -472,10 +481,10 @@ strongly the relevant routes constrain a given arrangement. A text-trained arran
 inherit stable linguistic and testimonial patterns while its
 instrumental, perceptual, and practical routes remain attenuated.
 
-In arrangements for everyday perception and basic coordination,
-perception, action, memory, testimony, and practical failure~-- the routes where error has
-been costly longest~-- have repeatedly corrected one another. A language-model arrangement
-that lacks perceptual and verification routes should show a corresponding failure pattern.
+Everyday judgment and coordination draw on perception, action, memory, testimony, and
+practical failure. These are the routes on which error has imposed costs longest, and they
+have repeatedly corrected one another. A language-model arrangement that lacks perceptual
+and verification routes should show a corresponding failure pattern.
 
 In arrangements for frontier science and remote historical fact, the routes may instead be
 sparsely linked. Error cost is delayed, diffuse, or beyond current instruments. There may be
@@ -519,13 +528,16 @@ nor projectibility by itself establishes live error detection and repair%
 \ifttpanonymous
 .
 \else
-\citep{reynolds2026projectibilityHistory}.
+~\citep{reynolds2026projectibilityHistory}.
 \fi
 
 \term{Corrective control} adds capacities for discrepancy detection and target-improving
-change. An arrangement has corrective control only relative to a target and perturbation
-range. Its strength within those bounds depends on five features of the arrangement's
-corrective architecture:
+change. Corrective control is relative to a target and perturbation range.
+\mention{Target-sensitive} is neutral about the target's epistemic value: an
+arrangement can track rater approval while its assertions become less accurate.
+\mention{Target-improving} means closer to the declared target; it is truth-improving only
+when that target bears appropriately on getting things right. Within the declared bounds,
+corrective control depends on five features of the arrangement's architecture:
 \begin{enumerate}[label=\arabic*.,ref=\arabic*]
     \item \label{feat:target-access}\term{Target access}: target-relevant variation reaches
     the arrangement through an operative route.
@@ -540,11 +552,13 @@ corrective architecture:
     and is attributable.
 \end{enumerate}
 
-Together, the five features specify when the live path in Figure~\ref{fig:routes}(b)
-supplies corrective control rather than merely carrying information.
-
-These are graded, potentially dependent dimensions; the numbering is for reference, not
-rank. Target access, for example, belongs to the arrangement rather than to a sensor,
+For the live path in Figure~\ref{fig:routes}(b), each feature is necessary at least
+minimally. If target variation can't arrive, register, supply non-redundant evidence, guide
+a response, or alter production in a target-improving direction, that path can't correct.
+The features also have to be jointly instantiated along a connected correction path; capacities
+scattered across disconnected routes don't combine into corrective control.
+Above that minimum, the features are graded and potentially dependent; the numbering is for
+reference, not rank. Target access, for example, belongs to the arrangement rather than to a sensor,
 record, or checker considered alone: a route may be present without transmitting the
 relevant variation for the declared task. Likewise, a checker's errors may partly correlate
 with the generator's, attribution may be more or less precise, and uptake may be delayed or
@@ -557,27 +571,32 @@ every feature at least as fully and some more fully. Trade-offs needn't be ranka
 checking-route independence can come with weaker attribution. Nothing here licenses a
 weighted score across the five.
 
-These five features characterize corrective capacity, not observed rates. Three quantities
-differ: architectural capacity; exercise frequency, or how often a route actually alters
-production; and conditional repair performance, or how well the arrangement responds when
-a relevant discrepancy is present. Effective uptake isn't exercise frequency. Otherwise, a
-near-flawless arrangement in a benign environment would score low,
-while a poor generator triggering a mediocre checker would score high. Counting any
-alteration also rewards changes in the wrong direction.
+These five features characterize corrective capacity, not observed performance. Capacity
+concerns what the architecture can do. Exercise frequency records how often a route
+actually alters production. \term{Conditional repair performance} is the probability of an
+appropriate target-improving response when a relevant discrepancy is present, considered
+alongside the rate of unnecessary or harmful intervention.
 
-Effective uptake instead asks a conditional, directional question: once a discrepancy is
-detected and attributable, can the arrangement reduce it? \term{Conditional repair
-performance} is the probability that it makes an appropriate target-improving change when
-a relevant discrepancy is present, considered alongside its rate of unnecessary or harmful
-intervention when correction isn't warranted. Detection, exercise, and uptake after
-detection can be reported as component rates. Audited end-to-end correction and
-false-intervention rates provide evidence about capacity and observed performance. Raw
-repair frequency isn't what corrective control consists in.
+The target, perturbation, and criterion for improvement are declared first rather than
+inferred from favourable outcomes; conditional repair and false-intervention rates then
+test whether the arrangement realises the capacity.
+
+Effective uptake is a capacity, not an exercise rate. A near-flawless arrangement in a
+benign environment may rarely need to exercise it; a poor generator may trigger a mediocre
+checker often. Nor does every alteration count as repair, since a change can move the
+output further from the target. Effective uptake therefore asks whether a detected,
+attributable discrepancy can produce a timely, target-improving change. Detection,
+exercise, and uptake after detection can be reported as component rates. Audited
+end-to-end correction and false-intervention rates provide evidence about capacity and
+observed performance. Raw repair frequency isn't what corrective control consists in.
 
 Among the five, checking-route independence alone compares one route's errors with
-another's. It depends on where a checker came from, what it can see, what it's optimizing,
-and how its errors covary with the generator's. Target access, detectability, or effective
-uptake can be present with it or without it.
+another's. No task-free statistic defines it. In the proposed checker test, the operative
+quantity is conditional error overlap: how often the checker repeats the generator's error
+when the generator is wrong, considered alongside false interventions on correct outputs.
+Lineage and marginal error correlation can bear on that quantity but don't define it.
+Target access, detectability, or effective uptake can be present with independence or
+without it.
 
 These conditions fix the relation to answerability rather than competing with it.
 Answerability comes in degrees, and its strength depends on how specific, repeatable, and
@@ -596,8 +615,8 @@ arrangement, that's a missing capacity rather than a low correction rate.
 Route structure also supports a bounded projection. A value produced through a live assay,
 calibration log, and error-reporting practice warrants stronger expectations about nearby
 cases than one copied from yesterday's database, because changes in the sample or
-instrument can affect the former. Which further successes are warranted remains relative
-to the target, task, and perturbation.
+instrument can affect the former. The range of warranted expectations still depends on the
+declared target, task, and perturbation.
 
 \transitionpagehead{4\quad Corrective control and bounded projections}
 \section[Language-model arrangements]{Language-model arrangements: inherited structure and live
@@ -605,9 +624,10 @@ routes}\label{sec:llm}
 
 \subsection{The arrangement and its routes}\label{ssec:arrangement}
 
-Applying the framework begins by fixing the output-producing arrangement for the target
-and task. It comprises the language model and prompt, together with any retrieved records,
-tools, sensors, checkers, human reviewers, or update routes that are live.
+The five features now provide a way to analyse the LLM pressure case. The first step is to
+fix the output-producing arrangement for the target and task. It comprises the language
+model and prompt, together with any retrieved records, tools, sensors, checkers, human
+reviewers, or update routes that are live.
 
 Multimodal foundation models are included when their linguistic outputs are under
 assessment. Multimodal training can supply inherited perceptual structure; a runtime
@@ -653,10 +673,10 @@ audience response, party discipline, or persuasive success rather than the empir
 target at issue. What has to survive the training history is the effect of corrections
 made against that target rather than against audience response, rater approval, or a party line.
 
-Three things come apart here: causal ancestry, which any corpus included in training
-supplies; derivative answerability, which requires target-sensitive inherited correction;
-and live answerability, which requires a route from a fresh discrepancy to current
-production (Figure~\ref{fig:routes}).
+Three things come apart here. Causal ancestry requires only that material included
+in training shaped present production. \term{Derivative answerability} requires the
+inherited effects of target-sensitive correction. \term{Live answerability} requires a
+current route from a fresh discrepancy to production (Figure~\ref{fig:routes}).
 
 Derivative answerability by itself never supplies live answerability. Once the training history is
 fixed, a discrepancy arising after it has no way to reach production. Training against
@@ -682,8 +702,10 @@ supplying none of these features. Checking-route independence depends on the rel
 between routes, not on one route in isolation.
 
 Corrective control doesn't extend beyond the arrangement's live routes, and it's bounded
-target by target. A user who checks a claim can supply corrective capacity for
-that claim. Checking frequency fixes the route's coverage across claims; appropriate
+target by target. A user who checks a claim can supply corrective capacity for that claim.
+A later reader is part of the relevant arrangement only when the check can still affect the
+output's acceptance, correction, withdrawal, or downstream use within the declared horizon.
+Checking frequency fixes the route's coverage across claims; appropriate
 improvement when a relevant discrepancy is present, considered with harmful intervention,
 fixes conditional repair performance. The ordinary case isn't an arrangement with no
 corrective control anywhere, but one
@@ -748,10 +770,10 @@ hearer in a testimonial exchange.
 
 Table~\ref{tab:llm-profiles} summarizes the architecture-sensitive predictions.
 
-\begin{table}[H]
+\begin{table}[!t]
 \centering
 \small
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\linewidth}>{\raggedright\arraybackslash}p{0.34\linewidth}>{\raggedright\arraybackslash}p{0.36\linewidth}@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\linewidth}>{\raggedright\arraybackslash}p{0.28\linewidth}>{\raggedright\arraybackslash}p{0.42\linewidth}@{}}
 \toprule
 Arrangement type & Principal architectural resources & Directional prediction \\
 \midrule
@@ -785,12 +807,12 @@ representation affected its outputs \citep{li_etal_2023_emergent_world_represent
 The result shows that inherited constraint can be strong when the target state is densely and
 systematically encoded in the sequence.
 
-Othello provides only a limited basis for a broader claim. The game is finite, fully
-observable, and rule-governed; its legal moves are a deterministic function of a state
-recoverable from the move sequence. That's why the result is both striking and
-unrepresentative. Nothing
-follows about domains whose relevant state is absent from the record, which is the class
-this argument concerns.
+Othello marks the strongest case for inherited structure: sequence training can recover a
+latent target state when the record encodes it completely. Its broader reach is limited.
+The game is finite, fully observable, and rule-governed; its legal moves are a deterministic
+function of a state recoverable from the move sequence. The case therefore identifies the
+boundary of the claim rather than supplying evidence about domains whose relevant state is
+absent from the record.
 
 Internal world-model evidence should be strongest where the relevant
 state variables are encoded in the sequence and the loss function penalizes violations
@@ -837,13 +859,12 @@ Mitigation results should be attributed to the route manipulated. Evidence that
 retrieval reduces hallucination in conversation bears on record access, not on perception,
 experiment, or intervention \citep{shuster2021retrieval}.
 
-Action-guided arrangements can substantially expand corrective control when the
-feedback is timely, attributable, and tied to the relevant failure. The code-execution
-case in Section~\ref{sec:target} supplies the software example. A robot that breaks a
-glass, misses a target, or fails a laboratory protocol can receive similarly direct
-correction; a chatbot receiving delayed approval, engagement metrics, or sparse user edits
-has a slower, less attributable route. The label
-\mention{feedback} hides that difference unless the route is specified.
+Action-guided arrangements expand corrective control when feedback is timely, attributable,
+and tied to the failure. Section~\ref{sec:target} gives the code-execution case. A robot that
+breaks a glass, misses a target, or fails a laboratory protocol can receive similarly direct
+correction; delayed approval, engagement metrics, or sparse user edits give a chatbot a
+slower, less attributable route. The label \mention{feedback} hides the difference unless
+the route is specified.
 
 \subsection{What the correction routes correct}
 
@@ -863,7 +884,7 @@ truth-directed feedback overstates it. For this analysis, the targets against wh
 were computed matter more than the amount of post-training.
 
 Work on sycophancy shows the risk of treating feedback based on human preference
-judgements as truth-directed on its own \citep{shapira2026rlhf}. These processes strengthen
+judgments as truth-directed on its own \citep{shapira2026rlhf}. These processes strengthen
 some social and evaluative constraints while leaving routes through perception,
 measurement, and intervention indirect or absent.
 
@@ -878,9 +899,9 @@ fix its target.
 Fine-tuning can be constitutive of appropriateness for a purpose, the phenomenon Ruyant
 seeks to explain, because norm setters fix that purpose. It can remain
 marginal to whether outputs are meaningful in Grindrod's sense. Neither verdict settles
-target-directed correction. Rater approval supplies that only when the judgement is
-informed by a target-sensitive route: fact-checking against records, tool results, or action outcomes
-rather than approval alone. Treating all three questions as one quantity called
+whether fine-tuning provides target-directed correction. For rater feedback to provide such
+correction, the judgment must draw on a target-sensitive route, such as checking against
+records, tool results, or action outcomes; approval alone isn't enough. Treating all three questions as one quantity called
 \mention{grounding}
 makes the disagreement look unresolvable.
 
@@ -901,7 +922,7 @@ answerability is nonetheless confined to the testimonial and inferential routes 
 supplies, with perception, measurement, and intervention absent. Secure reference
 alongside a restricted profile is the dissociation at issue.
 
-Pepp raises a stronger version \citep{pepp_2025_reference_without_intentions_llms}. She
+\textcite{pepp_2025_reference_without_intentions_llms} raises a stronger version. She
 suggests that such systems may contact objects
 through their exchanges with users, coming into contact with whatever shaped a user's
 input. The inherited--live distinction splits that case. A live image-input route supplies
@@ -920,14 +941,17 @@ alter present production. What isn't on the wire can't correct what is.
 A deployment case isolates what adding a checker changes. \textcite{anthropic2026automode}
 describes a coding agent that routes each proposed action through a classifier that blocks
 operations it judges irreversible, destructive, or aimed outside the working environment.
-The case concerns safety control rather than factual truth
-directly. It instantiates the live correction path in Figure~\ref{fig:routes}: a separate
+The case concerns safety control rather than factual truth directly, but it still
+instantiates the live correction path in Figure~\ref{fig:routes}: a separate
 discrepancy signal becomes behaviourally effective.
 
-When its policy judgement is correct, the separate classifier can supply detection and
+When its policy judgment is correct, the separate classifier can supply detection and
 effective gating where the acting language model registers nothing itself. Adding it can
 give the arrangement detectability and effective uptake through a second route rather than
 through introspection.
+
+A checker needn't be artificial. A human reviewer belongs to the same arrangement when the
+reviewer receives the proposed action, has relevant evidence, and can block or revise it.
 
 Separation alone doesn't secure checking-route independence. An external checker can
 reproduce the generator's errors, while the generator given independently sourced
@@ -938,102 +962,88 @@ including repository visibility and git state. Whether that change decorrelated 
 wasn't measured, and lineage alone wouldn't settle the question. Measuring it requires
 conditional error rates for checker and generator on a shared held-out set.
 
-The deployment figures illustrate the distinction between exercise frequency and
-conditional repair performance. Users reject 3\% of individual permission requests against
-39\% of plans put to them for approval. Both are observed intervention frequencies, not
-conditional repair performance; without audited rates of unsafe proposals and false blocks,
-that performance is unidentified. The gap is consistent with route-specific non-exercise
-in the per-action arrangement, though it doesn't isolate that explanation from interface
-burden, action granularity, or perceived stakes.\footnote{A controlled study points the same
-way, with human testers catching 13.6\% of planted dangerous commands against the
-classifier's 89\%, though its participants worked in a purpose-built environment and knew
-they were being evaluated \citep{anthropic2026automode}. Both figures are unaudited vendor
-self-reports and illustrate the exercise gap rather than measuring conditional repair
-performance.}
-
 \subsection{Empirical transfer}\label{ssec:transfer}
 
-Route-specific transfer provides a component test. Improvements in one route should remain
-limited where a task depends on a different route. If perception, measurement, retrieval,
-tool use, expert correction, or action feedback is confirmed to be active and reaches
-production but fails to alter the expected contrast, the proposed decomposition has
-misdescribed the mechanisms. If text-only arrangements remain mainly dependent on inherited textual
-accommodation and local coherence, the same vulnerability should persist even as fluency
-improves.
+The deployment case illustrates detectability and effective uptake while leaving
+checking-route independence unresolved. The component tests below are validation arguments,
+not attempts to read architecture directly off performance: each links an observed contrast
+to a claim about route structure under declared auxiliary assumptions and manipulation
+checks. The broader empirical question is whether route-specific interventions transfer as
+the decomposition predicts. Improvements in one route should remain limited where a task
+depends on a different route. If perception,
+measurement, retrieval, tool use, expert correction, or action feedback is confirmed to be
+active and reaches production but fails to alter the expected contrast, the proposed
+decomposition has misdescribed the mechanisms. If text-only arrangements remain mainly
+dependent on inherited textual accommodation and local coherence, the same vulnerability
+should persist even as fluency improves.
 
-A clinical test makes this concrete.\footnote{The design parallels validity
-argumentation in measurement: inferences from performance are licensed relative to a
-purpose and tested by varying method while holding the target construct fixed
-\citep{messick_1989_validity,kane2013validating}.} One item set asks for recommendations
-recoverable from guidelines or institutional records. A paired set uses the same disease
-area and answer format and requires a patient-specific lab value, observed sign, dose
-calculation, or intervention-sensitive causal judgement. The route decomposition predicts
-a retrieval gain on the record-recoverable set and little transfer to the
-patient-specific set unless the needed measurement or tool route is supplied. Retrieval alone producing the same gain on
-both sets would count against the proposed distinction between routes.
+A clinical design applies both retrieval and a measurement tool to two sets of questions.
+Record-dependent questions ask for recommendations recoverable from guidelines or
+institutional records. Patient-specific questions require a current observation,
+measurement, calculation, or causal judgment about an intervention.
+Retrieval should selectively help the record-dependent items, and a measurement tool the
+measurement-dependent ones. The declared route-by-task interaction is the main test:
+comparable gains from retrieval alone on both sets would count against the proposed route
+distinction. These directional predictions require declared auxiliary assumptions about
+task requirements, route invocation and integration, and the data distribution; the
+decomposition alone doesn't fix an effect magnitude. Online Resource~1 specifies the item
+construction, estimand, controls, manipulation checks, outcomes, and interpretation of
+uncertainty.
 
-The implementation is crossed rather than merely matched: closely related item families
-vary whether a route is available and whether the task requires it. Substantive correctness,
-scored blind across both item types, is the primary outcome. Online Resource~1 specifies
-the estimand, controls, secondary outcome, worked decision threshold, and interpretation of
-uncertainty. The main test is the route-by-task interaction declared before outcomes are
-observed.
+This double dissociation tests selective transfer, but it isn't unique to the decomposition.
+A relevance-sensitive information account can predict the same crossing by treating records
+and measurements as different kinds of task-specific information. Assessing the strongest
+information-based reply requires distinguishing three readings of coverage.
 
-One interaction is weaker than two. Retrieval should help the record-dependent items, and
-a measurement tool should help the measurement-dependent ones, so
-crossing both interventions against both task types tests a double dissociation. That
-is, each route should confer a selective advantage on the task that needs it. The contrast
-tests whether the proposed routes track selective transfer, but the interaction isn't
-unique to the decomposition. A relevance-sensitive information account can predict the same
-crossing by treating records and measurements as different task-specific
-information.
-
-The natural rival explains the crossing through differences in task-relevant information
-availability. Evaluating that reply requires distinguishing three readings of coverage.
-Input coverage concerns task-relevant content
-accessible at a declared architectural boundary before the focal component produces its
-signal. Depending on that boundary, the inputs can include a prompt, retrieved passage,
-database response, sensor output, or candidate answer presented to a checker. The boundary
-is declared and relevance coded against a gold-standard task analysis before system outputs are
-observed. Input coverage is a restricted empirical comparator: two arrangements
-can receive the same task information while differing in what they do with it.
+Input coverage concerns task-relevant content accessible at a declared architectural boundary
+before the component under test produces its signal. The boundary and criteria for relevance
+are fixed before outputs are observed. This restricted comparator allows two arrangements to
+receive the same task information while differing in what they do with it.
 
 Conditional coverage concerns what one route adds given what the other routes have
 supplied. It can represent the greater value of a checker whose errors don't reproduce the
-generator's. Effective coverage includes whatever information can influence the
-final output given the architecture, provenance, checking relations, and uptake policy. It
+generator's. Effective coverage includes whatever information the arrangement can bring to
+bear on the final output, given its provenance, checking relations, and uptake policy. It
 summarizes the usable information supplied by the whole arrangement without decomposing how
 it became usable.
 
-The clearest competing account uses input coverage. Conditional coverage remains an
-empirical comparator when its measure is fixed in advance, but it already incorporates
-checking-route independence and joint error structure. Effective coverage includes nearly
-the whole profile. Used without fixed application conditions, it can fit any result post hoc by
-counting each helpful route as an increase in coverage. It then summarizes the arrangement's
-usable information rather than competing as a mechanism. Effective coverage may serve coarse
-retrospective prediction while the decomposition serves intervention, audit, and transfer.
-Nothing here requires one uniquely correct description for both purposes.
+Input coverage is the clearest competing account. Conditional coverage remains an empirical
+comparator when fixed in advance, but it already incorporates checking-route independence and
+joint error structure. An unrestricted effective-coverage measure therefore recapitulates
+nearly the whole route profile; without fixed
+application conditions, it can fit any result post hoc by counting each helpful route as an
+increase in coverage. It then summarizes the arrangement's usable information rather than
+competing as a mechanism. Nothing here requires one description to serve both that summary
+and route-specific intervention.
 
 This yields an identification limit. For any mapping from the decomposition's variables and environments
 to performance, an unrestricted coverage variable can be defined to reproduce that mapping.
 Behavioural results alone can't identify which architecture produced the usable information.
+This is a methodological limit, not a gap that a more ingenious behavioural contrast can
+close. Once coverage is allowed to encode every route relation and uptake policy, effective
+coverage is a reduced-form summary of usable information, while the decomposition is a
+structural proposal about how that information becomes usable and where an intervention
+should transfer.
 Lineage, information flow, conditional error structure, and update routes supply the
 additional evidence. The empirical comparison needs fixed application conditions specified
 before the outcomes are observed.
 
-The empirical burden falls on the proposed decomposition. Route identity and coupling specify
-what kind of target constraint is available. The five arrangement-level corrective
-features diagnose whether target-relevant variation can reach the arrangement, yield a
-detectable and independently informative discrepancy, be attributed, and alter behaviour
-in a target-improving direction. Both components are fixed from architecture and history
-before performance is measured.
+The proposed decomposition faces the empirical burden. Route identity and coupling specify
+the available target constraints; the five corrective features diagnose whether those
+constraints can expose an independently informative discrepancy and produce a
+target-improving response. Fix both components from architecture and history, then compare
+the resulting model with prespecified models of input and conditional coverage. Its
+predictors are route identities, task requirements, cross-route relations, the five features,
+and declared interactions. Evaluate all three on held-out combinations without reclassifying
+routes after seeing the outcomes. No weighted profile score is required. The projectibility
+claim loses if either fixed coverage comparator predicts those cases equally well without
+conceptual refitting.
 
-For the projectibility claim, compare a prespecified input-coverage model with a multilevel
-model containing route identities, task requirements, cross-route relations, the five
-features, and declared interactions. Evaluate both on held-out combinations without
-reclassifying routes or redefining features after observing the outcomes. No weighted
-profile score is required, and the decomposition loses if input coverage predicts those
-cases equally well.
+Online Resource~1 stress-tests that burden with fake data. Its constructed worlds include
+one in which an uptake bottleneck favours the decomposition and others in which conditional
+coverage suffices, feature measurements are too noisy, and route structure improves repair
+prediction without improving intervention choice. The latter cases show that latent route
+structure needn't yield usable prediction or better intervention choice.
 
 For the practical claim, the decomposition has to improve diagnosis or the choice among
 retrieval, measurement, independent checking, and enforced uptake
@@ -1043,15 +1053,11 @@ characterize the route relations, the five features, or their stability under pe
 
 A second component test varies checking-route independence
 (feature~\ref{feat:checking-independence}). Compare a checker from the generator's lineage
-with one trained and calibrated separately while approximately matching externally supplied
-task information, standalone accuracy, interface, and revision policy. The decomposition
-predicts greater corrective value from the checker with lower conditional error overlap.
-That comparison operationalizes the earlier restriction on calibration history: it matters
-where it predicts current error structure or stability under perturbation.
-An input-coverage account predicts no advantage under the declared boundary; a
-conditional-coverage account can predict one only by representing the joint error structure
-that checking-route independence names. Online Resource~1 supplies the full controls and
-measurement boundary.
+with one trained and calibrated separately while matching supplied information, standalone
+accuracy, and revision policy. The decomposition predicts greater corrective value from the
+checker with lower conditional error overlap. An input-coverage account predicts no advantage
+under the declared boundary; a conditional-coverage account can predict one by representing
+the joint error structure that checking-route independence names.
 
 Online Resource~1 also compares a frozen record with a live route to the same source under
 update and no-update arms. The test operationalizes live answerability but doesn't
@@ -1060,12 +1066,7 @@ distinguish the decomposition from dynamic coverage, which predicts the same fol
 Failure of a declared contrast, after confirming that the relevant route was invoked and
 reached production in time, would count against the corresponding route distinction or
 corrective feature. Repeated failure across prespecified component tests would defeat the
-full decomposition. The deployment case changed environmental access without measuring
-error correlation, so it bears on one feature rather than testing the full decomposition.
-
-Even perfect co-occurrence within a sample wouldn't show that grounding entails corrective
-control: both may depend on a third feature, or every sampled arrangement may satisfy more
-than grounding requires.
+full decomposition.
 
 \transitionpagehead{5\quad Language-model arrangements}
 \section[Comparisons and objections]{What the decomposition adds and principal
@@ -1102,8 +1103,9 @@ medical questions reliably} invites transfer from record-backed questions to tas
 require live measurement, patient-specific observation, calculation, or intervention. A
 careful reliabilist can instead individuate the process as retrieval-backed answering under
 a specified profile of records, tools, and checks. That yields the same verdict.
-The remaining difference is methodological: the decomposition has to be fixed before the
-transfer is granted.
+Both views therefore need an ex ante process description. The decomposition's distinctive
+claim is that route identities and relations provide a principled way to fix it before
+transfer is observed.
 
 At arrangement scale, this raises reliabilism's generality problem
 \citep{conee_feldman_1998_generality_problem_reliabilism}. Pretraining, filtering, RLHF,
@@ -1129,20 +1131,26 @@ Coherence faces the parallel limit: a false proposition can cohere with a specif
 live route by which target drift alters production
 \citep{havlik_2024_meaning_understanding_llms_synthese}.
 
-\subsection{Interest-relativity}
+\subsection{Interest-relativity and genuine kinds}
 
-One objection questions the profile's objectivity. Causal graphs and mechanism boundaries
-depend on explanatory interests \citep{craver_2009,onishi_serpico_2022}; no network fixes a
-unique, interest-free carving. \textcite{khalidi2013} likewise allows overlapping scientific
-domains to support different categories and methods.
+One objection questions the profile's objectivity. Goodman's new riddle makes
+projectibility depend on predicates embedded in inductive practice
+\citep{Goodman1955}. Boyd makes the corresponding realism field-relative: kinds answer to
+the accommodation demands of particular practical or scientific disciplines, and different
+disciplines may require different carvings of the same domain \citep{boyd1991,boyd1999}.
+Causal graphs and mechanism boundaries likewise depend on explanatory interests
+\citep{craver_2009,onishi_serpico_2022}; no network fixes a unique, interest-free carving.
+\textcite{khalidi2013} allows overlapping scientific domains to support different categories
+and methods.
 
-That concession fixes the conditions of application rather than the result. The target,
-task, perturbation, and failure condition are declared first; evidence then determines
-whether the projection succeeds. Interests select the projective claim, not its truth.
-Connectivity is characterized before present performance through selection or training
-history, accumulated correction procedures, and measurement infrastructure. Those marks
-can establish occasions for one route to expose another's errors; longevity or consensus
-alone can't.
+That relativity is compatible with genuine kinds. A field fixes which similarities, causal
+relations, and perturbations matter; the world determines whether a classification supports
+induction and explanation under those conditions. Here, the target, task, perturbation, and
+failure condition are declared first. Interests select the projective claim, not its truth.
+Route relations are then characterized before present performance through selection or
+training history, accumulated correction procedures, and measurement infrastructure. Those
+marks can establish occasions for one route to expose another's errors; longevity or
+consensus alone can't.
 
 Choosing the purpose after seeing the verdicts would make the account unfalsifiable.
 Prospective characterization blocks that move. A failure on the declared held-out cases
@@ -1180,8 +1188,11 @@ analysis rather than requiring its rejection.
 
 \subsection{Scope}
 
-Mathematics and logic lie outside this paper's world-directed target, although proof and
-formal checking show that detection and correction needn't be perceptual. Deflationists
+The central case is empirical: it concerns targets whose relevant variation may reach an
+arrangement through testimony and records, perception, measurement, or intervention.
+Mathematics and logic provide a contrast. Proof and formal checking can supply correction
+without empirical target access, showing that detection and correction needn't be
+perceptual. Deflationists
 may deny that truth has a substantive nature \citep{horwich_1998_truth}, while pluralists
 distinguish ways of being true across domains. Neither view conflicts with the narrower
 claim that evidence about different routes may warrant bounded projections among
