@@ -73,4 +73,19 @@ Stop if the exercise merely demonstrates that mandatory uptake mechanically chan
 
 The first run revealed that a correctly specified structural model could improve held-out repair prediction without improving intervention choice. That result was retained rather than tuned away as a fourth constructed world. The final workflow therefore distinguishes predictive surplus from practical decision surplus and includes three ways for the decomposition to fail.
 
-A separate bounded Alloy audit was added as an internal logical check. Once the five features were derived from actual route structure rather than represented as free labels, Alloy still produced an arrangement in which every feature was present on some route but no single connected correction path existed. Section 4 now states the resulting joint-instantiation condition. The Alloy formalization remains outside the article and supplement.
+The uptake-bottleneck world is presented as a recovery check rather than evidence of
+explanatory surplus: its conditional-coverage comparator deliberately omits two factors in
+the data-generating process. The result table reports the associated 70.98 percentage-point
+gain in optimal intervention choice, alongside the much smaller loss and regret differences.
+All models receive the true baseline accuracy, an acknowledged simplification that isolates
+route comparison while removing a source of empirical difficulty.
+
+A separate bounded Alloy audit was added as an internal logical check. It derives target
+access, detectability, and effective uptake from route structure while treating independence
+and attribution as primitive annotations on operative checks. Alloy produced an arrangement
+in which every feature was witnessed on some route but no single connected correction path
+instantiated them together. Section 4 now states the resulting joint-instantiation condition.
+The formalization had completed its developmental role at that point. It was retired from
+the shipped analysis rather than enlarged into a provenance model that would risk treating
+lineage as sufficient for statistical independence; the final `.als` remains only as a local
+working note.

@@ -16,7 +16,7 @@ This ledger records the disposition of Brett's Roughdraft annotations and the El
 - **Recast the experiments as validation arguments.** The article now says this explicitly. The supplement adds a rival-prediction matrix stating what each design tests and what the strongest coverage reply can absorb.
 - **Sharpen the identification result.** The article now says that no behavioural contrast can defeat unrestricted effective coverage once it may encode every route relation and uptake policy. Effective coverage is reduced form; the decomposition is structural.
 - **Stress-test the decomposition with constructed data.** A reproducible workflow now compares fixed input coverage, fixed conditional coverage, and the structural decomposition on held-out task--intervention combinations. It includes worlds in which the decomposition wins, conditional coverage is sufficient, feature measurement defeats the true latent decomposition, and predictive surplus fails to improve intervention choice.
-- **Make joint structure explicit.** A bounded Alloy audit found that separately instantiated features need not form a connected correction path. Section 4 now requires joint instantiation along such a path; the model and reproducible checks remain internal analysis artifacts.
+- **Make joint structure explicit.** A bounded Alloy audit found that separately instantiated features need not form a connected correction path. Section 4 now requires joint instantiation along such a path. The formalization was then retired from the submission package because its remaining result was already captured in the prose.
 
 ### Already answered
 

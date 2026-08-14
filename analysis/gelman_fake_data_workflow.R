@@ -286,6 +286,123 @@ summarize_paired_comparisons <- function(raw) {
   do.call(rbind, rows)
 }
 
+paired_differences <- function(raw) {
+  conditional <- raw[raw$model == "conditional", ]
+  decomposition <- raw[raw$model == "decomposition", ]
+  joined <- merge(
+    conditional, decomposition,
+    by = c("replication", "scenario"),
+    suffixes = c("_conditional", "_decomposition")
+  )
+  joined$repair_loss_delta <- joined$repair_log_loss_decomposition -
+    joined$repair_log_loss_conditional
+  joined$optimal_choice_delta_pp <- 100 * (
+    joined$optimal_choice_rate_decomposition -
+      joined$optimal_choice_rate_conditional
+  )
+  joined
+}
+
+plot_paired_differences <- function(raw, path) {
+  paired <- paired_differences(raw)
+  scenarios <- c("A", "B", "C", "D")
+  labels <- c(
+    "A  Recovery check",
+    "B  Signal sufficient",
+    "C  Noisy features",
+    "D  No decision surplus"
+  )
+  y <- rev(seq_along(scenarios))
+  point_colour <- grDevices::adjustcolor("black", alpha.f = 0.14)
+
+  grDevices::pdf(path, width = 7.25, height = 4.65, useDingbats = FALSE)
+  old_par <- graphics::par(
+    mfrow = c(1, 2),
+    mar = c(3.5, 1.2, 2.5, 0.8),
+    oma = c(0.2, 0.2, 1.5, 0.2),
+    mgp = c(2.0, 0.55, 0),
+    tcl = -0.25,
+    las = 1,
+    family = "serif"
+  )
+  on.exit({
+    graphics::par(old_par)
+    grDevices::dev.off()
+  }, add = TRUE)
+
+  panels <- list(
+    list(
+      variable = "repair_loss_delta",
+      xlim = c(-0.014, 0.073),
+      xlab = expression(Delta~"repair log loss"),
+      title = "Repair prediction",
+      better_left = "decomposition better",
+      better_right = "conditional coverage better"
+    ),
+    list(
+      variable = "optimal_choice_delta_pp",
+      xlim = c(-65, 90),
+      xlab = expression(Delta~"optimal choice (percentage points)"),
+      title = "Intervention choice",
+      better_left = "conditional coverage better",
+      better_right = "decomposition better"
+    )
+  )
+
+  for (panel_index in seq_along(panels)) {
+    panel <- panels[[panel_index]]
+    graphics::par(mar = if (panel_index == 1L) {
+      c(3.5, 6.0, 2.5, 0.8)
+    } else {
+      c(3.5, 1.2, 2.5, 0.8)
+    })
+    graphics::plot(
+      NA,
+      xlim = panel$xlim,
+      ylim = c(0.45, 4.55),
+      xlab = panel$xlab,
+      ylab = "",
+      yaxt = "n",
+      bty = "n",
+      main = panel$title,
+      cex.main = 1.0,
+      cex.lab = 0.88,
+      cex.axis = 0.78
+    )
+    graphics::abline(v = 0, lty = 3, col = "grey45")
+    graphics::mtext(panel$better_left, side = 3, adj = 0, line = 0.25,
+                    cex = 0.66, col = "grey25")
+    graphics::mtext(panel$better_right, side = 3, adj = 1, line = 0.25,
+                    cex = 0.66, col = "grey25")
+
+    for (i in seq_along(scenarios)) {
+      values <- paired[paired$scenario == scenarios[[i]], panel$variable]
+      set.seed(8100L + 100L * panel_index + i)
+      jittered_y <- y[[i]] + stats::runif(length(values), -0.16, 0.16)
+      graphics::points(values, jittered_y, pch = 16, cex = 0.38,
+                       col = point_colour)
+      intervals <- stats::quantile(values, c(0.05, 0.25, 0.5, 0.75, 0.95))
+      graphics::segments(intervals[[1]], y[[i]], intervals[[5]], y[[i]],
+                         lwd = 1.1, col = "grey35")
+      graphics::segments(intervals[[2]], y[[i]], intervals[[4]], y[[i]],
+                         lwd = 4.0, col = "grey20")
+      graphics::points(intervals[[3]], y[[i]], pch = 21, cex = 0.72,
+                       bg = "white", col = "black", lwd = 1.0)
+    }
+
+    if (panel_index == 1L) {
+      graphics::axis(2, at = y, labels = labels, tick = FALSE,
+                     cex.axis = 0.72, las = 1)
+    }
+  }
+
+  graphics::mtext(
+    paste0("Paired differences across ",
+           length(unique(paired$replication)), " constructed replications"),
+    side = 3, outer = TRUE, line = 0.2, cex = 0.9
+  )
+}
+
 calibration_table <- function(d, probability, bins = 10L) {
   breaks <- quantile(probability, probs = seq(0, 1, length.out = bins + 1),
                      na.rm = TRUE, type = 8)
@@ -344,6 +461,10 @@ write.csv(
   row.names = FALSE
 )
 write.csv(calibration, file.path(output_dir, "gelman_fake_data_calibration.csv"), row.names = FALSE)
+plot_paired_differences(
+  raw,
+  file.path(output_dir, "gelman_fake_data_paired_differences.pdf")
+)
 
 metadata <- c(
   paste0("master_seed=", master_seed),

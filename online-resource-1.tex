@@ -99,46 +99,45 @@ serial path whose stages all have to succeed on a correction opportunity.
 The fixed conditional-coverage comparator omits $a$ and $u$, using $c\rho$ and $f\eta$;
 the input-coverage comparator uses target access alone for repair. Each model estimates one
 repair and one harm multiplier from training cells. To isolate the route comparison, every
-model receives the same true $p_0$; an empirical implementation would estimate that baseline
-with uncertainty.
+model receives the same true $p_0$. This removes baseline-estimation error and makes the
+exercise easier than an empirical application, which would have to estimate $p_0$ with
+uncertainty.
 
 The simulation draws 30 heterogeneous arrangements, record and measurement tasks, and five
 equal-cost choices: no intervention, retrieval, measurement, independent checking, and
 enforced uptake. Each arrangement--task--intervention cell contains 120 trials. Four
 intervention--task combinations are withheld from fitting. The models are compared on those
 cells by logarithmic loss for repair conditional on initial error and by regret from choosing
-an intervention other than the truly best one. Table~\ref{tab:fake-data} reports means over
-200 replications from a fixed master seed. Negative differences favour the decomposition;
-positive differences favour conditional coverage.
+an intervention other than the truly best one. Figure~\ref{fig:fake-data} shows paired
+differences over 200 replications from a fixed master seed. Negative repair-loss differences
+favour the decomposition; positive optimal-choice differences do.
 
-\begin{table}[!t]
+\begin{figure}[H]
 \centering
-\small
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.27\linewidth}rr>{\raggedright\arraybackslash}p{0.37\linewidth}@{}}
-\toprule
-Constructed world & $\Delta$ repair loss & $\Delta$ regret & Result \\
-\midrule
-Uptake bottleneck, accurately measured & $-0.00639$ & $-0.00657$ & The decomposition predicts repair and selects the intervention better. \\
-Conditional signal is sufficient & $+0.05695$ & $+0.00348$ & Conditional coverage wins; the proposed attribution and uptake structure is mistaken. \\
-True route structure, noisy feature measures & $+0.01478$ & $+0.00409$ & Conditional coverage wins in practice despite the latent structural process. \\
-True route structure, no decision surplus & $-0.00415$ & $+0.00001$ & The decomposition predicts repair better but doesn't improve intervention choice. \\
-\bottomrule
-\end{tabular}
-\caption{Paired fake-data comparisons. Differences are decomposition minus conditional
-coverage, so lower logarithmic loss and lower regret appear as negative values.}
-\label{tab:fake-data}
-\end{table}
+\includegraphics[width=\linewidth]{analysis/results/gelman_fake_data_paired_differences.pdf}
+\caption{Paired fake-data comparisons. Points show individual replications; thin and thick
+lines span the central 90 and 50 percent, and circles mark medians. Differences are
+decomposition minus conditional coverage. The worlds aren't pooled evidence for one expected
+success rate: A is a recovery check, while B--D specify conditions under which the
+decomposition can lose.}
+\label{fig:fake-data}
+\end{figure}
 
-The first world verifies that the workflow can recover the intended uptake bottleneck. The
-other three prevent the exercise from becoming a demonstration by construction. In
-particular, better prediction of conditional repair doesn't entail better intervention
-choice, and a true but poorly measured decomposition can be less useful than its simpler
-comparator. Differences in final-accuracy loss are much smaller because initially correct
-answers dominate that aggregate, which is why the article treats repair conditional on error
-and harmful intervention as the more diagnostic quantities. The repair and regret
-comparisons in each of the first three worlds have the same direction in all 200 replications;
-in the fourth, decision regret is effectively tied. The reproducible R script and
-machine-readable results accompany this resource.
+The first world is a recovery check, not evidence of explanatory surplus. Its data-generating
+process includes attribution and uptake, while the conditional-coverage comparator
+deliberately omits them. The large difference in optimal-choice rate confirms that the
+workflow can recover that stipulated bottleneck. Worlds B--D carry the more demanding
+burden: the simpler comparator wins when conditional signal is sufficient or the feature
+measures are noisy, and better repair prediction needn't improve intervention choice.
+World C gives the sharpest practical failure: although route structure generates the data,
+noisy feature measures make the decomposition choose the optimal intervention 47.23
+percentage points less often.
+Differences in final-accuracy loss are much smaller because initially correct answers
+dominate that aggregate, which is why the article treats repair conditional on error and
+harmful intervention as the more diagnostic quantities. The repair and regret comparisons
+in each of the first three worlds have the same direction in all 200 replications; in the
+fourth, decision regret is effectively tied. The reproducible R script and machine-readable
+results accompany this resource.
 
 \section{A crossed route-by-task design}
 
@@ -279,7 +278,6 @@ checker signal shows that the intended manipulation wasn't instantiated. Once th
 pass, failure of the declared contrast is evidence that the proposed route carving or
 corrective feature has been misdescribed.
 
-\clearpage
 \printbibliography
 
 \end{document}

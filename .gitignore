@@ -14,6 +14,16 @@
 # macOS
 .DS_Store
 
+# Local scratch and rendered review artifacts. Never publish these.
+tmp/
+
+# Durable local working notes that aren't part of the paper or public repo.
+notes/working/
+
+# Local review exports and assets generated for Roughdraft or visual QA.
+notes/review-assets/
+truth-tracking-profiles-review.md
+
 # Local literature PDFs live in the central literature store.
 literature/*.pdf
 literature/**/*.pdf
