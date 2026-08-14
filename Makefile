@@ -8,12 +8,14 @@ MAIN = truth-tracking-profiles
 SUPPLEMENT = online-resource-1
 ANON_MAIN = truth-tracking-profiles-anonymous
 ANON_SUPPLEMENT = online-resource-1-anonymous
+SIMULATION_SCRIPT = analysis/gelman_fake_data_workflow.R
+SUPPLEMENT_FIGURES = analysis/results/gelman_fake_data_paired_differences.pdf
 OUTDIR = .
 PREAMBLE = .house-style/preamble.tex
 BIBS = references.bib $(wildcard references-local.bib)
 
 # Targets
-.PHONY: all anonymous clean distclean view help test
+.PHONY: all anonymous arxiv philarchive preprints clean distclean view help
 
 # Default target: build the PDF
 all: $(MAIN).pdf $(SUPPLEMENT).pdf
@@ -32,6 +34,18 @@ anonymous:
 	$(LATEX) -jobname=$(ANON_SUPPLEMENT) "\def\TTPANONYMOUS{}\input{$(SUPPLEMENT).tex}"
 	@echo "==> Anonymous review copies complete"
 
+# Build and verify a flat arXiv source bundle with the supplement and analysis
+# files in the ancillary directory.
+arxiv: all
+	./scripts/build-arxiv-bundle.sh
+
+# Build a named main PDF and a self-contained main-plus-resource PDF for a
+# PhilArchive version update.
+philarchive: all
+	./scripts/build-philarchive-package.sh
+
+preprints: arxiv philarchive
+
 # Full build sequence with bibliography
 $(MAIN).pdf: $(MAIN).tex $(PREAMBLE) $(BIBS)
 	@echo "==> First LaTeX pass..."
@@ -44,7 +58,11 @@ $(MAIN).pdf: $(MAIN).tex $(PREAMBLE) $(BIBS)
 	$(LATEX) -output-directory=$(OUTDIR) $(MAIN).tex
 	@echo "==> Build complete: $(MAIN).pdf"
 
-$(SUPPLEMENT).pdf: $(SUPPLEMENT).tex $(PREAMBLE) $(BIBS)
+$(SUPPLEMENT_FIGURES): $(SIMULATION_SCRIPT)
+	@echo "==> Regenerating fake-data results and figure..."
+	Rscript $(SIMULATION_SCRIPT)
+
+$(SUPPLEMENT).pdf: $(SUPPLEMENT).tex $(PREAMBLE) $(BIBS) $(SUPPLEMENT_FIGURES)
 	@echo "==> First LaTeX pass for $(SUPPLEMENT)..."
 	$(LATEX) -output-directory=$(OUTDIR) $(SUPPLEMENT).tex
 	@echo "==> Running Biber for $(SUPPLEMENT)..."
@@ -90,21 +108,18 @@ view: $(MAIN).pdf
 	@echo "==> Opening PDF..."
 	open $(MAIN).pdf
 
-# Test the Python specification
-test:
-	@echo "==> Testing theoretical specification..."
-	cd src && python typology.py
-
 # Show available targets
 help:
 	@echo "Available targets:"
 	@echo "  make          - Build PDF with full bibliography (default)"
 	@echo "                  and Online Resource 1"
 	@echo "  make anonymous - Build double-anonymized review copies"
+	@echo "  make arxiv     - Build and verify the arXiv source bundle"
+	@echo "  make philarchive - Build the PhilArchive update package"
+	@echo "  make preprints - Build both public preprint packages"
 	@echo "  make quick    - Quick build (single pass, no bib update)"
 	@echo "  make lualatex - Build using LuaLaTeX (not recommended)"
 	@echo "  make clean    - Remove build artifacts (keep PDF)"
 	@echo "  make distclean- Remove everything including PDF"
 	@echo "  make view     - Open PDF (macOS only)"
-	@echo "  make test     - Run Python specification tests"
 	@echo "  make help     - Show this help message"

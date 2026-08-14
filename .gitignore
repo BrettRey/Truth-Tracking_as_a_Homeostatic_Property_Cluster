@@ -16,6 +16,7 @@
 
 # Local scratch and rendered review artifacts. Never publish these.
 tmp/
+.freebuff/
 
 # Durable local working notes that aren't part of the paper or public repo.
 notes/working/

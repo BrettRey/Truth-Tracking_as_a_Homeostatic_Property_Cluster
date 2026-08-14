@@ -33,7 +33,7 @@ Truth-Tracking Profiles for Large Language Models}}
 \author{Brett Reynolds\\
 Humber Polytechnic \& University of Toronto\\
 \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}
-\date{\today}
+\date{14th August 2026}
 \fi
 
 \begin{document}
@@ -72,36 +72,46 @@ Temporal update & A live route should transmit a source update that a frozen rec
 \label{tab:rivals}
 \end{table}
 
-\section{Fake-data checks of explanatory surplus}
+\section{Fake-data stress tests of the decomposition}
 
-Constructed data can test whether a proposed model and design recover a known structure and
-can reveal cases in which a simpler comparator is sufficient \citep{gelman2020bayesianworkflow}.
-They aren't evidence that the decomposition is true. The exercise here instead asks whether
-the declared comparison is capable of exposing both success and failure before empirical
-outcomes are observed.
+Constructed data can audit a proposed model comparison before it is used on real systems
+\citep{gelman2020bayesianworkflow}. Their causal structure is chosen, so they cannot show
+that the decomposition is true. The exercise asks whether the analysis can recover a known
+architectural advantage, whether a simpler prespecified model can beat it, and whether
+predictive gains improve intervention choice.
 
 Let $p_0$ be an arrangement's probability of an initially correct answer. For a correction
 opportunity, let $x$, $d$, and $i$ represent target access, detectability, and checking-route
 independence as operationalized by task-specific conditional non-overlap, and let $c=xdi$ be
-the route's conditional signal. Let $a$ and $u$ represent
-attribution and uptake, $f$ the false-signal probability on an initially correct answer,
-$\rho$ the probability that an exercised correction succeeds, and $\eta$ the probability
-that an unwarranted intervention causes harm. The structural data-generating model is
+the route's conditional signal. Let $a$ and $u$ represent attribution and uptake, $f$ the
+false-signal probability on an initially correct answer, $\rho$ the probability that an
+exercised correction succeeds, and $\eta$ the probability that an unwarranted intervention
+causes harm.
+
+The structural data-generating model is
 \begin{align*}
  P(\text{repair}\mid\text{initial error}) &= c a u \rho, \\
  P(\text{harm}\mid\text{initially correct}) &= f a u \eta, \\
  P(\text{final correctness}) &= p_0(1-P(\text{harm}))
  +(1-p_0)P(\text{repair}).
 \end{align*}
-This multiplication is one deliberately simple data-generating specification, not a
-profile score or an assumption that the features are mutually independent. It represents a
-serial path whose stages all have to succeed on a correction opportunity.
+This product assigns a probability to success along one deliberately simple serial path.
+Every stage has to succeed on a correction opportunity, so strength at one stage can't
+compensate for a missing stage. The specification neither ranks arrangements globally nor
+assumes that the feature measures are statistically independent.
+
 The fixed conditional-coverage comparator omits $a$ and $u$, using $c\rho$ and $f\eta$;
 the input-coverage comparator uses target access alone for repair. Each model estimates one
 repair and one harm multiplier from training cells. To isolate the route comparison, every
 model receives the same true $p_0$. This removes baseline-estimation error and makes the
 exercise easier than an empirical application, which would have to estimate $p_0$ with
 uncertainty.
+
+These specifications are test vehicles. A stronger comparator specified before the outcomes
+are observed should replace them. If it predicts or guides intervention as well with fewer
+commitments, the decomposition loses its projective claim. Adding $a$ and $u$ to the coverage
+model would reproduce World A, but would make it an alternative parameterization of the same
+serial architecture rather than an independent explanation.
 
 The simulation draws 30 heterogeneous arrangements, record and measurement tasks, and five
 equal-cost choices: no intervention, retrieval, measurement, independent checking, and
@@ -114,24 +124,33 @@ favour the decomposition; positive optimal-choice differences do.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{analysis/results/gelman_fake_data_paired_differences.pdf}
-\caption{Paired fake-data comparisons. Points show individual replications; thin and thick
-lines span the central 90 and 50 percent, and circles mark medians. Differences are
-decomposition minus conditional coverage. The worlds aren't pooled evidence for one expected
-success rate: A is a recovery check, while B--D specify conditions under which the
-decomposition can lose.}
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] (simulationplot) at (0,0)
+  {\includegraphics[width=\linewidth]{analysis/results/gelman_fake_data_paired_differences.pdf}};
+\begin{scope}[x={(simulationplot.south east)},y={(simulationplot.north west)}]
+  \node[anchor=north,font=\small\scshape] at (0.34,0.99) {Repair prediction};
+  \node[anchor=north,font=\small\scshape] at (0.77,0.99) {Intervention choice};
+\end{scope}
+\end{tikzpicture}
+\caption{Paired differences between the decomposition and conditional coverage across 200
+constructed replications. Points show replications; thin and thick lines span the central 90
+and 50 percent, and circles mark medians. Blue favours the decomposition and coral favours
+conditional coverage, redundantly marked by position relative to zero. Each world is a
+separate stress condition: A is a positive control, while B--D specify conditions under
+which the decomposition can lose.}
 \label{fig:fake-data}
 \end{figure}
 
-The first world is a recovery check, not evidence of explanatory surplus. Its data-generating
-process includes attribution and uptake, while the conditional-coverage comparator
-deliberately omits them. The large difference in optimal-choice rate confirms that the
-workflow can recover that stipulated bottleneck. Worlds B--D carry the more demanding
-burden: the simpler comparator wins when conditional signal is sufficient or the feature
-measures are noisy, and better repair prediction needn't improve intervention choice.
-World C gives the sharpest practical failure: although route structure generates the data,
-noisy feature measures make the decomposition choose the optimal intervention 47.23
-percentage points less often.
+Figure~\ref{fig:fake-data} reports the audit. World A is a positive control: attribution and
+uptake were built into the generating process and omitted from the comparator. Worlds B--D
+carry the substantive burden.
+Conditional coverage is sufficient in B. In C, route structure generates the data, but
+noisy feature measurements make the decomposition choose the optimal intervention 47.23
+percentage points less often. In D, it predicts repair better without improving
+intervention choice. The decomposition earns its extra complexity only when its
+distinctive features are causally important, measurable, and useful for prediction or
+decisions.
+
 Differences in final-accuracy loss are much smaller because initially correct answers
 dominate that aggregate, which is why the article treats repair conditional on error and
 harmful intervention as the more diagnostic quantities. The repair and regret comparisons

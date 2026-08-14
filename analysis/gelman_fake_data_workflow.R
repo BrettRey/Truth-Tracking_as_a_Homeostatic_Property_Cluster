@@ -2,16 +2,24 @@
 
 # Fake-data checks for the profile decomposition.
 #
+# This script audits the decomposition as an empirical model. The causal structure
+# of the fake data is stipulated, so the results cannot establish that the
+# decomposition is true. They show whether the comparison recovers a known
+# architectural advantage and whether it exposes worlds in which simpler fixed
+# coverage models predict or guide intervention better.
+#
 # The script compares three fixed predictive models:
 #   input coverage:       target access alone;
 #   conditional coverage: target access, detectability, and checker independence;
 #   decomposition:        conditional coverage plus attribution and uptake.
 #
-# It deliberately generates four worlds. In A uptake is a genuine bottleneck;
-# in B conditional coverage is sufficient and the extra feature scores are
-# non-causal; in C the decomposition is true but its distinctive features are
-# measured too noisily to guide prediction reliably; and in D the decomposition
-# improves prediction without improving intervention choice.
+# It deliberately generates four worlds. A is a positive control: uptake is
+# built into the data-generating process and omitted from the comparator. In B,
+# conditional coverage is sufficient and the extra feature scores are non-causal.
+# In C, the decomposition generates the data but its distinctive features are
+# measured too noisily to guide prediction reliably. In D, the decomposition
+# improves repair prediction without improving intervention choice. B--D show
+# ways for the decomposition's proposed empirical role to fail.
 
 inv_logit <- function(x) 1 / (1 + exp(-x))
 clip <- function(x, lo = 0.01, hi = 0.99) pmin(hi, pmax(lo, x))
@@ -303,104 +311,143 @@ paired_differences <- function(raw) {
   joined
 }
 
-plot_paired_differences <- function(raw, path) {
-  paired <- paired_differences(raw)
+draw_paired_differences <- function(paired) {
   scenarios <- c("A", "B", "C", "D")
   labels <- c(
-    "A  Recovery check",
+    "A  Positive control",
     "B  Signal sufficient",
     "C  Noisy features",
     "D  No decision surplus"
   )
   y <- rev(seq_along(scenarios))
-  point_colour <- grDevices::adjustcolor("black", alpha.f = 0.14)
-
-  grDevices::pdf(path, width = 7.25, height = 4.65, useDingbats = FALSE)
+  colours <- list(
+    decomposition = "#2E5077",
+    conditional = "#C74F41",
+    dark = "#2D2D2D",
+    light = "#E8E8E8"
+  )
   old_par <- graphics::par(
     mfrow = c(1, 2),
     mar = c(3.5, 1.2, 2.5, 0.8),
-    oma = c(0.2, 0.2, 1.5, 0.2),
+    oma = c(0.2, 0.2, 0.2, 0.2),
     mgp = c(2.0, 0.55, 0),
     tcl = -0.25,
     las = 1,
-    family = "serif"
+    family = "EB Garamond",
+    fg = colours$dark,
+    col.axis = colours$dark,
+    col.lab = colours$dark
   )
-  on.exit({
-    graphics::par(old_par)
-    grDevices::dev.off()
-  }, add = TRUE)
+  on.exit(graphics::par(old_par), add = TRUE)
 
   panels <- list(
     list(
       variable = "repair_loss_delta",
-      xlim = c(-0.014, 0.073),
-      xlab = expression(Delta~"repair log loss"),
-      title = "Repair prediction",
+      xlab = "Difference in repair log loss",
       better_left = "decomposition better",
-      better_right = "conditional coverage better"
+      better_right = "coverage better",
+      left_colour = colours$decomposition,
+      right_colour = colours$conditional,
+      decomposition_better = function(value) value < 0
     ),
     list(
       variable = "optimal_choice_delta_pp",
-      xlim = c(-65, 90),
-      xlab = expression(Delta~"optimal choice (percentage points)"),
-      title = "Intervention choice",
-      better_left = "conditional coverage better",
-      better_right = "decomposition better"
+      xlab = "Difference in optimal choice (percentage points)",
+      better_left = "coverage better",
+      better_right = "decomposition better",
+      left_colour = colours$conditional,
+      right_colour = colours$decomposition,
+      decomposition_better = function(value) value > 0
     )
   )
 
   for (panel_index in seq_along(panels)) {
     panel <- panels[[panel_index]]
     graphics::par(mar = if (panel_index == 1L) {
-      c(3.5, 6.0, 2.5, 0.8)
+      c(3.5, 6.8, 2.5, 0.8)
     } else {
       c(3.5, 1.2, 2.5, 0.8)
     })
+    all_values <- paired[[panel$variable]]
+    data_range <- range(all_values)
+    padding <- 0.035 * diff(data_range)
+    x_limits <- data_range + c(-padding, padding)
     graphics::plot(
       NA,
-      xlim = panel$xlim,
+      xlim = x_limits,
       ylim = c(0.45, 4.55),
       xlab = panel$xlab,
       ylab = "",
+      xaxt = "n",
       yaxt = "n",
       bty = "n",
-      main = panel$title,
-      cex.main = 1.0,
-      cex.lab = 0.88,
-      cex.axis = 0.78
+      xaxs = "i",
+      cex.lab = 1.0,
+      cex.axis = 0.9
     )
-    graphics::abline(v = 0, lty = 3, col = "grey45")
+    axis_ticks <- pretty(data_range, n = 4)
+    axis_ticks <- axis_ticks[axis_ticks >= x_limits[[1]] &
+                               axis_ticks <= x_limits[[2]]]
+    graphics::axis(1, at = axis_ticks, cex.axis = 0.9)
+    graphics::abline(v = 0, lty = 3, col = colours$dark, lwd = 0.7)
     graphics::mtext(panel$better_left, side = 3, adj = 0, line = 0.25,
-                    cex = 0.66, col = "grey25")
+                    cex = 0.8, col = panel$left_colour)
     graphics::mtext(panel$better_right, side = 3, adj = 1, line = 0.25,
-                    cex = 0.66, col = "grey25")
+                    cex = 0.8, col = panel$right_colour)
 
     for (i in seq_along(scenarios)) {
       values <- paired[paired$scenario == scenarios[[i]], panel$variable]
+      intervals <- stats::quantile(values, c(0.05, 0.25, 0.5, 0.75, 0.95))
+      series_colour <- if (panel$decomposition_better(intervals[[3]])) {
+        colours$decomposition
+      } else {
+        colours$conditional
+      }
       set.seed(8100L + 100L * panel_index + i)
       jittered_y <- y[[i]] + stats::runif(length(values), -0.16, 0.16)
       graphics::points(values, jittered_y, pch = 16, cex = 0.38,
-                       col = point_colour)
-      intervals <- stats::quantile(values, c(0.05, 0.25, 0.5, 0.75, 0.95))
+                       col = grDevices::adjustcolor(series_colour, alpha.f = 0.18))
       graphics::segments(intervals[[1]], y[[i]], intervals[[5]], y[[i]],
-                         lwd = 1.1, col = "grey35")
+                         lwd = 1.1, col = series_colour)
       graphics::segments(intervals[[2]], y[[i]], intervals[[4]], y[[i]],
-                         lwd = 4.0, col = "grey20")
+                         lwd = 4.0, col = series_colour)
       graphics::points(intervals[[3]], y[[i]], pch = 21, cex = 0.72,
-                       bg = "white", col = "black", lwd = 1.0)
+                       bg = "white", col = series_colour, lwd = 1.0)
     }
 
     if (panel_index == 1L) {
       graphics::axis(2, at = y, labels = labels, tick = FALSE,
-                     cex.axis = 0.72, las = 1)
+                     cex.axis = 0.9, las = 1)
     }
   }
+}
 
-  graphics::mtext(
-    paste0("Paired differences across ",
-           length(unique(paired$replication)), " constructed replications"),
-    side = 3, outer = TRUE, line = 0.2, cex = 0.9
+plot_paired_differences <- function(raw, path) {
+  paired <- paired_differences(raw)
+  grDevices::cairo_pdf(
+    path,
+    width = 6.25,
+    height = 3.85,
+    family = "EB Garamond",
+    pointsize = 10,
+    onefile = TRUE
   )
+  draw_paired_differences(paired)
+  grDevices::dev.off()
+
+  png_path <- sub("\\.pdf$", ".png", path)
+  grDevices::png(
+    png_path,
+    width = 6.25,
+    height = 3.85,
+    units = "in",
+    res = 300,
+    type = "cairo",
+    family = "EB Garamond",
+    pointsize = 10
+  )
+  draw_paired_differences(paired)
+  grDevices::dev.off()
 }
 
 calibration_table <- function(d, probability, bins = 10L) {

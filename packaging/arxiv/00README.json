@@ -1,0 +1,21 @@
+{
+  "spec_version": 1,
+  "texlive_version": 2025,
+  "process": {
+    "compiler": "xelatex"
+  },
+  "sources": [
+    {
+      "filename": "main.tex",
+      "usage": "toplevel"
+    },
+    {
+      "filename": "truth-tracking-profiles.tex",
+      "usage": "include"
+    },
+    {
+      "filename": "preamble-arxiv.tex",
+      "usage": "include"
+    }
+  ]
+}

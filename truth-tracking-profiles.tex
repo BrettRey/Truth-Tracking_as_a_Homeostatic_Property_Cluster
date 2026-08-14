@@ -1,7 +1,11 @@
 \documentclass[12pt]{article}
 
-% House style preamble
-\input{.house-style/preamble.tex}
+% The arXiv wrapper defines \TTPARXIV and supplies a flat, portable preamble.
+\ifdefined\TTPARXIV
+  \input{preamble-arxiv.tex}
+\else
+  \input{.house-style/preamble.tex}
+\fi
 \usepackage{float}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
@@ -17,7 +21,7 @@
 % Update PDF metadata
 \hypersetup{
   pdftitle={Grounding Without Corrective Control: Truth-Tracking Profiles for Large Language Models},
-  pdfkeywords={large language models; grounding; answerability; corrective control; projectibility; truth-tracking}
+  pdfkeywords={large language models, grounding, answerability, corrective control, projectibility, truth-tracking}
 }
 
 % Build an anonymous review copy by defining \TTPANONYMOUS on the command line.
@@ -62,7 +66,7 @@
 \author{Brett Reynolds \orcidlink{0000-0003-0073-7195}%
 \thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
 Humber Polytechnic \& University of Toronto}
-\date{\today}
+\date{14th August 2026}
 \fi
 
 \begin{document}
@@ -86,16 +90,17 @@ prior correction. Where target-sensitive correction survives training, these can
 relation supplied by a current route for fresh discrepancies. Fluent failures should
 follow when a task requires independently informative access to the facts. Self-consistency,
 retrieval, tools, code execution, multimodal input, and feedback should help selectively.
-Route-by-task interactions test the distinctions. A decomposition fixed in advance earns
-its keep by predicting
-held-out route--task combinations or improving intervention choice without conceptual
-refitting. Surface improvement and truth-tracking improvement can come apart.
+Route-by-task interactions test the distinctions. The decomposition's empirical burden is
+to predict held-out route--task combinations or improve intervention choice without
+conceptual refitting. Surface improvement and truth-tracking improvement can come apart.
 \end{abstract}
 
 \noindent\textbf{Keywords:} large language models; grounding; answerability; corrective
 control; projectibility; truth-tracking
 
-\ifttpanonymous\else
+\ifttpanonymous
+  \aidisclosure{Claude and Codex}
+\else
   \aidisclosure{Anthropic Claude Opus 4.8, Fable 5, and Opus 5; and OpenAI Codex using
   GPT-5.5}
 \fi
@@ -579,12 +584,12 @@ alongside the rate of unnecessary or harmful intervention.
 
 The target, perturbation, and criterion for improvement are declared first rather than
 inferred from favourable outcomes; conditional repair and false-intervention rates then
-test whether the arrangement realises the capacity.
+test whether the arrangement realizes the capacity.
 
 Effective uptake is a capacity, not an exercise rate. A near-flawless arrangement in a
 benign environment may rarely need to exercise it; a poor generator may trigger a mediocre
 checker often. Nor does every alteration count as repair, since a change can move the
-output further from the target. Effective uptake therefore asks whether a detected,
+output further from the target. Effective uptake asks whether a detected,
 attributable discrepancy can produce a timely, target-improving change. Detection,
 exercise, and uptake after detection can be reported as component rates. Audited
 end-to-end correction and false-intervention rates provide evidence about capacity and
@@ -677,6 +682,12 @@ Three things come apart here. Causal ancestry requires only that material includ
 in training shaped present production. \term{Derivative answerability} requires the
 inherited effects of target-sensitive correction. \term{Live answerability} requires a
 current route from a fresh discrepancy to production (Figure~\ref{fig:routes}).
+
+\textcite{lederman_mahowald_2024_bibliotechnism} provide a nearby account of inherited
+meaning. Their bibliotechnism allows novel generated text to be derivatively meaningful
+when its production remains causally sensitive to the intelligibility of human-produced
+training text. Derivative answerability requires more: the inherited constraint has to
+preserve the effects of target-sensitive correction, not intelligibility alone.
 
 Derivative answerability by itself never supplies live answerability. Once the training history is
 fixed, a discrepancy arising after it has no way to reach production. Training against
@@ -810,7 +821,7 @@ systematically encoded in the sequence.
 Othello marks the strongest case for inherited structure: sequence training can recover a
 latent target state when the record encodes it completely. Its broader reach is limited.
 The game is finite, fully observable, and rule-governed; its legal moves are a deterministic
-function of a state recoverable from the move sequence. The case therefore identifies the
+function of a state recoverable from the move sequence. The case identifies the
 boundary of the claim rather than supplying evidence about domains whose relevant state is
 absent from the record.
 
@@ -936,14 +947,15 @@ reference. Their shared limit is architectural. In each case, linguistic
 traffic is the principal route, so a discrepancy that never enters that traffic can't
 alter present production. What isn't on the wire can't correct what is.
 
-\subsection{Corrective control in deployment}\label{ssec:deployment}
+\subsection{A deployed checking route}\label{ssec:deployment}
 
-A deployment case isolates what adding a checker changes. \textcite{anthropic2026automode}
-describes a coding agent that routes each proposed action through a classifier that blocks
-operations it judges irreversible, destructive, or aimed outside the working environment.
-The case concerns safety control rather than factual truth directly, but it still
-instantiates the live correction path in Figure~\ref{fig:routes}: a separate
-discrepancy signal becomes behaviourally effective.
+A deployment case illustrates detectability and effective uptake without providing
+evidence of truth-directed correction. \textcite{anthropic2026automode} describes a coding
+agent that routes each proposed action through a classifier that blocks operations it judges
+irreversible, destructive, or aimed outside the working environment. The target is action
+safety rather than factual accuracy. Nevertheless, the architecture instantiates the live
+correction path in Figure~\ref{fig:routes}: a separate discrepancy signal becomes
+behaviourally effective.
 
 When its policy judgment is correct, the separate classifier can supply detection and
 effective gating where the acting language model registers nothing itself. Adding it can
@@ -1009,7 +1021,7 @@ it became usable.
 
 Input coverage is the clearest competing account. Conditional coverage remains an empirical
 comparator when fixed in advance, but it already incorporates checking-route independence and
-joint error structure. An unrestricted effective-coverage measure therefore recapitulates
+joint error structure. An unrestricted effective-coverage measure recapitulates
 nearly the whole route profile; without fixed
 application conditions, it can fit any result post hoc by counting each helpful route as an
 increase in coverage. It then summarizes the arrangement's usable information rather than
@@ -1039,11 +1051,28 @@ routes after seeing the outcomes. No weighted profile score is required. The pro
 claim loses if either fixed coverage comparator predicts those cases equally well without
 conceptual refitting.
 
-Online Resource~1 stress-tests that burden with fake data. Its constructed worlds include
-one in which an uptake bottleneck favours the decomposition and others in which conditional
-coverage suffices, feature measurements are too noisy, and route structure improves repair
-prediction without improving intervention choice. The latter cases show that latent route
-structure needn't yield usable prediction or better intervention choice.
+The architectural counterexample in Figure~\ref{fig:routes} establishes the conceptual
+point: grounding can remain fixed while a fresh discrepancy has no path to current
+production. The decomposition makes a further empirical claim: its distinctions should
+support prediction and intervention. Simulated data cannot establish that claim because
+their generating process is stipulated. Online Resource~1 instead audits the proposed model
+comparison before it is applied to real systems. Can the analysis recover a known
+architectural advantage, recognize conditions under which a simpler model is sufficient,
+and distinguish predictive improvement from better intervention choice?
+
+World A is a positive control. Uptake is built into its generating process and omitted from
+the comparator, so the result shows only that the analysis can recover that designed
+difference. Worlds B--D test three ways the empirical claim can fail. Conditional coverage
+is sufficient in B. In C, noisy measurements make the decomposition practically useless
+even though route structure generates the outcomes. In D, it predicts repair better without
+improving intervention choice.
+
+A stronger model specified before the outcomes are observed should replace the present
+comparator. If it performs as well with fewer commitments, the decomposition loses its
+projective claim. A coverage model that includes attribution and uptake can reproduce World
+A, but then it is an alternative parameterization of the same architecture rather than the
+simpler rival. The exercise thus defines conditions under which the decomposition earns or
+loses an empirical role.
 
 For the practical claim, the decomposition has to improve diagnosis or the choice among
 retrieval, measurement, independent checking, and enforced uptake
@@ -1103,7 +1132,7 @@ medical questions reliably} invites transfer from record-backed questions to tas
 require live measurement, patient-specific observation, calculation, or intervention. A
 careful reliabilist can instead individuate the process as retrieval-backed answering under
 a specified profile of records, tools, and checks. That yields the same verdict.
-Both views therefore need an ex ante process description. The decomposition's distinctive
+Both views need an ex ante process description. The decomposition's distinctive
 claim is that route identities and relations provide a principled way to fix it before
 transfer is observed.
 
